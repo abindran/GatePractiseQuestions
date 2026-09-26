@@ -24,7 +24,6 @@
       --good-soft: #d8efe6;
       --shadow: 0 10px 30px rgba(15, 26, 20, 0.06);
     }
-
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -36,7 +35,6 @@
         radial-gradient(900px 400px at 100% 0%, #efe6d8 0%, transparent 50%),
         linear-gradient(180deg, #eef3ec 0%, var(--paper) 40%, #e8eee6 100%);
     }
-
     header {
       max-width: 980px;
       margin: 0 auto;
@@ -57,12 +55,7 @@
       letter-spacing: -0.02em;
       margin: 0 0 0.4rem;
     }
-    header p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 42rem;
-      line-height: 1.5;
-    }
+    header p { margin: 0; color: var(--muted); max-width: 42rem; line-height: 1.5; }
     .auth-box {
       display: flex;
       flex-wrap: wrap;
@@ -79,13 +72,6 @@
       color: var(--muted);
       line-height: 1.35;
     }
-    .auth-box img.avatar {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--line);
-    }
     .sync-dot {
       display: inline-block;
       width: 0.5rem;
@@ -98,15 +84,15 @@
     .sync-dot.on { background: var(--accent); }
     .sync-dot.warn { background: var(--warn); }
 
-    .toolbar {
+    main {
       max-width: 980px;
-      margin: 0 auto 1rem;
-      padding: 0 1.25rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      align-items: center;
+      margin: 0 auto;
+      padding: 0 1.25rem 3rem;
+      display: grid;
+      gap: 1rem;
     }
+    .hidden { display: none !important; }
+
     select, button, input[type="text"] {
       font: inherit;
       border: 1px solid var(--line);
@@ -115,7 +101,7 @@
       border-radius: 10px;
       padding: 0.55rem 0.8rem;
     }
-    select { min-width: 10rem; }
+    select { min-width: 9rem; }
     button {
       cursor: pointer;
       background: var(--accent);
@@ -129,19 +115,99 @@
       border-color: var(--line);
     }
     button:disabled { opacity: 0.55; cursor: not-allowed; }
-    .stats {
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      align-items: center;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .breadcrumb button.linkish {
+      background: none;
+      border: none;
+      color: var(--accent);
+      padding: 0;
+      font: inherit;
+      font-weight: 560;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .page-title {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700;
+      margin: 0.35rem 0 0.25rem;
+    }
+    .page-sub {
+      margin: 0 0 0.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .progress-track {
+      height: 8px;
+      border-radius: 999px;
+      background: #e4ebe4;
+      overflow: hidden;
+      margin: 0.55rem 0 0.25rem;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #1a8f68, #0d6e4f);
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+    .progress-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 0.85rem;
+    }
+    .subject-card {
+      text-align: left;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 1.1rem 1.15rem 1.15rem;
+      cursor: pointer;
+      color: inherit;
+      display: grid;
+      gap: 0.35rem;
+    }
+    .subject-card:hover { border-color: #a9c4b8; }
+    .subject-card h2 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.25rem;
+      margin: 0;
+      font-weight: 700;
+    }
+    .subject-card .meta {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .toolbar .stats {
       margin-left: auto;
       font-family: "IBM Plex Mono", monospace;
       font-size: 0.85rem;
       color: var(--muted);
-    }
-
-    main {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 1.25rem 3rem;
-      display: grid;
-      gap: 1rem;
     }
 
     .card {
@@ -171,6 +237,11 @@
       color: var(--muted);
       border-color: var(--line);
     }
+    .chip.ok {
+      background: var(--good-soft);
+      color: var(--good);
+      border-color: #b7dccf;
+    }
     .q-text {
       font-family: "Source Serif 4", Georgia, serif;
       font-size: 1.18rem;
@@ -178,11 +249,7 @@
       white-space: pre-wrap;
       margin: 0 0 1rem;
     }
-    .options {
-      display: grid;
-      gap: 0.5rem;
-      margin-bottom: 0.9rem;
-    }
+    .options { display: grid; gap: 0.5rem; margin-bottom: 0.9rem; }
     .option {
       display: flex;
       gap: 0.65rem;
@@ -198,15 +265,8 @@
     .option.correct { border-color: var(--good); background: var(--good-soft); }
     .option.wrong { border-color: var(--bad); background: var(--bad-soft); }
     .option input { margin-top: 0.2rem; }
-    .answer-box {
-      width: 100%;
-      margin-bottom: 0.9rem;
-    }
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    .answer-box { width: 100%; margin-bottom: 0.9rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .feedback {
       margin-top: 0.9rem;
       padding: 0.8rem 0.9rem;
@@ -224,97 +284,81 @@
       letter-spacing: 0.04em;
       margin-bottom: 0.25rem;
     }
-    .list {
-      display: grid;
-      gap: 0.55rem;
+
+    .topic-block {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
-    .subject-group {
+    .topic-head {
+      width: 100%;
       display: grid;
-      gap: 0.55rem;
-      margin-top: 0.35rem;
-    }
-    .subject-heading {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
+      grid-template-columns: 1fr auto;
       gap: 0.75rem;
-      margin: 0.85rem 0 0.15rem;
-      padding: 0.35rem 0.15rem;
+      align-items: center;
+      text-align: left;
+      background: #f7faf7;
+      border: none;
       border-bottom: 1px solid var(--line);
+      border-radius: 0;
+      padding: 0.9rem 1rem;
+      color: inherit;
+      cursor: pointer;
+    }
+    .topic-head h3 {
+      margin: 0;
       font-family: "Source Serif 4", Georgia, serif;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: 700;
     }
-    .subject-heading:first-child { margin-top: 0; }
-    .subject-heading .count {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--muted);
+    .topic-head .right {
+      text-align: right;
+      min-width: 7.5rem;
     }
+    .topic-body {
+      display: grid;
+      gap: 0.45rem;
+      padding: 0.7rem;
+    }
+    .topic-body.collapsed { display: none; }
+
     .list-item {
       display: grid;
       grid-template-columns: auto 1fr auto;
       gap: 0.75rem;
       align-items: start;
       text-align: left;
-      background: var(--panel);
+      background: #fbfcfb;
       color: inherit;
       border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 0.75rem 0.9rem;
+      padding: 0.7rem 0.85rem;
       cursor: pointer;
     }
     .list-item:hover { border-color: #a9c4b8; }
     .list-item.active { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+    .list-item.solved { border-color: #b7dccf; background: #f4faf7; }
     .list-item .idx {
       font-family: "IBM Plex Mono", monospace;
       color: var(--muted);
       font-size: 0.85rem;
       padding-top: 0.15rem;
     }
-    .list-item .title {
-      font-weight: 560;
-      line-height: 1.35;
-    }
-    .list-item .sub {
-      color: var(--muted);
-      font-size: 0.85rem;
-      margin-top: 0.2rem;
-    }
-    .list-item .diff {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.72rem;
-      color: var(--warn);
-      background: var(--warn-soft);
-      border-radius: 999px;
-      padding: 0.2rem 0.5rem;
-      white-space: nowrap;
-    }
-    .list-item.solved {
-      border-color: #b7dccf;
-      background: #f4faf7;
-    }
-    .list-item .status {
+    .list-item .title { font-weight: 560; line-height: 1.35; }
+    .list-item .sub { color: var(--muted); font-size: 0.85rem; margin-top: 0.2rem; }
+    .list-item .status, .list-item .diff {
       font-family: "IBM Plex Mono", monospace;
       font-size: 0.72rem;
       border-radius: 999px;
       padding: 0.2rem 0.5rem;
       white-space: nowrap;
     }
-    .list-item .status.ok {
-      color: var(--good);
-      background: var(--good-soft);
-    }
-    .list-item .status.tried {
-      color: var(--warn);
-      background: var(--warn-soft);
-    }
-    .chip.ok {
-      background: var(--good-soft);
-      color: var(--good);
-      border-color: #b7dccf;
-    }
+    .list-item .diff { color: var(--warn); background: var(--warn-soft); }
+    .list-item .status.ok { color: var(--good); background: var(--good-soft); }
+    .list-item .status.tried { color: var(--warn); background: var(--warn-soft); }
+
     footer {
       max-width: 980px;
       margin: 0 auto;
@@ -323,10 +367,9 @@
       font-size: 0.85rem;
     }
     @media (max-width: 640px) {
-      .stats { margin-left: 0; width: 100%; }
+      .toolbar .stats { margin-left: 0; width: 100%; }
       .list-item { grid-template-columns: auto 1fr; }
-      .list-item .diff,
-      .list-item .status { grid-column: 2; justify-self: start; }
+      .list-item .diff, .list-item .status { grid-column: 2; justify-self: start; }
     }
   </style>
 </head>
@@ -348,43 +391,62 @@
     </div>
   </header>
 
-  <div class="toolbar">
-    <select id="subjectFilter" aria-label="Filter by subject">
-      <option value="all">All subjects</option>
-    </select>
-    <select id="topicFilter" aria-label="Filter by topic">
-      <option value="all">All topics</option>
-    </select>
-    <select id="typeFilter" aria-label="Filter by type">
-      <option value="all">All types</option>
-      <option value="mcq">MCQ</option>
-      <option value="numerical">Numerical</option>
-      <option value="short">Short answer</option>
-    </select>
-    <select id="progressFilter" aria-label="Filter by progress">
-      <option value="all">All progress</option>
-      <option value="unsolved">Unsolved only</option>
-      <option value="solved">Solved only</option>
-      <option value="tried">Tried (not solved)</option>
-    </select>
-    <button class="secondary" id="shuffleBtn" type="button">Shuffle</button>
-    <button class="secondary" id="nextUnsolvedBtn" type="button">Next unsolved</button>
-    <button class="secondary" id="resetBtn" type="button">Reset progress</button>
-    <div class="stats" id="stats">0 solved</div>
-  </div>
-
   <main>
-    <section class="card" id="practiceCard" aria-live="polite"></section>
-    <section>
-      <div class="list" id="questionList"></div>
+    <!-- HOME: subjects -->
+    <section id="homeView">
+      <p class="page-sub" id="homeOverall"></p>
+      <div class="subject-grid" id="subjectGrid"></div>
+    </section>
+
+    <!-- SUBJECT: topics + questions + practice -->
+    <section id="subjectView" class="hidden">
+      <div class="breadcrumb">
+        <button type="button" class="linkish" id="backHomeBtn">Subjects</button>
+        <span>/</span>
+        <span id="crumbSubject"></span>
+      </div>
+      <h2 class="page-title" id="subjectTitle"></h2>
+      <p class="page-sub" id="subjectSub"></p>
+      <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="subjectProgressFill" style="width:0%"></div></div>
+      <div class="progress-label" id="subjectProgressLabel"></div>
+
+      <div class="toolbar" style="margin-top:0.85rem">
+        <select id="topicJump" aria-label="Jump to topic">
+          <option value="all">All topics</option>
+        </select>
+        <select id="typeFilter" aria-label="Filter by type">
+          <option value="all">All types</option>
+          <option value="mcq">MCQ</option>
+          <option value="numerical">Numerical</option>
+          <option value="short">Short answer</option>
+        </select>
+        <select id="progressFilter" aria-label="Filter by progress">
+          <option value="all">All progress</option>
+          <option value="unsolved">Unsolved only</option>
+          <option value="solved">Solved only</option>
+          <option value="tried">Tried</option>
+        </select>
+        <button class="secondary" id="nextUnsolvedBtn" type="button">Next unsolved</button>
+        <select id="resetScope" aria-label="Reset scope">
+          <option value="topic">Reset topic</option>
+          <option value="subject">Reset subject</option>
+          <option value="all">Reset all</option>
+        </select>
+        <button class="secondary" id="resetBtn" type="button">Reset</button>
+        <div class="stats" id="stats"></div>
+      </div>
+
+      <section class="card" id="practiceCard" aria-live="polite"></section>
+      <div id="topicList" style="display:grid;gap:0.85rem"></div>
     </section>
   </main>
 
   <footer>
-    Source in <code>data/questions.json</code>. Sign in with Google (Firebase free tier) to sync progress across devices.
+    Choose a subject, then practice by topic. Sign in with Google to sync progress across devices.
   </footer>
 
   <script type="module">
+    import confetti from "https://esm.sh/canvas-confetti@1.9.3";
     import {
       initCloud,
       isCloudConfigured,
@@ -401,6 +463,9 @@
     let allQuestions = [];
     let view = [];
     let currentId = null;
+    let activeSubject = null;
+    let activeTopicFilter = "all";
+    let collapsedTopics = new Set();
     /** @type {Record<string, { status: 'solved'|'tried', at: string }>} */
     let progress = loadProgress();
     let currentUser = null;
@@ -443,26 +508,92 @@
       scheduleCloudSave();
     }
 
+    function progressStatus(id) {
+      return progress[id]?.status || null;
+    }
+
     function markProgress(id, status) {
       const prev = progress[id];
-      // Never downgrade solved → tried
       if (prev?.status === "solved" && status === "tried") return;
       progress[id] = { status, at: new Date().toISOString() };
       saveProgress();
-      updateStats();
-      renderList();
+      renderAll();
     }
 
-    async function clearProgress() {
-      progress = {};
+    function questionsForSubject(subject) {
+      return allQuestions.filter((q) => q.subject === subject);
+    }
+
+    function countProgress(qs) {
+      let solved = 0, tried = 0;
+      qs.forEach((q) => {
+        const st = progressStatus(q.id);
+        if (st === "solved") solved += 1;
+        else if (st === "tried") tried += 1;
+      });
+      return { solved, tried, total: qs.length, pct: qs.length ? Math.round((solved / qs.length) * 100) : 0 };
+    }
+
+    function subjectsList() {
+      const map = new Map();
+      allQuestions.forEach((q) => {
+        if (!map.has(q.subject)) map.set(q.subject, []);
+        map.get(q.subject).push(q);
+      });
+      return [...map.entries()]
+        .map(([name, qs]) => ({ name, qs, ...countProgress(qs) }))
+        .sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    function topicsForSubject(subject) {
+      const qs = questionsForSubject(subject);
+      const map = new Map();
+      qs.forEach((q) => {
+        if (!map.has(q.topic)) map.set(q.topic, []);
+        map.get(q.topic).push(q);
+      });
+      return [...map.entries()]
+        .map(([name, items]) => ({ name, qs: items, ...countProgress(items) }))
+        .sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    async function clearProgress(scope = "all") {
+      const topic = activeTopicFilter;
+      const subject = activeSubject;
+
+      const ids = allQuestions
+        .filter((q) => {
+          if (scope === "all") return true;
+          if (scope === "subject") return subject ? q.subject === subject : true;
+          if (!subject) return false;
+          if (q.subject !== subject) return false;
+          if (topic === "all") return true;
+          return q.topic === topic;
+        })
+        .map((q) => q.id);
+
+      const idSet = new Set(ids);
+      const next = {};
+      for (const [id, entry] of Object.entries(progress)) {
+        if (!idSet.has(id)) next[id] = entry;
+      }
+      progress = next;
+
+      clearTimeout(cloudSaveTimer);
       saveProgressLocal();
+
       if (currentUser && cloudReady) {
+        setSyncUi("syncing", "Saving reset to cloud…");
         try {
-          await saveCloudProgress(currentUser.uid, {});
+          await saveCloudProgress(currentUser.uid, progress);
+          setSyncUi("synced");
         } catch (err) {
           console.error(err);
+          setSyncUi("error", err.message || "Cloud save failed");
+          throw err;
         }
       }
+      return ids.length;
     }
 
     function setSyncUi(mode, detail = "") {
@@ -489,9 +620,7 @@
       } else if (mode === "signed-in" || mode === "synced") {
         dot.className = "sync-dot on";
         const name = currentUser?.displayName || currentUser?.email || "Signed in";
-        label.textContent = mode === "synced"
-          ? `${name} · cloud synced`
-          : `${name} · cloud ready`;
+        label.textContent = mode === "synced" ? `${name} · cloud synced` : `${name} · cloud ready`;
         el("signInBtn").hidden = true;
         el("signOutBtn").hidden = false;
       }
@@ -501,26 +630,22 @@
       currentUser = user;
       if (!user) {
         setSyncUi("guest");
-        applyFilters();
+        renderAll();
         return;
       }
       setSyncUi("syncing", "Loading cloud progress…");
       try {
-        const cloud = await loadCloudProgress(user.uid);
-        progress = mergeProgress(progress, cloud);
+        const { progress: cloud, updatedAt } = await loadCloudProgress(user.uid);
+        progress = mergeProgress(progress, cloud, updatedAt);
         saveProgressLocal();
         await saveCloudProgress(user.uid, progress);
         setSyncUi("synced");
-        applyFilters();
+        renderAll();
       } catch (err) {
         console.error(err);
         setSyncUi("error", err.message || "Could not load cloud progress");
-        applyFilters();
+        renderAll();
       }
-    }
-
-    function progressStatus(id) {
-      return progress[id]?.status || null;
     }
 
     function normalizeAnswer(s) {
@@ -560,137 +685,17 @@
       return false;
     }
 
-    function updateStats() {
-      const solved = Object.values(progress).filter((p) => p.status === "solved").length;
-      const tried = Object.values(progress).filter((p) => p.status === "tried").length;
-      const total = allQuestions.length;
-      const shownSolved = view.filter((q) => progressStatus(q.id) === "solved").length;
-      el("stats").textContent =
-        `${solved}/${total} solved` +
-        (tried ? ` · ${tried} tried` : "") +
-        ` · ${shownSolved}/${view.length} in view`;
-    }
-
-    function populateFilters(meta) {
-      const subjectSel = el("subjectFilter");
-      const subjects = [...new Set(allQuestions.map((q) => q.subject))].sort();
-      subjects.forEach((s) => {
-        const opt = document.createElement("option");
-        opt.value = s;
-        opt.textContent = s;
-        subjectSel.appendChild(opt);
-      });
-      if (subjects.includes("Digital Logic")) {
-        subjectSel.value = "Digital Logic";
-      }
-      rebuildTopicFilter();
-      const syncHint = cloudReady
-        ? "Sign in to sync progress across devices."
-        : "Local progress on; configure Firebase to enable cloud sync.";
-      if (meta?.sources?.[0]) {
-        const s = meta.sources[0];
-        el("sourceBlurb").textContent =
-          `${s.subject} · ${allQuestions.length} questions. ${syncHint}`;
-      } else {
-        el("sourceBlurb").textContent =
-          `${allQuestions.length} questions loaded. ${syncHint}`;
-      }
-    }
-
-    function rebuildTopicFilter() {
-      const subject = el("subjectFilter").value;
-      const topicSel = el("topicFilter");
-      const prev = topicSel.value;
-      topicSel.innerHTML = `<option value="all">All topics</option>`;
-      const topics = [...new Set(
-        allQuestions
-          .filter((q) => subject === "all" || q.subject === subject)
-          .map((q) => q.topic)
-      )].sort();
-      topics.forEach((t) => {
-        const opt = document.createElement("option");
-        opt.value = t;
-        opt.textContent = t;
-        topicSel.appendChild(opt);
-      });
-      topicSel.value = topics.includes(prev) ? prev : "all";
-    }
-
-    function applyFilters() {
-      const subject = el("subjectFilter").value;
-      const topic = el("topicFilter").value;
-      const type = el("typeFilter").value;
-      const prog = el("progressFilter").value;
-      view = allQuestions.filter((q) => {
-        if (subject !== "all" && q.subject !== subject) return false;
-        if (topic !== "all" && q.topic !== topic) return false;
-        if (type !== "all" && q.type !== type) return false;
-        const st = progressStatus(q.id);
-        if (prog === "unsolved" && st === "solved") return false;
-        if (prog === "solved" && st !== "solved") return false;
-        if (prog === "tried" && st !== "tried") return false;
-        return true;
-      });
-      renderList();
-      if (!view.find((q) => q.id === currentId)) {
-        currentId = view[0]?.id ?? null;
-      }
-      renderPractice();
-      updateStats();
-    }
-
-    function renderList() {
-      const list = el("questionList");
-      list.innerHTML = "";
-
-      const groups = new Map();
-      view.forEach((q) => {
-        const key = q.subject || "Uncategorized";
-        if (!groups.has(key)) groups.set(key, []);
-        groups.get(key).push(q);
-      });
-
-      let globalIdx = 0;
-      for (const [subject, qs] of groups) {
-        const solvedInGroup = qs.filter((q) => progressStatus(q.id) === "solved").length;
-        const heading = document.createElement("div");
-        heading.className = "subject-heading";
-        heading.innerHTML = `<span>${escapeHtml(subject)}</span><span class="count">${solvedInGroup}/${qs.length} solved</span>`;
-        list.appendChild(heading);
-
-        const group = document.createElement("div");
-        group.className = "subject-group";
-        qs.forEach((q) => {
-          globalIdx += 1;
-          const st = progressStatus(q.id);
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "list-item" +
-            (q.id === currentId ? " active" : "") +
-            (st === "solved" ? " solved" : "");
-          const statusHtml = st === "solved"
-            ? `<span class="status ok">solved</span>`
-            : st === "tried"
-              ? `<span class="status tried">tried</span>`
-              : `<span class="diff">${escapeHtml(q.difficulty)}</span>`;
-          btn.innerHTML = `
-            <span class="idx">${String(globalIdx).padStart(2, "0")}</span>
-            <span>
-              <div class="title">${escapeHtml(truncate(q.question, 110))}</div>
-              <div class="sub">${escapeHtml(q.topic)} · ${q.type}</div>
-            </span>
-            ${statusHtml}
-          `;
-          btn.addEventListener("click", () => {
-            currentId = q.id;
-            renderList();
-            renderPractice();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          });
-          group.appendChild(btn);
-        });
-        list.appendChild(group);
-      }
+    function celebrateCorrect() {
+      const defaults = {
+        origin: { y: 0.65 },
+        zIndex: 9999,
+        disableForReducedMotion: true,
+      };
+      confetti({ ...defaults, particleCount: 80, spread: 55, scalar: 0.95 });
+      setTimeout(() => {
+        confetti({ ...defaults, particleCount: 45, angle: 60, spread: 70, origin: { x: 0, y: 0.7 } });
+        confetti({ ...defaults, particleCount: 45, angle: 120, spread: 70, origin: { x: 1, y: 0.7 } });
+      }, 120);
     }
 
     function truncate(s, n) {
@@ -706,14 +711,201 @@
         .replaceAll('"', "&quot;");
     }
 
-    function renderPractice() {
-      const card = el("practiceCard");
-      const q = view.find((x) => x.id === currentId);
-      if (!q) {
-        card.innerHTML = `<p style="margin:0;color:var(--muted)">No questions match these filters.</p>`;
+    function openSubject(name) {
+      activeSubject = name;
+      activeTopicFilter = "all";
+      collapsedTopics = new Set();
+      currentId = null;
+      location.hash = `#/subject/${encodeURIComponent(name)}`;
+      renderAll();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function goHome() {
+      activeSubject = null;
+      currentId = null;
+      location.hash = "#/";
+      renderAll();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function applySubjectFilters() {
+      if (!activeSubject) {
+        view = [];
+        return;
+      }
+      const type = el("typeFilter").value;
+      const prog = el("progressFilter").value;
+      view = questionsForSubject(activeSubject).filter((q) => {
+        if (activeTopicFilter !== "all" && q.topic !== activeTopicFilter) return false;
+        if (type !== "all" && q.type !== type) return false;
+        const st = progressStatus(q.id);
+        if (prog === "unsolved" && st === "solved") return false;
+        if (prog === "solved" && st !== "solved") return false;
+        if (prog === "tried" && st !== "tried") return false;
+        return true;
+      });
+      if (currentId && !view.find((q) => q.id === currentId)) {
+        currentId = null;
+      }
+    }
+
+    function updateResetScopeLabels() {
+      const sel = el("resetScope");
+      if (!sel || !activeSubject) return;
+      const topic = activeTopicFilter;
+      sel.options[0].textContent = topic === "all"
+        ? `Reset all topics in ${activeSubject}`
+        : `Reset topic: ${topic}`;
+      sel.options[1].textContent = `Reset subject: ${activeSubject}`;
+      sel.options[2].textContent = "Reset all progress";
+    }
+
+    function renderHome() {
+      const subjects = subjectsList();
+      const overall = countProgress(allQuestions);
+      el("homeOverall").textContent =
+        `${subjects.length} subject${subjects.length === 1 ? "" : "s"} · ${overall.solved}/${overall.total} solved overall` +
+        (overall.tried ? ` · ${overall.tried} tried` : "");
+
+      const grid = el("subjectGrid");
+      grid.innerHTML = "";
+      subjects.forEach((s) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "subject-card";
+        btn.innerHTML = `
+          <h2>${escapeHtml(s.name)}</h2>
+          <div class="meta">${s.total} questions · ${topicsForSubject(s.name).length} topics</div>
+          <div class="progress-track"><div class="progress-fill" style="width:${s.pct}%"></div></div>
+          <div class="meta">${s.solved}/${s.total} solved${s.tried ? ` · ${s.tried} tried` : ""} · ${s.pct}%</div>
+        `;
+        btn.addEventListener("click", () => openSubject(s.name));
+        grid.appendChild(btn);
+      });
+    }
+
+    function renderSubject() {
+      const qs = questionsForSubject(activeSubject);
+      const stats = countProgress(qs);
+      el("crumbSubject").textContent = activeSubject;
+      el("subjectTitle").textContent = activeSubject;
+      el("subjectSub").textContent = `${stats.total} questions across ${topicsForSubject(activeSubject).length} topics`;
+      el("subjectProgressFill").style.width = `${stats.pct}%`;
+      el("subjectProgressLabel").textContent =
+        `${stats.solved}/${stats.total} solved${stats.tried ? ` · ${stats.tried} tried` : ""} · ${stats.pct}%`;
+
+      const jump = el("topicJump");
+      const prev = activeTopicFilter;
+      jump.innerHTML = `<option value="all">All topics</option>`;
+      topicsForSubject(activeSubject).forEach((t) => {
+        const opt = document.createElement("option");
+        opt.value = t.name;
+        opt.textContent = `${t.name} (${t.solved}/${t.total})`;
+        jump.appendChild(opt);
+      });
+      jump.value = [...jump.options].some((o) => o.value === prev) ? prev : "all";
+      activeTopicFilter = jump.value;
+
+      applySubjectFilters();
+      updateResetScopeLabels();
+
+      el("stats").textContent = `${view.filter((q) => progressStatus(q.id) === "solved").length}/${view.length} in view`;
+
+      renderPractice();
+      renderTopicGroups();
+    }
+
+    function renderTopicGroups() {
+      const list = el("topicList");
+      list.innerHTML = "";
+
+      const byTopic = new Map();
+      view.forEach((q) => {
+        if (!byTopic.has(q.topic)) byTopic.set(q.topic, []);
+        byTopic.get(q.topic).push(q);
+      });
+
+      if (!byTopic.size) {
+        list.innerHTML = `<p class="page-sub">No questions match these filters.</p>`;
         return;
       }
 
+      let idx = 0;
+      [...byTopic.entries()]
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .forEach(([topic, qs]) => {
+          const tStats = countProgress(qs);
+          const block = document.createElement("div");
+          block.className = "topic-block";
+          block.dataset.topic = topic;
+
+          const collapsed = collapsedTopics.has(topic);
+          const head = document.createElement("button");
+          head.type = "button";
+          head.className = "topic-head";
+          head.innerHTML = `
+            <div>
+              <h3>${escapeHtml(topic)}</h3>
+              <div class="progress-label" style="margin-top:0.25rem">${qs.length} shown · ${tStats.solved} solved</div>
+            </div>
+            <div class="right">
+              <div class="progress-track" style="width:7rem;margin-left:auto"><div class="progress-fill" style="width:${tStats.pct}%"></div></div>
+              <div class="progress-label">${tStats.pct}% · ${collapsed ? "Show" : "Hide"}</div>
+            </div>
+          `;
+          head.addEventListener("click", () => {
+            if (collapsedTopics.has(topic)) collapsedTopics.delete(topic);
+            else collapsedTopics.add(topic);
+            renderTopicGroups();
+          });
+
+          const body = document.createElement("div");
+          body.className = "topic-body" + (collapsed ? " collapsed" : "");
+          qs.forEach((q) => {
+            idx += 1;
+            const st = progressStatus(q.id);
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "list-item" +
+              (q.id === currentId ? " active" : "") +
+              (st === "solved" ? " solved" : "");
+            const statusHtml = st === "solved"
+              ? `<span class="status ok">solved</span>`
+              : st === "tried"
+                ? `<span class="status tried">tried</span>`
+                : `<span class="diff">${escapeHtml(q.difficulty)}</span>`;
+            btn.innerHTML = `
+              <span class="idx">${String(idx).padStart(2, "0")}</span>
+              <span>
+                <div class="title">${escapeHtml(truncate(q.question, 110))}</div>
+                <div class="sub">${q.type}</div>
+              </span>
+              ${statusHtml}
+            `;
+            btn.addEventListener("click", () => {
+              currentId = q.id;
+              renderPractice();
+              renderTopicGroups();
+              el("practiceCard").scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+            body.appendChild(btn);
+          });
+
+          block.appendChild(head);
+          block.appendChild(body);
+          list.appendChild(block);
+        });
+    }
+
+    function renderPractice() {
+      const card = el("practiceCard");
+      if (!activeSubject) return;
+      const q = view.find((x) => x.id === currentId);
+      if (!q) {
+        card.innerHTML = `<p style="margin:0;color:var(--muted)">Select a question below to practice.</p>`;
+        return;
+      }
       const idx = view.findIndex((x) => x.id === q.id) + 1;
       const st = progressStatus(q.id);
       let body = `
@@ -726,9 +918,8 @@
         </div>
         <p class="q-text">${escapeHtml(q.question)}</p>
       `;
-
       if (q.type === "mcq" && Array.isArray(q.options)) {
-        body += `<div class="options" id="options">`;
+        body += `<div class="options">`;
         q.options.forEach((opt, i) => {
           body += `
             <label class="option">
@@ -740,7 +931,6 @@
       } else {
         body += `<input class="answer-box" id="freeAnswer" type="text" placeholder="Type your answer" autocomplete="off" />`;
       }
-
       body += `
         <div class="actions">
           <button type="button" id="checkBtn">Check</button>
@@ -759,12 +949,12 @@
           lab.querySelector("input").checked = true;
         });
       });
-
       el("checkBtn").addEventListener("click", () => checkAnswer(q));
       el("revealBtn").addEventListener("click", () => revealAnswer(q));
       el("markSolvedBtn").addEventListener("click", () => {
+        const wasSolved = progressStatus(q.id) === "solved";
         markProgress(q.id, "solved");
-        renderPractice();
+        if (!wasSolved) celebrateCorrect();
       });
       el("nextBtn").addEventListener("click", () => goNext(false));
       const free = el("freeAnswer");
@@ -777,13 +967,14 @@
 
     function goNext(unsolvedOnly) {
       if (!view.length) return;
-      const start = view.findIndex((x) => x.id === currentId);
+      const start = Math.max(0, view.findIndex((x) => x.id === currentId));
       for (let step = 1; step <= view.length; step++) {
         const q = view[(start + step) % view.length];
         if (!unsolvedOnly || progressStatus(q.id) !== "solved") {
           currentId = q.id;
-          renderList();
           renderPractice();
+          renderTopicGroups();
+          el("practiceCard").scrollIntoView({ behavior: "smooth", block: "start" });
           return;
         }
       }
@@ -807,24 +998,19 @@
       }
       const ok = answersMatch(user, q.answer);
       markProgress(q.id, ok ? "solved" : "tried");
+      if (ok) celebrateCorrect();
 
       const feedbackHtml = ok
         ? `<div class="label">Correct · saved as solved</div>${escapeHtml(q.explanation || q.answer)}`
         : `<div class="label">Not quite · marked tried</div>Expected: <strong>${escapeHtml(q.answer)}</strong><br/>${escapeHtml(q.explanation || "")}`;
       const feedbackClass = "feedback show " + (ok ? "ok" : "no");
-
       renderPractice();
       const fb2 = el("feedback");
       if (fb2) {
         fb2.className = feedbackClass;
         fb2.innerHTML = feedbackHtml;
       }
-      if (ok && q.type === "mcq") {
-        document.querySelectorAll(".option").forEach((lab) => {
-          const val = lab.querySelector("input").value;
-          if (answersMatch(val, q.answer)) lab.classList.add("correct");
-        });
-      } else if (!ok && q.type === "mcq") {
+      if (q.type === "mcq") {
         document.querySelectorAll(".option").forEach((lab) => {
           const val = lab.querySelector("input").value;
           if (answersMatch(val, q.answer)) lab.classList.add("correct");
@@ -835,8 +1021,12 @@
     function revealAnswer(q) {
       if (progressStatus(q.id) !== "solved") {
         markProgress(q.id, "tried");
+      } else {
+        renderPractice();
+        renderTopicGroups();
       }
       const fb = el("feedback");
+      if (!fb) return;
       fb.className = "feedback show ok";
       fb.innerHTML = `<div class="label">Answer</div><strong>${escapeHtml(q.answer)}</strong><br/>${escapeHtml(q.explanation || "")}`;
       if (q.type === "mcq") {
@@ -847,30 +1037,60 @@
       }
     }
 
-    el("subjectFilter").addEventListener("change", () => {
-      rebuildTopicFilter();
-      applyFilters();
-    });
-    el("topicFilter").addEventListener("change", applyFilters);
-    el("typeFilter").addEventListener("change", applyFilters);
-    el("progressFilter").addEventListener("change", applyFilters);
-    el("shuffleBtn").addEventListener("click", () => {
-      for (let i = view.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [view[i], view[j]] = [view[j], view[i]];
+    function renderAll() {
+      const onHome = !activeSubject;
+      el("homeView").classList.toggle("hidden", !onHome);
+      el("subjectView").classList.toggle("hidden", onHome);
+      if (onHome) renderHome();
+      else renderSubject();
+    }
+
+    function syncFromHash() {
+      const raw = decodeURIComponent((location.hash || "#/").replace(/^#/, ""));
+      const m = raw.match(/^\/subject\/(.+)$/);
+      if (m) {
+        const name = m[1];
+        if (allQuestions.some((q) => q.subject === name)) {
+          activeSubject = name;
+          return;
+        }
       }
-      currentId = view[0]?.id ?? null;
-      renderList();
-      renderPractice();
+      activeSubject = null;
+    }
+
+    el("backHomeBtn").addEventListener("click", goHome);
+    el("topicJump").addEventListener("change", () => {
+      activeTopicFilter = el("topicJump").value;
+      currentId = null;
+      renderSubject();
     });
+    el("typeFilter").addEventListener("change", () => renderSubject());
+    el("progressFilter").addEventListener("change", () => renderSubject());
     el("nextUnsolvedBtn").addEventListener("click", () => goNext(true));
     el("resetBtn").addEventListener("click", async () => {
-      const msg = currentUser
-        ? "Clear all progress for these questions locally and in the cloud?"
-        : "Clear all saved progress for these questions on this browser?";
-      if (!confirm(msg)) return;
-      await clearProgress();
-      applyFilters();
+      const scope = el("resetScope").value;
+      let target = "all progress";
+      if (scope === "subject") target = `subject “${activeSubject}”`;
+      else if (scope === "topic") {
+        target = activeTopicFilter === "all"
+          ? `all topics in “${activeSubject}”`
+          : `topic “${activeTopicFilter}”`;
+      }
+      const cloudNote = currentUser
+        ? " This updates your Google account cloud progress too."
+        : " This only clears progress on this browser until you sign in.";
+      if (!confirm(`Reset progress for ${target}?${cloudNote}`)) return;
+      el("resetBtn").disabled = true;
+      try {
+        const n = await clearProgress(scope);
+        renderAll();
+        alert(`Cleared progress on ${n} question${n === 1 ? "" : "s"}.`);
+      } catch (err) {
+        alert(`Reset saved locally, but cloud sync failed: ${err.message || err}`);
+        renderAll();
+      } finally {
+        el("resetBtn").disabled = false;
+      }
     });
 
     el("signInBtn").addEventListener("click", async () => {
@@ -882,7 +1102,6 @@
         setSyncUi("error", err.message || "Sign-in failed");
       }
     });
-
     el("signOutBtn").addEventListener("click", async () => {
       try {
         await signOutUser();
@@ -892,10 +1111,14 @@
       }
     });
 
+    window.addEventListener("hashchange", () => {
+      syncFromHash();
+      renderAll();
+    });
+
     cloudReady = initCloud();
-    if (cloudReady) {
-      watchAuth(onUserChanged);
-    } else {
+    if (cloudReady) watchAuth(onUserChanged);
+    else {
       setSyncUi("guest");
       if (!isCloudConfigured()) {
         el("authLabel").textContent = "Guest · local only (set up Firebase to sync)";
@@ -918,11 +1141,16 @@
         } else {
           allQuestions = data.questions || [];
         }
-        populateFilters(data.meta);
-        applyFilters();
+        const syncHint = cloudReady
+          ? "Sign in to sync progress across devices."
+          : "Progress is tracked locally.";
+        el("sourceBlurb").textContent =
+          `${allQuestions.length} questions · pick a subject to begin. ${syncHint}`;
+        syncFromHash();
+        renderAll();
       })
       .catch((err) => {
-        el("sourceBlurb").textContent = err.message + " — open this folder via a local server (e.g. python -m http.server).";
+        el("sourceBlurb").textContent = err.message + " — open via a local server (python3 -m http.server).";
       });
   </script>
 </body>

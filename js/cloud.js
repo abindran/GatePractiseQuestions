@@ -72,11 +72,18 @@ function userDoc(uid) {
 }
 
 export async function loadCloudProgress(uid) {
-  if (!ready || !db || !uid) return {};
+  if (!ready || !db || !uid) return { progress: {}, updatedAt: null };
   const snap = await getDoc(userDoc(uid));
-  if (!snap.exists()) return {};
+  if (!snap.exists()) return { progress: {}, updatedAt: null };
   const data = snap.data() || {};
-  return data.progress && typeof data.progress === "object" ? data.progress : {};
+  const progress = data.progress && typeof data.progress === "object" ? data.progress : {};
+  let updatedAt = null;
+  if (data.updatedAt?.toDate) {
+    updatedAt = data.updatedAt.toDate().toISOString();
+  } else if (typeof data.updatedAt === "string") {
+    updatedAt = data.updatedAt;
+  }
+  return { progress, updatedAt };
 }
 
 export async function saveCloudProgress(uid, progress) {
@@ -93,24 +100,33 @@ export async function saveCloudProgress(uid, progress) {
   );
 }
 
-/** Prefer solved over tried; keep newest timestamp on ties of same status. */
-export function mergeProgress(local, cloud) {
-  const out = { ...(local || {}) };
-  for (const [id, entry] of Object.entries(cloud || {})) {
+/**
+ * Merge local + cloud progress.
+ * Starts from cloud so deletions (topic/subject resets) are respected.
+ * Local-only entries are kept only if newer than the last cloud write.
+ */
+export function mergeProgress(local, cloud, cloudUpdatedAt = null) {
+  const cloudTime = cloudUpdatedAt ? Date.parse(cloudUpdatedAt) || 0 : 0;
+  const out = { ...(cloud || {}) };
+
+  for (const [id, entry] of Object.entries(local || {})) {
     if (!entry || !entry.status) continue;
+    const localAt = Date.parse(entry.at || 0) || 0;
     const cur = out[id];
+
     if (!cur) {
-      out[id] = entry;
+      // Cloud deleted this key (or never had it). Keep local only if it's newer than cloud snapshot.
+      if (!cloudTime || localAt > cloudTime) out[id] = entry;
       continue;
     }
+
     if (cur.status === "solved" && entry.status !== "solved") continue;
     if (entry.status === "solved" && cur.status !== "solved") {
       out[id] = entry;
       continue;
     }
     const curAt = Date.parse(cur.at || 0) || 0;
-    const newAt = Date.parse(entry.at || 0) || 0;
-    if (newAt >= curAt) out[id] = entry;
+    if (localAt >= curAt) out[id] = entry;
   }
   return out;
 }
