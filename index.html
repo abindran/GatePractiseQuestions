@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GATE Practice — Questions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f1a14;
+      --paper: #f3f6f2;
+      --panel: #ffffff;
+      --line: #d5ddd4;
+      --muted: #5a6b60;
+      --accent: #0d6e4f;
+      --accent-soft: #d8efe6;
+      --warn: #9a4a12;
+      --warn-soft: #fde8d6;
+      --bad: #8b1e2d;
+      --bad-soft: #f8e0e4;
+      --good: #0d6e4f;
+      --good-soft: #d8efe6;
+      --shadow: 0 10px 30px rgba(15, 26, 20, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(1200px 500px at 10% -10%, #dff0e8 0%, transparent 55%),
+        radial-gradient(900px 400px at 100% 0%, #efe6d8 0%, transparent 50%),
+        linear-gradient(180deg, #eef3ec 0%, var(--paper) 40%, #e8eee6 100%);
+    }
+
+    header {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 2.25rem 1.25rem 1rem;
+    }
+    .header-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .header-copy { min-width: min(100%, 20rem); flex: 1; }
+    header h1 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -0.02em;
+      margin: 0 0 0.4rem;
+    }
+    header p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 42rem;
+      line-height: 1.5;
+    }
+    .auth-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: flex-end;
+      max-width: 22rem;
+    }
+    .auth-box .auth-meta {
+      width: 100%;
+      text-align: right;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+    .auth-box img.avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--line);
+    }
+    .sync-dot {
+      display: inline-block;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: #b7b7b7;
+      margin-right: 0.35rem;
+      vertical-align: middle;
+    }
+    .sync-dot.on { background: var(--accent); }
+    .sync-dot.warn { background: var(--warn); }
+
+    .toolbar {
+      max-width: 980px;
+      margin: 0 auto 1rem;
+      padding: 0 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    select, button, input[type="text"] {
+      font: inherit;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      border-radius: 10px;
+      padding: 0.55rem 0.8rem;
+    }
+    select { min-width: 10rem; }
+    button {
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      font-weight: 560;
+    }
+    button.secondary {
+      background: var(--panel);
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    button:disabled { opacity: 0.55; cursor: not-allowed; }
+    .stats {
+      margin-left: auto;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.25rem 3rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 1.15rem 1.2rem 1.25rem;
+    }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 0.85rem;
+    }
+    .chip {
+      font-size: 0.75rem;
+      font-family: "IBM Plex Mono", monospace;
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid #b7dccf;
+    }
+    .chip.muted {
+      background: #eef1ee;
+      color: var(--muted);
+      border-color: var(--line);
+    }
+    .q-text {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.18rem;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      margin: 0 0 1rem;
+    }
+    .options {
+      display: grid;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+    }
+    .option {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.7rem 0.8rem;
+      cursor: pointer;
+      background: #fbfcfb;
+    }
+    .option:hover { border-color: #a9c4b8; }
+    .option.selected { border-color: var(--accent); background: var(--accent-soft); }
+    .option.correct { border-color: var(--good); background: var(--good-soft); }
+    .option.wrong { border-color: var(--bad); background: var(--bad-soft); }
+    .option input { margin-top: 0.2rem; }
+    .answer-box {
+      width: 100%;
+      margin-bottom: 0.9rem;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .feedback {
+      margin-top: 0.9rem;
+      padding: 0.8rem 0.9rem;
+      border-radius: 12px;
+      display: none;
+      line-height: 1.45;
+    }
+    .feedback.show { display: block; }
+    .feedback.ok { background: var(--good-soft); border: 1px solid #b7dccf; }
+    .feedback.no { background: var(--bad-soft); border: 1px solid #e4b4bc; }
+    .feedback .label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+    }
+    .list {
+      display: grid;
+      gap: 0.55rem;
+    }
+    .subject-group {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.35rem;
+    }
+    .subject-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin: 0.85rem 0 0.15rem;
+      padding: 0.35rem 0.15rem;
+      border-bottom: 1px solid var(--line);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .subject-heading:first-child { margin-top: 0; }
+    .subject-heading .count {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .list-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.75rem;
+      align-items: start;
+      text-align: left;
+      background: var(--panel);
+      color: inherit;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+      cursor: pointer;
+    }
+    .list-item:hover { border-color: #a9c4b8; }
+    .list-item.active { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+    .list-item .idx {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--muted);
+      font-size: 0.85rem;
+      padding-top: 0.15rem;
+    }
+    .list-item .title {
+      font-weight: 560;
+      line-height: 1.35;
+    }
+    .list-item .sub {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+    }
+    .list-item .diff {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--warn);
+      background: var(--warn-soft);
+      border-radius: 999px;
+      padding: 0.2rem 0.5rem;
+      white-space: nowrap;
+    }
+    .list-item.solved {
+      border-color: #b7dccf;
+      background: #f4faf7;
+    }
+    .list-item .status {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      border-radius: 999px;
+      padding: 0.2rem 0.5rem;
+      white-space: nowrap;
+    }
+    .list-item .status.ok {
+      color: var(--good);
+      background: var(--good-soft);
+    }
+    .list-item .status.tried {
+      color: var(--warn);
+      background: var(--warn-soft);
+    }
+    .chip.ok {
+      background: var(--good-soft);
+      color: var(--good);
+      border-color: #b7dccf;
+    }
+    footer {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.25rem 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    @media (max-width: 640px) {
+      .stats { margin-left: 0; width: 100%; }
+      .list-item { grid-template-columns: auto 1fr; }
+      .list-item .diff,
+      .list-item .status { grid-column: 2; justify-self: start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-row">
+      <div class="header-copy">
+        <h1>GATE Practice</h1>
+        <p id="sourceBlurb">Loading questions…</p>
+      </div>
+      <div class="auth-box" id="authBox">
+        <div class="auth-meta" id="authMeta">
+          <span class="sync-dot" id="syncDot"></span>
+          <span id="authLabel">Checking cloud…</span>
+        </div>
+        <button type="button" id="signInBtn" hidden>Sign in with Google</button>
+        <button type="button" class="secondary" id="signOutBtn" hidden>Sign out</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <select id="subjectFilter" aria-label="Filter by subject">
+      <option value="all">All subjects</option>
+    </select>
+    <select id="topicFilter" aria-label="Filter by topic">
+      <option value="all">All topics</option>
+    </select>
+    <select id="typeFilter" aria-label="Filter by type">
+      <option value="all">All types</option>
+      <option value="mcq">MCQ</option>
+      <option value="numerical">Numerical</option>
+      <option value="short">Short answer</option>
+    </select>
+    <select id="progressFilter" aria-label="Filter by progress">
+      <option value="all">All progress</option>
+      <option value="unsolved">Unsolved only</option>
+      <option value="solved">Solved only</option>
+      <option value="tried">Tried (not solved)</option>
+    </select>
+    <button class="secondary" id="shuffleBtn" type="button">Shuffle</button>
+    <button class="secondary" id="nextUnsolvedBtn" type="button">Next unsolved</button>
+    <button class="secondary" id="resetBtn" type="button">Reset progress</button>
+    <div class="stats" id="stats">0 solved</div>
+  </div>
+
+  <main>
+    <section class="card" id="practiceCard" aria-live="polite"></section>
+    <section>
+      <div class="list" id="questionList"></div>
+    </section>
+  </main>
+
+  <footer>
+    Source in <code>data/questions.json</code>. Sign in with Google (Firebase free tier) to sync progress across devices.
+  </footer>
+
+  <script type="module">
+    import {
+      initCloud,
+      isCloudConfigured,
+      watchAuth,
+      signInWithGoogle,
+      signOutUser,
+      loadCloudProgress,
+      saveCloudProgress,
+      mergeProgress,
+    } from "./js/cloud.js";
+
+    const STORAGE_KEY = "gate-practice-progress-v1";
+
+    let allQuestions = [];
+    let view = [];
+    let currentId = null;
+    /** @type {Record<string, { status: 'solved'|'tried', at: string }>} */
+    let progress = loadProgress();
+    let currentUser = null;
+    let cloudSaveTimer = null;
+    let cloudReady = false;
+
+    const el = (id) => document.getElementById(id);
+
+    function loadProgress() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return {};
+        const parsed = JSON.parse(raw);
+        return parsed && typeof parsed === "object" ? parsed : {};
+      } catch {
+        return {};
+      }
+    }
+
+    function saveProgressLocal() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    }
+
+    function scheduleCloudSave() {
+      if (!currentUser || !cloudReady) return;
+      clearTimeout(cloudSaveTimer);
+      cloudSaveTimer = setTimeout(async () => {
+        try {
+          await saveCloudProgress(currentUser.uid, progress);
+          setSyncUi("synced");
+        } catch (err) {
+          console.error(err);
+          setSyncUi("error", err.message || "Cloud save failed");
+        }
+      }, 400);
+    }
+
+    function saveProgress() {
+      saveProgressLocal();
+      scheduleCloudSave();
+    }
+
+    function markProgress(id, status) {
+      const prev = progress[id];
+      // Never downgrade solved → tried
+      if (prev?.status === "solved" && status === "tried") return;
+      progress[id] = { status, at: new Date().toISOString() };
+      saveProgress();
+      updateStats();
+      renderList();
+    }
+
+    async function clearProgress() {
+      progress = {};
+      saveProgressLocal();
+      if (currentUser && cloudReady) {
+        try {
+          await saveCloudProgress(currentUser.uid, {});
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    }
+
+    function setSyncUi(mode, detail = "") {
+      const dot = el("syncDot");
+      const label = el("authLabel");
+      if (!cloudReady) {
+        dot.className = "sync-dot";
+        label.textContent = "Guest · local only (cloud not configured)";
+        el("signInBtn").hidden = true;
+        el("signOutBtn").hidden = true;
+        return;
+      }
+      if (mode === "guest") {
+        dot.className = "sync-dot";
+        label.textContent = "Guest · progress saved on this device";
+        el("signInBtn").hidden = false;
+        el("signOutBtn").hidden = true;
+      } else if (mode === "syncing") {
+        dot.className = "sync-dot warn";
+        label.textContent = detail || "Syncing…";
+      } else if (mode === "error") {
+        dot.className = "sync-dot warn";
+        label.textContent = detail || "Cloud sync error";
+      } else if (mode === "signed-in" || mode === "synced") {
+        dot.className = "sync-dot on";
+        const name = currentUser?.displayName || currentUser?.email || "Signed in";
+        label.textContent = mode === "synced"
+          ? `${name} · cloud synced`
+          : `${name} · cloud ready`;
+        el("signInBtn").hidden = true;
+        el("signOutBtn").hidden = false;
+      }
+    }
+
+    async function onUserChanged(user) {
+      currentUser = user;
+      if (!user) {
+        setSyncUi("guest");
+        applyFilters();
+        return;
+      }
+      setSyncUi("syncing", "Loading cloud progress…");
+      try {
+        const cloud = await loadCloudProgress(user.uid);
+        progress = mergeProgress(progress, cloud);
+        saveProgressLocal();
+        await saveCloudProgress(user.uid, progress);
+        setSyncUi("synced");
+        applyFilters();
+      } catch (err) {
+        console.error(err);
+        setSyncUi("error", err.message || "Could not load cloud progress");
+        applyFilters();
+      }
+    }
+
+    function progressStatus(id) {
+      return progress[id]?.status || null;
+    }
+
+    function normalizeAnswer(s) {
+      return String(s ?? "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, " ")
+        .replace(/²/g, "^2")
+        .replace(/ⁿ/g, "^n");
+    }
+
+    function answersMatch(user, expected) {
+      const u = normalizeAnswer(user);
+      const e = normalizeAnswer(expected);
+      if (u === e) return true;
+      const alts = {
+        "2^n": ["2ⁿ", "2**n", "2n", "2^n values", "2ⁿ values"],
+        "255": ["255 (decimal)", "255₁₀"],
+        "44": ["44 (decimal)", "44₁₀"],
+        "11101011": ["(11101011)2", "11101011₂", "11101011_2"],
+        "1101011001": ["(1101011001)2", "1101011001₂"],
+        "110101": ["(110101)2", "110101₂"],
+        "10011100": ["(10011100)2", "10011100₂"],
+        "11101111": ["(11101111)2", "11101111₂"],
+        "1000000": ["(1000000)2", "1000000₂"],
+        "11010100": ["(11010100)2", "11010100₂"],
+      };
+      for (const [canon, list] of Object.entries(alts)) {
+        if (e === canon || list.map(normalizeAnswer).includes(e)) {
+          if (u === canon || list.map(normalizeAnswer).includes(u)) return true;
+        }
+      }
+      if (e.length > 40 && u.length > 20) {
+        const keys = ["two-state", "two state", "2 state", "binary counting", "all 0s to all 1s"];
+        return keys.some((k) => e.includes(k) && u.includes(k));
+      }
+      return false;
+    }
+
+    function updateStats() {
+      const solved = Object.values(progress).filter((p) => p.status === "solved").length;
+      const tried = Object.values(progress).filter((p) => p.status === "tried").length;
+      const total = allQuestions.length;
+      const shownSolved = view.filter((q) => progressStatus(q.id) === "solved").length;
+      el("stats").textContent =
+        `${solved}/${total} solved` +
+        (tried ? ` · ${tried} tried` : "") +
+        ` · ${shownSolved}/${view.length} in view`;
+    }
+
+    function populateFilters(meta) {
+      const subjectSel = el("subjectFilter");
+      const subjects = [...new Set(allQuestions.map((q) => q.subject))].sort();
+      subjects.forEach((s) => {
+        const opt = document.createElement("option");
+        opt.value = s;
+        opt.textContent = s;
+        subjectSel.appendChild(opt);
+      });
+      if (subjects.includes("Digital Logic")) {
+        subjectSel.value = "Digital Logic";
+      }
+      rebuildTopicFilter();
+      const syncHint = cloudReady
+        ? "Sign in to sync progress across devices."
+        : "Local progress on; configure Firebase to enable cloud sync.";
+      if (meta?.sources?.[0]) {
+        const s = meta.sources[0];
+        el("sourceBlurb").textContent =
+          `${s.subject} · ${allQuestions.length} questions. ${syncHint}`;
+      } else {
+        el("sourceBlurb").textContent =
+          `${allQuestions.length} questions loaded. ${syncHint}`;
+      }
+    }
+
+    function rebuildTopicFilter() {
+      const subject = el("subjectFilter").value;
+      const topicSel = el("topicFilter");
+      const prev = topicSel.value;
+      topicSel.innerHTML = `<option value="all">All topics</option>`;
+      const topics = [...new Set(
+        allQuestions
+          .filter((q) => subject === "all" || q.subject === subject)
+          .map((q) => q.topic)
+      )].sort();
+      topics.forEach((t) => {
+        const opt = document.createElement("option");
+        opt.value = t;
+        opt.textContent = t;
+        topicSel.appendChild(opt);
+      });
+      topicSel.value = topics.includes(prev) ? prev : "all";
+    }
+
+    function applyFilters() {
+      const subject = el("subjectFilter").value;
+      const topic = el("topicFilter").value;
+      const type = el("typeFilter").value;
+      const prog = el("progressFilter").value;
+      view = allQuestions.filter((q) => {
+        if (subject !== "all" && q.subject !== subject) return false;
+        if (topic !== "all" && q.topic !== topic) return false;
+        if (type !== "all" && q.type !== type) return false;
+        const st = progressStatus(q.id);
+        if (prog === "unsolved" && st === "solved") return false;
+        if (prog === "solved" && st !== "solved") return false;
+        if (prog === "tried" && st !== "tried") return false;
+        return true;
+      });
+      renderList();
+      if (!view.find((q) => q.id === currentId)) {
+        currentId = view[0]?.id ?? null;
+      }
+      renderPractice();
+      updateStats();
+    }
+
+    function renderList() {
+      const list = el("questionList");
+      list.innerHTML = "";
+
+      const groups = new Map();
+      view.forEach((q) => {
+        const key = q.subject || "Uncategorized";
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(q);
+      });
+
+      let globalIdx = 0;
+      for (const [subject, qs] of groups) {
+        const solvedInGroup = qs.filter((q) => progressStatus(q.id) === "solved").length;
+        const heading = document.createElement("div");
+        heading.className = "subject-heading";
+        heading.innerHTML = `<span>${escapeHtml(subject)}</span><span class="count">${solvedInGroup}/${qs.length} solved</span>`;
+        list.appendChild(heading);
+
+        const group = document.createElement("div");
+        group.className = "subject-group";
+        qs.forEach((q) => {
+          globalIdx += 1;
+          const st = progressStatus(q.id);
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "list-item" +
+            (q.id === currentId ? " active" : "") +
+            (st === "solved" ? " solved" : "");
+          const statusHtml = st === "solved"
+            ? `<span class="status ok">solved</span>`
+            : st === "tried"
+              ? `<span class="status tried">tried</span>`
+              : `<span class="diff">${escapeHtml(q.difficulty)}</span>`;
+          btn.innerHTML = `
+            <span class="idx">${String(globalIdx).padStart(2, "0")}</span>
+            <span>
+              <div class="title">${escapeHtml(truncate(q.question, 110))}</div>
+              <div class="sub">${escapeHtml(q.topic)} · ${q.type}</div>
+            </span>
+            ${statusHtml}
+          `;
+          btn.addEventListener("click", () => {
+            currentId = q.id;
+            renderList();
+            renderPractice();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+          group.appendChild(btn);
+        });
+        list.appendChild(group);
+      }
+    }
+
+    function truncate(s, n) {
+      const t = s.replace(/\s+/g, " ").trim();
+      return t.length > n ? t.slice(0, n - 1) + "…" : t;
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    function renderPractice() {
+      const card = el("practiceCard");
+      const q = view.find((x) => x.id === currentId);
+      if (!q) {
+        card.innerHTML = `<p style="margin:0;color:var(--muted)">No questions match these filters.</p>`;
+        return;
+      }
+
+      const idx = view.findIndex((x) => x.id === q.id) + 1;
+      const st = progressStatus(q.id);
+      let body = `
+        <div class="meta-row">
+          <span class="chip">${escapeHtml(q.subject)}</span>
+          <span class="chip muted">${escapeHtml(q.topic)}</span>
+          <span class="chip muted">${idx}/${view.length}</span>
+          ${st === "solved" ? `<span class="chip ok">Solved</span>` : ""}
+          ${st === "tried" ? `<span class="chip muted">Tried</span>` : ""}
+        </div>
+        <p class="q-text">${escapeHtml(q.question)}</p>
+      `;
+
+      if (q.type === "mcq" && Array.isArray(q.options)) {
+        body += `<div class="options" id="options">`;
+        q.options.forEach((opt, i) => {
+          body += `
+            <label class="option">
+              <input type="radio" name="opt" value="${escapeHtml(opt)}" />
+              <span><strong>${String.fromCharCode(65 + i)}.</strong> ${escapeHtml(opt)}</span>
+            </label>`;
+        });
+        body += `</div>`;
+      } else {
+        body += `<input class="answer-box" id="freeAnswer" type="text" placeholder="Type your answer" autocomplete="off" />`;
+      }
+
+      body += `
+        <div class="actions">
+          <button type="button" id="checkBtn">Check</button>
+          <button type="button" class="secondary" id="revealBtn">Show answer</button>
+          <button type="button" class="secondary" id="nextBtn">Next</button>
+          <button type="button" class="secondary" id="markSolvedBtn">Mark solved</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+      `;
+      card.innerHTML = body;
+
+      card.querySelectorAll(".option").forEach((lab) => {
+        lab.addEventListener("click", () => {
+          card.querySelectorAll(".option").forEach((x) => x.classList.remove("selected"));
+          lab.classList.add("selected");
+          lab.querySelector("input").checked = true;
+        });
+      });
+
+      el("checkBtn").addEventListener("click", () => checkAnswer(q));
+      el("revealBtn").addEventListener("click", () => revealAnswer(q));
+      el("markSolvedBtn").addEventListener("click", () => {
+        markProgress(q.id, "solved");
+        renderPractice();
+      });
+      el("nextBtn").addEventListener("click", () => goNext(false));
+      const free = el("freeAnswer");
+      if (free) {
+        free.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") checkAnswer(q);
+        });
+      }
+    }
+
+    function goNext(unsolvedOnly) {
+      if (!view.length) return;
+      const start = view.findIndex((x) => x.id === currentId);
+      for (let step = 1; step <= view.length; step++) {
+        const q = view[(start + step) % view.length];
+        if (!unsolvedOnly || progressStatus(q.id) !== "solved") {
+          currentId = q.id;
+          renderList();
+          renderPractice();
+          return;
+        }
+      }
+    }
+
+    function getUserAnswer(q) {
+      if (q.type === "mcq") {
+        const sel = document.querySelector('input[name="opt"]:checked');
+        return sel ? sel.value : "";
+      }
+      return el("freeAnswer")?.value ?? "";
+    }
+
+    function checkAnswer(q) {
+      const user = getUserAnswer(q);
+      const fb = el("feedback");
+      if (!user.trim()) {
+        fb.className = "feedback show no";
+        fb.innerHTML = `<div class="label">Missing</div>Enter or select an answer first.`;
+        return;
+      }
+      const ok = answersMatch(user, q.answer);
+      markProgress(q.id, ok ? "solved" : "tried");
+
+      const feedbackHtml = ok
+        ? `<div class="label">Correct · saved as solved</div>${escapeHtml(q.explanation || q.answer)}`
+        : `<div class="label">Not quite · marked tried</div>Expected: <strong>${escapeHtml(q.answer)}</strong><br/>${escapeHtml(q.explanation || "")}`;
+      const feedbackClass = "feedback show " + (ok ? "ok" : "no");
+
+      renderPractice();
+      const fb2 = el("feedback");
+      if (fb2) {
+        fb2.className = feedbackClass;
+        fb2.innerHTML = feedbackHtml;
+      }
+      if (ok && q.type === "mcq") {
+        document.querySelectorAll(".option").forEach((lab) => {
+          const val = lab.querySelector("input").value;
+          if (answersMatch(val, q.answer)) lab.classList.add("correct");
+        });
+      } else if (!ok && q.type === "mcq") {
+        document.querySelectorAll(".option").forEach((lab) => {
+          const val = lab.querySelector("input").value;
+          if (answersMatch(val, q.answer)) lab.classList.add("correct");
+        });
+      }
+    }
+
+    function revealAnswer(q) {
+      if (progressStatus(q.id) !== "solved") {
+        markProgress(q.id, "tried");
+      }
+      const fb = el("feedback");
+      fb.className = "feedback show ok";
+      fb.innerHTML = `<div class="label">Answer</div><strong>${escapeHtml(q.answer)}</strong><br/>${escapeHtml(q.explanation || "")}`;
+      if (q.type === "mcq") {
+        document.querySelectorAll(".option").forEach((lab) => {
+          const val = lab.querySelector("input").value;
+          if (answersMatch(val, q.answer)) lab.classList.add("correct");
+        });
+      }
+    }
+
+    el("subjectFilter").addEventListener("change", () => {
+      rebuildTopicFilter();
+      applyFilters();
+    });
+    el("topicFilter").addEventListener("change", applyFilters);
+    el("typeFilter").addEventListener("change", applyFilters);
+    el("progressFilter").addEventListener("change", applyFilters);
+    el("shuffleBtn").addEventListener("click", () => {
+      for (let i = view.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [view[i], view[j]] = [view[j], view[i]];
+      }
+      currentId = view[0]?.id ?? null;
+      renderList();
+      renderPractice();
+    });
+    el("nextUnsolvedBtn").addEventListener("click", () => goNext(true));
+    el("resetBtn").addEventListener("click", async () => {
+      const msg = currentUser
+        ? "Clear all progress for these questions locally and in the cloud?"
+        : "Clear all saved progress for these questions on this browser?";
+      if (!confirm(msg)) return;
+      await clearProgress();
+      applyFilters();
+    });
+
+    el("signInBtn").addEventListener("click", async () => {
+      try {
+        setSyncUi("syncing", "Opening Google sign-in…");
+        await signInWithGoogle();
+      } catch (err) {
+        console.error(err);
+        setSyncUi("error", err.message || "Sign-in failed");
+      }
+    });
+
+    el("signOutBtn").addEventListener("click", async () => {
+      try {
+        await signOutUser();
+      } catch (err) {
+        console.error(err);
+        setSyncUi("error", err.message || "Sign-out failed");
+      }
+    });
+
+    cloudReady = initCloud();
+    if (cloudReady) {
+      watchAuth(onUserChanged);
+    } else {
+      setSyncUi("guest");
+      if (!isCloudConfigured()) {
+        el("authLabel").textContent = "Guest · local only (set up Firebase to sync)";
+      }
+    }
+
+    fetch("data/questions.json")
+      .then((r) => {
+        if (!r.ok) throw new Error("Could not load data/questions.json");
+        return r.json();
+      })
+      .then((data) => {
+        if (Array.isArray(data.subjects)) {
+          allQuestions = data.subjects.flatMap((s) =>
+            (s.questions || []).map((q) => ({
+              ...q,
+              subject: q.subject || s.name,
+            }))
+          );
+        } else {
+          allQuestions = data.questions || [];
+        }
+        populateFilters(data.meta);
+        applyFilters();
+      })
+      .catch((err) => {
+        el("sourceBlurb").textContent = err.message + " — open this folder via a local server (e.g. python -m http.server).";
+      });
+  </script>
+</body>
+</html>

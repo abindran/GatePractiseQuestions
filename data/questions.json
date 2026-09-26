@@ -1,0 +1,1292 @@
+{
+  "meta": {
+    "title": "GATE Practice Questions",
+    "sources": [
+      {
+        "id": "dld-lecture-1",
+        "subject": "Digital Logic",
+        "topic": "Boolean Algebra (Part 1) — Number Systems, Gates, Boolean Functions",
+        "file": "/Users/abindran-21221/Abindran/GOClasses/DLD/lecture-1.pdf",
+        "provider": "GO Classes",
+        "instructor": "Deepak Poonia"
+      },
+      {
+        "id": "dld-lecture-2",
+        "subject": "Digital Logic",
+        "topic": "Boolean Algebra (Part 2) — Equivalence, Literals, Complement, Dual, DeMorgan",
+        "file": "/Users/abindran-21221/Abindran/GOClasses/DLD/lecture-2.pdf",
+        "provider": "GO Classes",
+        "instructor": "Deepak Poonia"
+      }
+    ],
+    "updatedAt": "2026-09-26",
+    "structure": "grouped-by-subject"
+  },
+  "subjects": [
+    {
+      "id": "digital-logic",
+      "name": "Digital Logic",
+      "questions": [
+        {
+          "id": "dld-l1-q01",
+          "sourceId": "dld-lecture-1",
+          "slide": 46,
+          "subject": "Digital Logic",
+          "topic": "Binary Number System",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "What is the decimal value of the binary number 00101100?",
+          "options": null,
+          "answer": "44",
+          "explanation": "00101100₂ = 0·2⁷ + 0·2⁶ + 1·2⁵ + 0·2⁴ + 1·2³ + 1·2² + 0·2¹ + 0·2⁰ = 32 + 8 + 4 = 44.",
+          "tags": [
+            "binary-to-decimal",
+            "number-system"
+          ]
+        },
+        {
+          "id": "dld-l1-q02",
+          "sourceId": "dld-lecture-1",
+          "slide": 78,
+          "subject": "Digital Logic",
+          "topic": "Bits and Bytes",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "What is the maximum unsigned number that can be stored in one byte (8 bits)?",
+          "options": null,
+          "answer": "255",
+          "explanation": "All 8 bits set: 11111111₂ = 2⁸ − 1 = 256 − 1 = 255.",
+          "tags": [
+            "byte",
+            "bit",
+            "range"
+          ]
+        },
+        {
+          "id": "dld-l1-q03",
+          "sourceId": "dld-lecture-1",
+          "slide": 81,
+          "subject": "Digital Logic",
+          "topic": "Binary Representation",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "With n bits, how many different values can be represented?",
+          "options": null,
+          "answer": "2^n",
+          "explanation": "Each bit has 2 choices (0 or 1). For n independent bits there are 2ⁿ distinct bit patterns / values. Example: n=3 gives 000…111 → 8 = 2³ values.",
+          "tags": [
+            "bit-permutations",
+            "2^n"
+          ]
+        },
+        {
+          "id": "dld-l1-q04",
+          "sourceId": "dld-lecture-1",
+          "slide": 102,
+          "subject": "Digital Logic",
+          "topic": "Boolean Algebra Motivation",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Why do we use Boolean Algebra (Binary Logic) to describe, analyse, and design digital circuits?",
+          "options": null,
+          "answer": "Because the switching devices used are essentially two-state devices (e.g. open/closed switches, high/low voltages).",
+          "explanation": "Presence of a voltage is treated as state “1”; absence as state “0”. Binary logic matches this two-state physical behaviour.",
+          "tags": [
+            "boolean-algebra",
+            "conceptual"
+          ]
+        },
+        {
+          "id": "dld-l1-q05",
+          "sourceId": "dld-lecture-1",
+          "slide": 141,
+          "subject": "Digital Logic",
+          "topic": "Truth Tables",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Three truth tables for a 2-input function F(A, B) are given.\n\nTable 1 (columns B, A, F):\nB A F\n0 0 0\n0 1 0\n1 0 1\n1 1 0\n\nTable 2 (columns A, B, F):\nA B F\n0 0 0\n0 1 0\n1 0 1\n1 1 0\n\nTable 3 (columns B, A, F, rows not in standard order):\nB A F\n1 1 0\n1 0 1\n0 1 0\n0 0 0\n\nWhich truth tables represent the same Boolean function?",
+          "options": [
+            "Table 1 and Table 2 only",
+            "Table 1 and Table 3 only",
+            "Table 2 and Table 3 only",
+            "All three tables"
+          ],
+          "answer": "Table 1 and Table 3 only",
+          "explanation": "A truth table is defined by input→output mappings, not by row order or column placement. Table 1 and Table 3 both give F=1 only when A=0, B=1. Table 2 gives F=1 when A=1, B=0 — a different function.",
+          "tags": [
+            "truth-table",
+            "equivalence"
+          ]
+        },
+        {
+          "id": "dld-l1-q06",
+          "sourceId": "dld-lecture-1",
+          "slide": 60,
+          "subject": "Digital Logic",
+          "topic": "Decimal to Binary",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Convert (235)₁₀ to binary.",
+          "options": null,
+          "answer": "11101011",
+          "explanation": "Repeated division by 2 (remainders LSB→MSB) yields 11101011₂. Check: 128+64+32+8+2+1 = 235.",
+          "tags": [
+            "decimal-to-binary",
+            "conversion"
+          ]
+        },
+        {
+          "id": "dld-l1-q07",
+          "sourceId": "dld-lecture-1",
+          "slide": 62,
+          "subject": "Digital Logic",
+          "topic": "Decimal to Binary",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Convert (857)₁₀ to binary.",
+          "options": null,
+          "answer": "1101011001",
+          "explanation": "Repeated division by 2 gives remainders that form 1101011001₂ (MSB first).",
+          "tags": [
+            "decimal-to-binary",
+            "conversion"
+          ]
+        },
+        {
+          "id": "dld-l1-q08",
+          "sourceId": "dld-lecture-1",
+          "slide": 78,
+          "subject": "Digital Logic",
+          "topic": "Bits and Bytes",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "A binary digit is called a ____, and a group of eight bits is called a ____.",
+          "options": [
+            "byte; bit",
+            "bit; byte",
+            "nibble; word",
+            "word; nibble"
+          ],
+          "answer": "bit; byte",
+          "explanation": "From the lecture: a binary digit is a bit; a group of eight bits is a byte.",
+          "tags": [
+            "bit",
+            "byte",
+            "terminology"
+          ]
+        },
+        {
+          "id": "dld-l1-q09",
+          "sourceId": "dld-lecture-1",
+          "slide": 43,
+          "subject": "Digital Logic",
+          "topic": "Binary Number System",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "In the binary number system, which statement is correct?",
+          "options": [
+            "It uses digits 0–9 and base/radix 10",
+            "It uses digits 0 and 1; every position weight is a power of 2; base/radix is 2",
+            "It uses digits 0–7 and base/radix 8",
+            "Position weights are powers of 16"
+          ],
+          "answer": "It uses digits 0 and 1; every position weight is a power of 2; base/radix is 2",
+          "explanation": "Binary has two digits (bits) 0 and 1, positional weights 2ᵏ, and radix 2.",
+          "tags": [
+            "binary",
+            "radix",
+            "number-system"
+          ]
+        },
+        {
+          "id": "dld-l1-q10",
+          "sourceId": "dld-lecture-1",
+          "slide": 85,
+          "subject": "Digital Logic",
+          "topic": "Bit Permutations",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "How many unique items can be represented using 4 bits?",
+          "options": [
+            "4",
+            "8",
+            "16",
+            "32"
+          ],
+          "answer": "16",
+          "explanation": "There are 2ⁿ permutations of n bits. For n=4: 2⁴ = 16 items.",
+          "tags": [
+            "bit-permutations",
+            "2^n"
+          ]
+        },
+        {
+          "id": "dld-l1-q11",
+          "sourceId": "dld-lecture-1",
+          "slide": 136,
+          "subject": "Digital Logic",
+          "topic": "Boolean Functions",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Given F1 = x + y′z, what is F1 when x=0, y=1, z=1?",
+          "options": null,
+          "answer": "0",
+          "explanation": "y′ = 0 when y=1, so y′z = 0. Then F1 = 0 + 0 = 0. (F1 is 1 if x=1 or both y′ and z are 1.)",
+          "tags": [
+            "boolean-function",
+            "evaluation"
+          ]
+        },
+        {
+          "id": "dld-l1-q12",
+          "sourceId": "dld-lecture-1",
+          "slide": 136,
+          "subject": "Digital Logic",
+          "topic": "Boolean Functions",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Given F1 = x + y′z, what is F1 when x=0, y=0, z=1?",
+          "options": null,
+          "answer": "1",
+          "explanation": "y′=1 and z=1 ⇒ y′z=1 ⇒ F1 = 0 + 1 = 1.",
+          "tags": [
+            "boolean-function",
+            "evaluation"
+          ]
+        },
+        {
+          "id": "dld-l1-q13",
+          "sourceId": "dld-lecture-1",
+          "slide": 136,
+          "subject": "Digital Logic",
+          "topic": "Truth Tables",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "To represent a Boolean function of n binary variables in a truth table, how many input combinations are needed?",
+          "options": null,
+          "answer": "2^n",
+          "explanation": "Each variable is 0 or 1, so there are 2ⁿ rows in a complete truth table.",
+          "tags": [
+            "truth-table",
+            "2^n"
+          ]
+        },
+        {
+          "id": "dld-l1-q14",
+          "sourceId": "dld-lecture-1",
+          "slide": 119,
+          "subject": "Digital Logic",
+          "topic": "XOR Gate",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which statement about the XOR operation / XOR gate is correct?",
+          "options": [
+            "Output is 1 if an even number of inputs are 1",
+            "Output is 1 if an odd number of inputs are 1",
+            "Output is always 1 when any input is 1",
+            "XOR is the same as inclusive OR for all inputs"
+          ],
+          "answer": "Output is 1 if an odd number of inputs are 1",
+          "explanation": "XOR is an odd function: if an odd number of inputs are true (1), the output is true (1). This extends to any number of inputs.",
+          "tags": [
+            "xor",
+            "gates"
+          ]
+        },
+        {
+          "id": "dld-l1-q15",
+          "sourceId": "dld-lecture-1",
+          "slide": 97,
+          "subject": "Digital Logic",
+          "topic": "Logic Gates",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "For a 2-input AND gate with inputs A and B and output C, when is C = 1?",
+          "options": [
+            "If A = 1 or B = 1 (or both)",
+            "If and only if A = 1 and B = 1",
+            "If exactly one of A or B is 1",
+            "If A = 0 and B = 0"
+          ],
+          "answer": "If and only if A = 1 and B = 1",
+          "explanation": "AND: C = 1 iff both inputs are 1. OR: C = 1 iff at least one input is 1.",
+          "tags": [
+            "and",
+            "gates"
+          ]
+        },
+        {
+          "id": "dld-l1-q16",
+          "sourceId": "dld-lecture-1",
+          "slide": 97,
+          "subject": "Digital Logic",
+          "topic": "Logic Gates",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "For a 2-input OR gate with inputs A and B and output C = A + B, when is C = 1?",
+          "options": [
+            "Only when A = 1 and B = 1",
+            "If and only if A = 1 or B = 1 (or both)",
+            "Only when exactly one input is 1",
+            "Only when both inputs are 0"
+          ],
+          "answer": "If and only if A = 1 or B = 1 (or both)",
+          "explanation": "Inclusive OR is 1 when at least one input is 1.",
+          "tags": [
+            "or",
+            "gates"
+          ]
+        },
+        {
+          "id": "dld-l1-q17",
+          "sourceId": "dld-lecture-1",
+          "slide": 110,
+          "subject": "Digital Logic",
+          "topic": "NAND Gate",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "For a 2-input NAND gate, the output is 1 when:",
+          "options": [
+            "Both inputs are 1",
+            "At least one input is 0",
+            "Exactly one input is 1",
+            "Both inputs are equal"
+          ],
+          "answer": "At least one input is 0",
+          "explanation": "NAND = (A·B)′. Output is 0 only when both inputs are 1; otherwise output is 1 (i.e. when at least one input is 0).",
+          "tags": [
+            "nand",
+            "gates"
+          ]
+        },
+        {
+          "id": "dld-l1-q18",
+          "sourceId": "dld-lecture-1",
+          "slide": 31,
+          "subject": "Digital Logic",
+          "topic": "Decimal Number System",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Expand 524₁₀ using powers of 10 (positional notation). What is the coefficient of 10¹?",
+          "options": null,
+          "answer": "2",
+          "explanation": "524 = 5·10² + 2·10¹ + 4·10⁰, so the coefficient of 10¹ is 2. (Lecture uses the same positional idea for decimal and then for binary.)",
+          "tags": [
+            "decimal",
+            "positional-notation"
+          ]
+        },
+        {
+          "id": "dld-l1-q19",
+          "sourceId": "dld-lecture-1",
+          "slide": 139,
+          "subject": "Digital Logic",
+          "topic": "Truth Tables",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "What is meant by the “standard order” of a truth table?",
+          "options": null,
+          "answer": "Input combinations listed in binary counting order, from all 0s to all 1s.",
+          "explanation": "Standard order sequences rows as binary numbers from 00…0 through 11…1.",
+          "tags": [
+            "truth-table",
+            "standard-order"
+          ]
+        },
+        {
+          "id": "dld-l1-q20",
+          "sourceId": "dld-lecture-1",
+          "slide": 100,
+          "subject": "Digital Logic",
+          "topic": "NOT Gate",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "The digital circuit that carries out the NOT (complement) operation is called a:",
+          "options": [
+            "Buffer",
+            "NOT gate or Inverter",
+            "XOR gate",
+            "Multiplexer"
+          ],
+          "answer": "NOT gate or Inverter",
+          "explanation": "NOT / complement / negation is implemented by a NOT gate (inverter). The complement of 0 is 1 and of 1 is 0.",
+          "tags": [
+            "not",
+            "inverter",
+            "gates"
+          ]
+        },
+        {
+          "id": "dld-l2-q01",
+          "sourceId": "dld-lecture-2",
+          "slide": 46,
+          "subject": "Digital Logic",
+          "topic": "Literals",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Each appearance of a variable or its complement in an expression is referred to as a:",
+          "options": [
+            "problem",
+            "variable",
+            "literal",
+            "All of these are correct"
+          ],
+          "answer": "literal",
+          "explanation": "A literal is each appearance of a variable or its complement in an expression.",
+          "tags": [
+            "literal",
+            "terminology"
+          ]
+        },
+        {
+          "id": "dld-l2-q02",
+          "sourceId": "dld-lecture-2",
+          "slide": 45,
+          "subject": "Digital Logic",
+          "topic": "Literals",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "How many literals are in the expression ab′c + a′b + a′bc′ + b′c′?",
+          "options": null,
+          "answer": "10",
+          "explanation": "The expression has 3 variables (a, b, c) but 10 literal appearances: a, b′, c, a′, b, a′, b, c′, b′, c′. Literal count measures expression size.",
+          "tags": [
+            "literal",
+            "count"
+          ]
+        },
+        {
+          "id": "dld-l2-q03",
+          "sourceId": "dld-lecture-2",
+          "slide": 17,
+          "subject": "Digital Logic",
+          "topic": "Boolean Equivalence",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Two Boolean functions are equivalent if and only if:",
+          "options": [
+            "They use the same operators",
+            "They have the same number of literals",
+            "They have the same truth table",
+            "They have the same dual"
+          ],
+          "answer": "They have the same truth table",
+          "explanation": "Equivalence means the same output for every input combination — i.e., identical truth tables — even if algebraic forms differ.",
+          "tags": [
+            "equivalence",
+            "truth-table"
+          ]
+        },
+        {
+          "id": "dld-l2-q04",
+          "sourceId": "dld-lecture-2",
+          "slide": 60,
+          "subject": "Digital Logic",
+          "topic": "Complement",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Find the complement of F = (V′W + X)Y + Z′.",
+          "options": null,
+          "answer": "((V + W′)X′ + Y′)Z",
+          "explanation": "Apply DeMorgan repeatedly: F′ = ((V′W + X)Y + Z′)′ = (((V′W + X)Y)′) · Z = ((V′W + X)′ + Y′)Z = ((V + W′)X′ + Y′)Z.",
+          "tags": [
+            "complement",
+            "demorgan"
+          ]
+        },
+        {
+          "id": "dld-l2-q05",
+          "sourceId": "dld-lecture-2",
+          "slide": 63,
+          "subject": "Digital Logic",
+          "topic": "Complement",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Find the complement of the Boolean function F = A′BC′ + A′B′C.",
+          "options": [
+            "A′ + BC + B′C′",
+            "A + BC + B′C′",
+            "A′ + B + B′C′",
+            "(A + B′ + C)(A + B′ + C′)"
+          ],
+          "answer": "A + BC + B′C′",
+          "explanation": "By DeMorgan, F′ = (A + B′ + C)(A + B + C′). Expanding and simplifying yields A + BC + B′C′.",
+          "tags": [
+            "complement",
+            "demorgan"
+          ]
+        },
+        {
+          "id": "dld-l2-q06",
+          "sourceId": "dld-lecture-2",
+          "slide": 65,
+          "subject": "Digital Logic",
+          "topic": "DeMorgan",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Simplify using DeMorgan’s laws: F = [ (A B′ C)′ + (A C D)′ + B C′ ]′",
+          "options": null,
+          "answer": "A B′ C D",
+          "explanation": "F = (A B′ C)(A C D)(B C′)′ = (A B′ C D)(B′ + C) = A B′ C D + A B′ C D = A B′ C D.",
+          "tags": [
+            "demorgan",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-l2-q07",
+          "sourceId": "dld-lecture-2",
+          "slide": 69,
+          "subject": "Digital Logic",
+          "topic": "Complement",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Is it possible that for a Boolean function f, f = f′?",
+          "options": [
+            "Yes, for some functions",
+            "Yes, only for constant functions",
+            "No, never",
+            "Only when n is even"
+          ],
+          "answer": "No, never",
+          "explanation": "For every input, f and f′ have opposite values, so they can never be identical functions.",
+          "tags": [
+            "complement",
+            "conceptual"
+          ]
+        },
+        {
+          "id": "dld-l2-q08",
+          "sourceId": "dld-lecture-2",
+          "slide": 71,
+          "subject": "Digital Logic",
+          "topic": "Complement",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Number of Boolean functions f over n variables such that f = f′?",
+          "options": null,
+          "answer": "0",
+          "explanation": "No such function exists, because f and f′ always disagree on every input.",
+          "tags": [
+            "complement",
+            "counting"
+          ]
+        },
+        {
+          "id": "dld-l2-q09",
+          "sourceId": "dld-lecture-2",
+          "slide": 74,
+          "subject": "Digital Logic",
+          "topic": "Duality",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "How is the dual of a Boolean expression obtained?",
+          "options": [
+            "Replace each variable by its complement",
+            "Interchange AND with OR and interchange 0 with 1; leave variables and complements unchanged",
+            "Complement the entire expression only",
+            "Reverse the rows of the truth table"
+          ],
+          "answer": "Interchange AND with OR and interchange 0 with 1; leave variables and complements unchanged",
+          "explanation": "Duality: · ↔ +, 0 ↔ 1; literals/variables are left unchanged.",
+          "tags": [
+            "dual",
+            "definition"
+          ]
+        },
+        {
+          "id": "dld-l2-q10",
+          "sourceId": "dld-lecture-2",
+          "slide": 80,
+          "subject": "Digital Logic",
+          "topic": "Duality",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Select the dual of: B′ + C + A′(A′ + B′) + B(A′ + B′)",
+          "options": [
+            "B + C′ + A(A + B) + B′(A + B)",
+            "A′ + B′ + C",
+            "B′ C (A′ + A′B′)(B + A′B′)",
+            "B C′ (A + A B)(B′ + A B)",
+            "A′B′C′ + A B′C′ + A′B C′ + A′B′C + A B′C + A′B C + A B C"
+          ],
+          "answer": "B′ C (A′ + A′B′)(B + A′B′)",
+          "explanation": "Replace + by · and · by + (implicit AND becomes OR inside parentheses accordingly): dual is B′·C·(A′ + A′·B′)(B + A′·B′).",
+          "tags": [
+            "dual"
+          ]
+        },
+        {
+          "id": "dld-l2-q11",
+          "sourceId": "dld-lecture-2",
+          "slide": 84,
+          "subject": "Digital Logic",
+          "topic": "Duality",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Find the dual of the Boolean expression (a · 1)′ + (b′ + 0)′.",
+          "options": [
+            "(a′ + 0) + (b · 1)",
+            "(a + 1)′ · (b′ · 0)′",
+            "(a + 0) · (b′ · 0)",
+            "(a + 0)′ · (b′ · 1)′",
+            "None of the above"
+          ],
+          "answer": "(a + 0)′ · (b′ · 1)′",
+          "explanation": "Swap ·↔+ and 0↔1; complements stay: (a + 0)′ · (b′ · 1)′. (This also simplifies to a′b.)",
+          "tags": [
+            "dual"
+          ]
+        },
+        {
+          "id": "dld-l2-q12",
+          "sourceId": "dld-lecture-2",
+          "slide": 87,
+          "subject": "Digital Logic",
+          "topic": "Duality",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Write the dual of: a(a + b) = a",
+          "options": null,
+          "answer": "a + (a · b) = a",
+          "explanation": "Interchange AND/OR: a + (a · b) = a.",
+          "tags": [
+            "dual"
+          ]
+        },
+        {
+          "id": "dld-l2-q13",
+          "sourceId": "dld-lecture-2",
+          "slide": 87,
+          "subject": "Digital Logic",
+          "topic": "Duality",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Write the dual of: a + a′ = 1",
+          "options": null,
+          "answer": "a · a′ = 0",
+          "explanation": "Interchange + with · and 1 with 0: a · a′ = 0.",
+          "tags": [
+            "dual"
+          ]
+        },
+        {
+          "id": "dld-l2-q14",
+          "sourceId": "dld-lecture-2",
+          "slide": 87,
+          "subject": "Digital Logic",
+          "topic": "Duality",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Write the dual of: (a + b)(a′ + b′) = a b′ + a′ b",
+          "options": null,
+          "answer": "a b + a′ b′ = (a + b′)(a′ + b)",
+          "explanation": "Dual swaps AND/OR on both sides: ab + a′b′ = (a + b′)(a′ + b).",
+          "tags": [
+            "dual"
+          ]
+        },
+        {
+          "id": "dld-l2-q15",
+          "sourceId": "dld-lecture-2",
+          "slide": 87,
+          "subject": "Digital Logic",
+          "topic": "Duality",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Write the dual of: a′·1 + a′·0 = a′",
+          "options": null,
+          "answer": "(a′ + 0)(a′ + 1) = a′",
+          "explanation": "Swap ·↔+ and 0↔1: (a′ + 0)(a′ + 1) = a′.",
+          "tags": [
+            "dual"
+          ]
+        },
+        {
+          "id": "dld-l2-q16",
+          "sourceId": "dld-lecture-2",
+          "slide": 90,
+          "subject": "Digital Logic",
+          "topic": "Duality",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "If the truth table of f is in standard order, how do you obtain the dual fᵈ from the truth table?",
+          "options": null,
+          "answer": "Reverse the f′ column",
+          "explanation": "With rows in standard order, reverse the complement column to get the dual function’s output column.",
+          "tags": [
+            "dual",
+            "truth-table"
+          ]
+        },
+        {
+          "id": "dld-l2-q17",
+          "sourceId": "dld-lecture-2",
+          "slide": 96,
+          "subject": "Digital Logic",
+          "topic": "DeMorgan",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Given boolean variables x and y, which expression is equivalent to (x && !y)?",
+          "options": [
+            "(!x || y)",
+            "(!x && y)",
+            "!(!x || y)",
+            "!(!x && y)",
+            "(x || !y)"
+          ],
+          "answer": "!(!x || y)",
+          "explanation": "(x && !y) = x y′. By DeMorgan, !(!x || y) = !!x && !y = x && !y.",
+          "tags": [
+            "demorgan",
+            "equivalence"
+          ]
+        },
+        {
+          "id": "dld-l2-q18",
+          "sourceId": "dld-lecture-2",
+          "slide": 15,
+          "subject": "Digital Logic",
+          "topic": "Truth Tables",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "If a Boolean expression has n variables, how many rows does its truth table have?",
+          "options": null,
+          "answer": "2^n",
+          "explanation": "Each variable is 0 or 1, so there are 2ⁿ input combinations / rows.",
+          "tags": [
+            "truth-table",
+            "2^n"
+          ]
+        },
+        {
+          "id": "dld-l2-q19",
+          "sourceId": "dld-lecture-2",
+          "slide": 47,
+          "subject": "Digital Logic",
+          "topic": "Literals",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "How many literals are in f(a, b) = (a + b)?",
+          "options": null,
+          "answer": "2",
+          "explanation": "Literals are a and b — two appearances. Variables: also 2.",
+          "tags": [
+            "literal",
+            "count"
+          ]
+        },
+        {
+          "id": "dld-l2-q20",
+          "sourceId": "dld-lecture-2",
+          "slide": 47,
+          "subject": "Digital Logic",
+          "topic": "Literals",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "How many literals are in f(a, b) = a + a + b + bb?",
+          "options": null,
+          "answer": "5",
+          "explanation": "Count every appearance: a, a, b, b, b → 5 literals. Distinct variables are still 2 (a and b). bb counts as two literals.",
+          "tags": [
+            "literal",
+            "count"
+          ]
+        },
+        {
+          "id": "dld-l2-q21",
+          "sourceId": "dld-lecture-2",
+          "slide": 47,
+          "subject": "Digital Logic",
+          "topic": "Literals",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "How many literals are in f(a, b) = a + a′b?",
+          "options": null,
+          "answer": "3",
+          "explanation": "Literals: a, a′, and b → 3. Variables: 2 (a and b). A complemented variable still counts as a literal.",
+          "tags": [
+            "literal",
+            "count"
+          ]
+        },
+        {
+          "id": "dld-l2-q22",
+          "sourceId": "dld-lecture-2",
+          "slide": 44,
+          "subject": "Digital Logic",
+          "topic": "Literals",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "In the expression a′b, which of the following is true?",
+          "options": [
+            "a′b is itself one literal",
+            "a′ and b are each literals; a′b as a product term is not a single literal",
+            "Only a′ is a literal",
+            "Only b is a literal"
+          ],
+          "answer": "a′ and b are each literals; a′b as a product term is not a single literal",
+          "explanation": "A literal is a single variable or its complement. A product like a′b contains two literals, but the product term itself is not “a literal.”",
+          "tags": [
+            "literal",
+            "terminology"
+          ]
+        },
+        {
+          "id": "dld-l2-q23",
+          "sourceId": "dld-lecture-2",
+          "slide": 57,
+          "subject": "Digital Logic",
+          "topic": "Complement",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Find the complement of F = A B′ + A′ B.",
+          "options": null,
+          "answer": "(A′ + B)(A + B′)",
+          "explanation": "F′ = (A B′ + A′ B)′ = (A B′)′ · (A′ B)′ = (A′ + B)(A + B′) by DeMorgan and involution.",
+          "tags": [
+            "complement",
+            "demorgan"
+          ]
+        },
+        {
+          "id": "dld-l2-q24",
+          "sourceId": "dld-lecture-2",
+          "slide": 61,
+          "subject": "Digital Logic",
+          "topic": "Complement",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Write the complement of (A + B′ + C)(A′ + B′) and simplify using Boolean algebra / DeMorgan’s law.",
+          "options": [
+            "A C + B′ C",
+            "A B + B C′",
+            "A B′ + A C",
+            "B′ + A C′",
+            "B + A C′"
+          ],
+          "answer": "A B + B C′",
+          "explanation": "Complement → (A′ B C′) + (A B) = A B + A′ B C′ = B(A + A′ C′) = B(A + C′) = A B + B C′.",
+          "tags": [
+            "complement",
+            "demorgan",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-l2-q25",
+          "sourceId": "dld-lecture-2",
+          "slide": 83,
+          "subject": "Digital Logic",
+          "topic": "Duality",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "If fᵈ is the dual of Boolean function f, what is (fᵈ)ᵈ?",
+          "options": null,
+          "answer": "f",
+          "explanation": "Taking dual twice returns the original function: (fᵈ)ᵈ = f.",
+          "tags": [
+            "dual"
+          ]
+        },
+        {
+          "id": "dld-l1-q21",
+          "sourceId": "dld-lecture-1",
+          "slide": 44,
+          "subject": "Digital Logic",
+          "topic": "Binary Number System",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Convert (1001)₂ to decimal.",
+          "options": null,
+          "answer": "9",
+          "explanation": "1001₂ = 1·2³ + 0·2² + 0·2¹ + 1·2⁰ = 8 + 1 = 9.",
+          "tags": [
+            "binary-to-decimal"
+          ]
+        },
+        {
+          "id": "dld-l1-q22",
+          "sourceId": "dld-lecture-1",
+          "slide": 49,
+          "subject": "Digital Logic",
+          "topic": "Binary Number System",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Convert (11101)₂ to decimal.",
+          "options": null,
+          "answer": "29",
+          "explanation": "11101₂ = 16 + 8 + 4 + 0 + 1 = 29.",
+          "tags": [
+            "binary-to-decimal"
+          ]
+        },
+        {
+          "id": "dld-l1-q23",
+          "sourceId": "dld-lecture-1",
+          "slide": 57,
+          "subject": "Digital Logic",
+          "topic": "Decimal to Binary",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Convert (53)₁₀ to binary.",
+          "options": null,
+          "answer": "110101",
+          "explanation": "Repeated division by 2 (remainders LSB→MSB) gives 110101₂. Check: 32+16+4+1 = 53.",
+          "tags": [
+            "decimal-to-binary"
+          ]
+        },
+        {
+          "id": "dld-l1-q24",
+          "sourceId": "dld-lecture-1",
+          "slide": 61,
+          "subject": "Digital Logic",
+          "topic": "Decimal to Binary",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Convert (156)₁₀ to binary.",
+          "options": null,
+          "answer": "10011100",
+          "explanation": "Repeated division by 2 yields 10011100₂.",
+          "tags": [
+            "decimal-to-binary"
+          ]
+        },
+        {
+          "id": "dld-l1-q25",
+          "sourceId": "dld-lecture-1",
+          "slide": 63,
+          "subject": "Digital Logic",
+          "topic": "Decimal to Binary",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Convert (239)₁₀ to binary.",
+          "options": null,
+          "answer": "11101111",
+          "explanation": "Repeated division by 2 yields 11101111₂.",
+          "tags": [
+            "decimal-to-binary"
+          ]
+        },
+        {
+          "id": "dld-l1-q26",
+          "sourceId": "dld-lecture-1",
+          "slide": 63,
+          "subject": "Digital Logic",
+          "topic": "Decimal to Binary",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Convert (64)₁₀ to binary.",
+          "options": null,
+          "answer": "1000000",
+          "explanation": "64 = 2⁶, so binary is 1 followed by six 0s: 1000000₂.",
+          "tags": [
+            "decimal-to-binary",
+            "powers-of-2"
+          ]
+        },
+        {
+          "id": "dld-l1-q27",
+          "sourceId": "dld-lecture-1",
+          "slide": 70,
+          "subject": "Digital Logic",
+          "topic": "Decimal to Binary",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Convert (212)₁₀ to binary.",
+          "options": null,
+          "answer": "11010100",
+          "explanation": "Using powers of 2: 128+64+16+4 = 212 → 11010100₂.",
+          "tags": [
+            "decimal-to-binary"
+          ]
+        },
+        {
+          "id": "dld-l1-q28",
+          "sourceId": "dld-lecture-1",
+          "slide": 75,
+          "subject": "Digital Logic",
+          "topic": "Binary Representation",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "What is the binary representation of 2ⁿ (for integer n ≥ 0)?",
+          "options": null,
+          "answer": "1 followed by n zeros",
+          "explanation": "Example: 2³ = 8 = 1000₂ (1 followed by 3 zeros).",
+          "tags": [
+            "powers-of-2",
+            "binary"
+          ]
+        },
+        {
+          "id": "dld-l1-q29",
+          "sourceId": "dld-lecture-1",
+          "slide": 76,
+          "subject": "Digital Logic",
+          "topic": "Binary Representation",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "What is the binary representation of 2ⁿ − 1?",
+          "options": null,
+          "answer": "n ones",
+          "explanation": "Example: 2⁴ − 1 = 15 = 1111₂ (four 1s).",
+          "tags": [
+            "powers-of-2",
+            "binary"
+          ]
+        },
+        {
+          "id": "dld-l1-q30",
+          "sourceId": "dld-lecture-1",
+          "slide": 85,
+          "subject": "Digital Logic",
+          "topic": "Bit Permutations",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "How many unique items can be represented using 5 bits?",
+          "options": null,
+          "answer": "32",
+          "explanation": "2⁵ = 32.",
+          "tags": [
+            "bit-permutations",
+            "2^n"
+          ]
+        },
+        {
+          "id": "dld-l1-q31",
+          "sourceId": "dld-lecture-1",
+          "slide": 120,
+          "subject": "Digital Logic",
+          "topic": "XOR Gate",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "For a 3-input XOR, X ⊕ Y ⊕ Z equals 1 when:",
+          "options": [
+            "An even number of inputs are 1",
+            "An odd number of inputs are 1",
+            "All inputs are 1",
+            "At least one input is 1"
+          ],
+          "answer": "An odd number of inputs are 1",
+          "explanation": "XOR is an odd function for any number of inputs.",
+          "tags": [
+            "xor"
+          ]
+        },
+        {
+          "id": "dld-l1-q32",
+          "sourceId": "dld-lecture-1",
+          "slide": 123,
+          "subject": "Digital Logic",
+          "topic": "XNOR Gate",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "The XNOR (equivalence) operation X ⊙ Y is 1 when:",
+          "options": [
+            "X and Y are different",
+            "X and Y are the same",
+            "Exactly one of X or Y is 1",
+            "Both X and Y are 0 only"
+          ],
+          "answer": "X and Y are the same",
+          "explanation": "XNOR / equivalence is 1 when inputs are equal (both 0 or both 1). It is XOR with complemented output.",
+          "tags": [
+            "xnor",
+            "equivalence"
+          ]
+        },
+        {
+          "id": "dld-l1-q33",
+          "sourceId": "dld-lecture-1",
+          "slide": 136,
+          "subject": "Digital Logic",
+          "topic": "Boolean Functions",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Given F1 = x + y′z, what is F1 when x=1, y=1, z=0?",
+          "options": null,
+          "answer": "1",
+          "explanation": "x=1 ⇒ F1 = 1 regardless of y′z.",
+          "tags": [
+            "boolean-function"
+          ]
+        },
+        {
+          "id": "dld-l2-q26",
+          "sourceId": "dld-lecture-2",
+          "slide": 19,
+          "subject": "Digital Logic",
+          "topic": "Boolean Equivalence",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Are F(x, y) = x + y and G(x, y) = xy + x′y + xy′ equivalent?",
+          "options": [
+            "Yes",
+            "No",
+            "Only when x=y",
+            "Only when x=0"
+          ],
+          "answer": "Yes",
+          "explanation": "G = y(x + x′) + xy′ = y + xy′ = (y + x)(y + y′) wait — simplify: xy + x′y + xy′ = y(x+x′) + xy′ = y + xy′ = (x+y)(by absorption / covering). Same truth table as x+y.",
+          "tags": [
+            "equivalence"
+          ]
+        },
+        {
+          "id": "dld-l2-q27",
+          "sourceId": "dld-lecture-2",
+          "slide": 18,
+          "subject": "Digital Logic",
+          "topic": "DeMorgan",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which expression is equivalent to (X · Y)′ by DeMorgan’s law?",
+          "options": [
+            "X′ · Y′",
+            "X′ + Y′",
+            "X + Y",
+            "(X + Y)′"
+          ],
+          "answer": "X′ + Y′",
+          "explanation": "(X · Y)′ = X′ + Y′. Similarly (X + Y)′ = X′ · Y′.",
+          "tags": [
+            "demorgan"
+          ]
+        },
+        {
+          "id": "dld-l2-q28",
+          "sourceId": "dld-lecture-2",
+          "slide": 78,
+          "subject": "Digital Logic",
+          "topic": "Duality",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Find the dual of f = x y′ + x′ z.",
+          "options": null,
+          "answer": "(x + y′)(x′ + z)",
+          "explanation": "Interchange · and +: dual is (x + y′)(x′ + z).",
+          "tags": [
+            "dual"
+          ]
+        },
+        {
+          "id": "dld-l2-q29",
+          "sourceId": "dld-lecture-2",
+          "slide": 78,
+          "subject": "Digital Logic",
+          "topic": "Complement",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Find the complement of f = x y′ + x′ z.",
+          "options": null,
+          "answer": "(x′ + y)(x + z′)",
+          "explanation": "Complement swaps operators and complements literals: f′ = (x′ + y)(x + z′).",
+          "tags": [
+            "complement"
+          ]
+        },
+        {
+          "id": "dld-l2-q30",
+          "sourceId": "dld-lecture-2",
+          "slide": 76,
+          "subject": "Digital Logic",
+          "topic": "Duality",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "When forming the dual of a Boolean expression, what happens to the variables / complemented literals?",
+          "options": [
+            "Each variable is complemented",
+            "They are left unchanged",
+            "Only complemented literals are flipped",
+            "Variables are replaced by 0 and 1"
+          ],
+          "answer": "They are left unchanged",
+          "explanation": "Duality swaps ·↔+ and 0↔1; literals (variables and their complements) stay as they are. Complementing literals is for finding the complement, not the dual.",
+          "tags": [
+            "dual",
+            "conceptual"
+          ]
+        },
+        {
+          "id": "dld-l2-q31",
+          "sourceId": "dld-lecture-2",
+          "slide": 35,
+          "subject": "Digital Logic",
+          "topic": "Boolean Algebra Laws",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which identity is the involution law?",
+          "options": [
+            "A + A = A",
+            "(A′)′ = A",
+            "A + A′ = 1",
+            "A + 0 = A"
+          ],
+          "answer": "(A′)′ = A",
+          "explanation": "Involution: complementing twice returns the original variable/expression.",
+          "tags": [
+            "laws",
+            "involution"
+          ]
+        },
+        {
+          "id": "dld-l2-q32",
+          "sourceId": "dld-lecture-2",
+          "slide": 26,
+          "subject": "Digital Logic",
+          "topic": "Boolean Algebra Laws",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which is an absorption law?",
+          "options": [
+            "A + A B = A",
+            "A + A′ = 1",
+            "(A′)′ = A",
+            "A B = B A"
+          ],
+          "answer": "A + A B = A",
+          "explanation": "Absorption (covering): A + A B = A and A(A + B) = A.",
+          "tags": [
+            "laws",
+            "absorption"
+          ]
+        },
+        {
+          "id": "dld-l2-q33",
+          "sourceId": "dld-lecture-2",
+          "slide": 29,
+          "subject": "Digital Logic",
+          "topic": "Boolean Algebra Laws",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify A + A′ B using Boolean algebra.",
+          "options": null,
+          "answer": "A + B",
+          "explanation": "A + A′B = (A + A′)(A + B) = 1·(A + B) = A + B (or by the covering / disappearing-opposite law).",
+          "tags": [
+            "laws",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-l2-q34",
+          "sourceId": "dld-lecture-2",
+          "slide": 32,
+          "subject": "Digital Logic",
+          "topic": "Boolean Algebra Laws",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "State the consensus theorem (for AND–OR form).",
+          "options": null,
+          "answer": "A B + A′ C + B C = A B + A′ C",
+          "explanation": "Consensus: the term B C is redundant — A B + A′ C + B C = A B + A′ C.",
+          "tags": [
+            "laws",
+            "consensus"
+          ]
+        }
+      ]
+    }
+  ]
+}
