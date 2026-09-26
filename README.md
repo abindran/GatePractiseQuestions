@@ -23,6 +23,8 @@ Open http://localhost:8080
 
 Your Firebase project is `gatepractisequestion`. Free Spark plan includes Hosting.
 
+Live URL: **https://gatepractisequestion.web.app**
+
 ### One-time setup
 
 1. In [Firebase Console](https://console.firebase.google.com/project/gatepractisequestion) enable:
@@ -35,24 +37,43 @@ npm install -g firebase-tools
 firebase login
 ```
 
-### Deploy
+3. After deploy, under **Authentication → Settings → Authorized domains**, confirm:
+   - `localhost`
+   - `gatepractisequestion.web.app`
+   - `gatepractisequestion.firebaseapp.com`
+
+### Manual deploy
 
 ```bash
 cd /Users/abindran-21221/PaxAutomata/GATE-Questions
 firebase deploy --only hosting
 ```
 
-Your live URL will look like:
+### CI/CD (auto-deploy on push to `main`)
 
-`https://gatepractisequestion.web.app`
+Workflow: `.github/workflows/firebase-hosting.yml`
 
-After deploy, in Firebase Console → **Authentication → Settings → Authorized domains**, confirm these are listed:
+**One-time GitHub secret** (required for Actions):
 
-- `localhost`
-- `gatepractisequestion.web.app`
-- `gatepractisequestion.firebaseapp.com`
+1. Open [Google Cloud Console → Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts?project=gatepractisequestion)
+2. **Create service account** (e.g. `github-hosting-deploy`)
+3. Grant roles:
+   - **Firebase Hosting Admin**
+   - **Firebase Authentication Admin** (optional)
+   - **Cloud Datastore User** / **Firebase Rules Admin** only if you later deploy rules from CI
+4. **Keys → Add key → JSON** → download the JSON file
+5. GitHub repo → **Settings → Secrets and variables → Actions → New repository secret**
+   - Name: `FIREBASE_SERVICE_ACCOUNT`
+   - Value: paste the **entire** JSON file contents
 
-Redeploy anytime with the same `firebase deploy --only hosting` command.
+After that, every push to `main` deploys automatically. You can also run it from the **Actions** tab → **Deploy to Firebase Hosting** → **Run workflow**.
+
+Or let the Firebase CLI wire this up interactively:
+
+```bash
+firebase init hosting:github
+```
+
 
 ## Cloud auth notes
 
