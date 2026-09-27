@@ -19,6 +19,14 @@
         "instructor": "Deepak Poonia"
       },
       {
+        "id": "dld-lecture-3",
+        "subject": "Digital Logic",
+        "topic": "Boolean Algebra (Part 3) — SOP/POS, Minterms, Maxterms, Canonical Forms",
+        "file": "/Users/abindran-21221/Abindran/GOClasses/DLD/lecture-3.pdf",
+        "provider": "GO Classes",
+        "instructor": "Deepak Poonia"
+      },
+      {
         "id": "dld-practise-1",
         "subject": "Digital Logic",
         "topic": "Boolean Algebra Practice — Circuits, Simplification, GATE PYQs",
@@ -3377,6 +3385,718 @@
             "NIELIT",
             "2017",
             "counting"
+          ]
+        },
+        {
+          "id": "dld-l3-q01",
+          "sourceId": "dld-lecture-3",
+          "slide": 13,
+          "subject": "Digital Logic",
+          "topic": "Standard Forms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which of the following are standard forms used to express Boolean functions?",
+          "options": [
+            "Only SOP and POS",
+            "SOP, CSOP, mSOP, POS, CPOS, and mPOS",
+            "Only CSOP and CPOS",
+            "Only minterm and maxterm"
+          ],
+          "answer": "SOP, CSOP, mSOP, POS, CPOS, and mPOS",
+          "explanation": "Lecture lists six standard families: SOP/CSOP/mSOP and POS/CPOS/mPOS.",
+          "tags": [
+            "sop",
+            "pos",
+            "canonical"
+          ]
+        },
+        {
+          "id": "dld-l3-q02",
+          "sourceId": "dld-lecture-3",
+          "slide": 27,
+          "subject": "Digital Logic",
+          "topic": "Product Terms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which of the following is/are a product term in Boolean algebra?\nA. AB\nB. A+B\nC. AḂC\nD. Ā+Ḃ",
+          "options": [
+            "A and C only",
+            "B and D only",
+            "A only",
+            "All of A–D"
+          ],
+          "answer": "A and C only",
+          "explanation": "A product term is an AND of literals. AB and AḂC qualify; A+B and Ā+Ḃ are sum terms.",
+          "tags": [
+            "product-term"
+          ]
+        },
+        {
+          "id": "dld-l3-q03",
+          "sourceId": "dld-lecture-3",
+          "slide": 27,
+          "subject": "Digital Logic",
+          "topic": "Product Terms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which of the following is a valid product term?",
+          "options": [
+            "A + B + C",
+            "A · Ḃ · C",
+            "A · B + C",
+            "(A + B)(C + D)"
+          ],
+          "answer": "A · Ḃ · C",
+          "explanation": "Only B is an AND of literals. (A+B) is not a literal, so D is not a product term.",
+          "tags": [
+            "product-term"
+          ]
+        },
+        {
+          "id": "dld-l3-q04",
+          "sourceId": "dld-lecture-3",
+          "slide": 29,
+          "subject": "Digital Logic",
+          "topic": "Product Terms",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Identify the option(s) that represent product terms:\nA. ĀB\nB. AB + AC\nC. A·(B+C)\nD. ABCD",
+          "options": [
+            "A and D only",
+            "A and B only",
+            "B and C only",
+            "All of A–D"
+          ],
+          "answer": "A and D only",
+          "explanation": "ĀB and ABCD are ANDs of literals. AB+AC is SOP; A(B+C) has a sum inside. Also XȲ is a product term but XȲ̅ (bar over product) is not.",
+          "tags": [
+            "product-term"
+          ]
+        },
+        {
+          "id": "dld-l3-q05",
+          "sourceId": "dld-lecture-3",
+          "slide": 31,
+          "subject": "Digital Logic",
+          "topic": "Sum Terms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which of the following is/are a sum term in Boolean algebra?\nA. A+B\nB. AB\nC. A′+B\nD. A′B + AB′",
+          "options": [
+            "A and C only",
+            "B and D only",
+            "A only",
+            "All of A–D"
+          ],
+          "answer": "A and C only",
+          "explanation": "A sum term is an OR of literals. AB is a product; A′B+AB′ is an SOP, not a single sum term.",
+          "tags": [
+            "sum-term"
+          ]
+        },
+        {
+          "id": "dld-l3-q06",
+          "sourceId": "dld-lecture-3",
+          "slide": 31,
+          "subject": "Digital Logic",
+          "topic": "Sum Terms",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Which of the following is/are sum terms?\nA. A′+B′+C\nB. (A+B)(C+D)\nC. A+B+CD\nD. A+B+C+D",
+          "options": [
+            "A and D only",
+            "A, C and D",
+            "B and C only",
+            "All of A–D"
+          ],
+          "answer": "A and D only",
+          "explanation": "CD is not a literal, so A+B+CD is not a sum term. (A+B)(C+D) is POS, not a single sum term.",
+          "tags": [
+            "sum-term"
+          ]
+        },
+        {
+          "id": "dld-l3-q07",
+          "sourceId": "dld-lecture-3",
+          "slide": 35,
+          "subject": "Digital Logic",
+          "topic": "SOP Form",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "An SOP (sum of products) expression is:",
+          "options": [
+            "An OR of product terms",
+            "An AND of sum terms",
+            "Only a sum of minterms",
+            "Only a single product term"
+          ],
+          "answer": "An OR of product terms",
+          "explanation": "SOP = P₁ + P₂ + … where each Pᵢ is a product term (AND of literals).",
+          "tags": [
+            "sop"
+          ]
+        },
+        {
+          "id": "dld-l3-q08",
+          "sourceId": "dld-lecture-3",
+          "slide": 38,
+          "subject": "Digital Logic",
+          "topic": "SOP Form",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which of the following is/are SOP expressions?\nA. AB + A′C\nB. (A+B)(C+D)\nC. A+B+C\nD. A′B + BC + AB′C",
+          "options": [
+            "A, C and D",
+            "A and D only",
+            "B and C only",
+            "All of A–D"
+          ],
+          "answer": "A, C and D",
+          "explanation": "B is POS. A single literal is a trivial product term, so A+B+C is SOP (OR of product terms).",
+          "tags": [
+            "sop"
+          ]
+        },
+        {
+          "id": "dld-l3-q09",
+          "sourceId": "dld-lecture-3",
+          "slide": 38,
+          "subject": "Digital Logic",
+          "topic": "SOP Form",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which of the following is/are SOP expressions?\nA. AB + A + BC\nB. A(B+C)\nC. (A+B)(C+D)\nD. A′B′ + ABC + B′C",
+          "options": [
+            "A and D only",
+            "B and C only",
+            "A, B and D",
+            "All of A–D"
+          ],
+          "answer": "A and D only",
+          "explanation": "B factors as a product of a literal and a sum (not pure SOP). C is POS.",
+          "tags": [
+            "sop"
+          ]
+        },
+        {
+          "id": "dld-l3-q10",
+          "sourceId": "dld-lecture-3",
+          "slide": 42,
+          "subject": "Digital Logic",
+          "topic": "SOP Form",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "The expression (AB)̅·C·D̅ + A·Ḃ·D + C·D̅ + A·D̅ is not in SOP form. After converting to SOP, it becomes:",
+          "options": [
+            "ĀCD̅ + ḂCD̅ + AḂD + CD̅ + AD̅",
+            "(A+B)CD̅ + AḂD + CD̅ + AD̅",
+            "(AB)̅ CD̅ + AḂD + CD̅ + AD̅ (already SOP)",
+            "ABCD + AḂD + CD + AD"
+          ],
+          "answer": "ĀCD̅ + ḂCD̅ + AḂD + CD̅ + AD̅",
+          "explanation": "Apply DeMorgan: (AB)̅ = Ā+Ḃ, then distribute over CD̅ to get SOP.",
+          "tags": [
+            "sop",
+            "demorgan"
+          ]
+        },
+        {
+          "id": "dld-l3-q11",
+          "sourceId": "dld-lecture-3",
+          "slide": 44,
+          "subject": "Digital Logic",
+          "topic": "POS Form",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "A POS (product of sums) expression is:",
+          "options": [
+            "An AND of sum terms",
+            "An OR of product terms",
+            "Only a product of maxterms",
+            "Only a single sum term"
+          ],
+          "answer": "An AND of sum terms",
+          "explanation": "POS = (S₁)·(S₂)·… where each Sᵢ is a sum term (OR of literals).",
+          "tags": [
+            "pos"
+          ]
+        },
+        {
+          "id": "dld-l3-q12",
+          "sourceId": "dld-lecture-3",
+          "slide": 47,
+          "subject": "Digital Logic",
+          "topic": "POS Form",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which of the following is/are POS expressions?\nA. (A+B)(C+D)\nB. AB+CD\nC. (A+B+C)(A′+B′)\nD. A+B+C",
+          "options": [
+            "A, C and D",
+            "A and C only",
+            "B and D only",
+            "All of A–D"
+          ],
+          "answer": "A, C and D",
+          "explanation": "B is SOP. A single sum term A+B+C counts as POS (one factor).",
+          "tags": [
+            "pos"
+          ]
+        },
+        {
+          "id": "dld-l3-q13",
+          "sourceId": "dld-lecture-3",
+          "slide": 51,
+          "subject": "Digital Logic",
+          "topic": "SOP and POS",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "The expression f(a,b,c) = a + b + c is in:",
+          "options": [
+            "SOP form only",
+            "POS form only",
+            "Both SOP and POS form",
+            "Neither SOP nor POS"
+          ],
+          "answer": "Both SOP and POS form",
+          "explanation": "As (a)+(b)+(c) it is SOP; as the single sum factor (a+b+c) it is POS.",
+          "tags": [
+            "sop",
+            "pos"
+          ]
+        },
+        {
+          "id": "dld-l3-q14",
+          "sourceId": "dld-lecture-3",
+          "slide": 58,
+          "subject": "Digital Logic",
+          "topic": "SOP and POS",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "A single product term such as ABĈ is in:",
+          "options": [
+            "SOP form only",
+            "POS form only",
+            "Both SOP and POS form",
+            "Neither"
+          ],
+          "answer": "Both SOP and POS form",
+          "explanation": "One product term is a trivial SOP; as AND of single-literal sum factors A·B·Ĉ it is also POS.",
+          "tags": [
+            "sop",
+            "pos"
+          ]
+        },
+        {
+          "id": "dld-l3-q15",
+          "sourceId": "dld-lecture-3",
+          "slide": 60,
+          "subject": "Digital Logic",
+          "topic": "Minterms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "A minterm is:",
+          "options": [
+            "A product term that includes ALL variables of the function (each complemented or not)",
+            "A sum term that includes ALL variables of the function",
+            "Any product term with at least one literal",
+            "Any expression that equals 1"
+          ],
+          "answer": "A product term that includes ALL variables of the function (each complemented or not)",
+          "explanation": "Minterm = product of one literal from every variable.",
+          "tags": [
+            "minterm"
+          ]
+        },
+        {
+          "id": "dld-l3-q16",
+          "sourceId": "dld-lecture-3",
+          "slide": 64,
+          "subject": "Digital Logic",
+          "topic": "Minterms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which of the following is a minterm for Boolean function f(x, y, z)?",
+          "options": [
+            "xy",
+            "xyz",
+            "xȳ",
+            "x + y + z"
+          ],
+          "answer": "xyz",
+          "explanation": "Only xyz uses all three variables as a product. xy and xȳ miss z; x+y+z is a maxterm (sum), not a minterm.",
+          "tags": [
+            "minterm"
+          ]
+        },
+        {
+          "id": "dld-l3-q17",
+          "sourceId": "dld-lecture-3",
+          "slide": 65,
+          "subject": "Digital Logic",
+          "topic": "Maxterms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "A maxterm is:",
+          "options": [
+            "A sum term of ALL variables (each complemented or not)",
+            "A product term of ALL variables",
+            "Any sum term with at least one literal",
+            "The dual of a product term"
+          ],
+          "answer": "A sum term of ALL variables (each complemented or not)",
+          "explanation": "Maxterm = OR of one literal from every variable.",
+          "tags": [
+            "maxterm"
+          ]
+        },
+        {
+          "id": "dld-l3-q18",
+          "sourceId": "dld-lecture-3",
+          "slide": 68,
+          "subject": "Digital Logic",
+          "topic": "Standard Forms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "In the definitions of product/sum terms, SOP/POS, minterms/maxterms, etc., does the order of terms or literals matter?",
+          "options": [
+            "No — order does not matter",
+            "Yes — literals must be alphabetical",
+            "Yes — minterms must be listed ascending",
+            "Only for maxterms"
+          ],
+          "answer": "No — order does not matter",
+          "explanation": "e.g. aḃc = ḃac and a+bc = bc+a are the same terms/expressions.",
+          "tags": [
+            "commutative"
+          ]
+        },
+        {
+          "id": "dld-l3-q19",
+          "sourceId": "dld-lecture-3",
+          "slide": 70,
+          "subject": "Digital Logic",
+          "topic": "Minterms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "For a system with n Boolean variables, how many minterms are there?",
+          "options": [
+            "n",
+            "2n",
+            "2ⁿ",
+            "n²"
+          ],
+          "answer": "2ⁿ",
+          "explanation": "Each of n variables has 2 literal choices → 2ⁿ product combinations.",
+          "tags": [
+            "minterm",
+            "counting"
+          ]
+        },
+        {
+          "id": "dld-l3-q20",
+          "sourceId": "dld-lecture-3",
+          "slide": 72,
+          "subject": "Digital Logic",
+          "topic": "Maxterms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "For a system with n Boolean variables, how many maxterms are there?",
+          "options": [
+            "n",
+            "2n",
+            "2ⁿ",
+            "n!"
+          ],
+          "answer": "2ⁿ",
+          "explanation": "Same counting: each variable appears as xᵢ or x̄ᵢ in the sum → 2ⁿ maxterms.",
+          "tags": [
+            "maxterm",
+            "counting"
+          ]
+        },
+        {
+          "id": "dld-l3-q21",
+          "sourceId": "dld-lecture-3",
+          "slide": 100,
+          "subject": "Digital Logic",
+          "topic": "Minterms and Maxterms",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "For any given input combination (truth-table row), the corresponding minterm and maxterm are related by:",
+          "options": [
+            "Mᵢ = m̄ᵢ and mᵢ = M̄ᵢ",
+            "Mᵢ = mᵢ",
+            "Mᵢ = mᵢ + 1",
+            "There is no fixed relationship"
+          ],
+          "answer": "Mᵢ = m̄ᵢ and mᵢ = M̄ᵢ",
+          "explanation": "For the same row i, the maxterm is the complement of the minterm (and vice versa).",
+          "tags": [
+            "minterm",
+            "maxterm"
+          ]
+        },
+        {
+          "id": "dld-l3-q22",
+          "sourceId": "dld-lecture-3",
+          "slide": 117,
+          "subject": "Digital Logic",
+          "topic": "Minterms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "In standard usage, “minterms of a function f” means:",
+          "options": [
+            "The minterms where f = 1 (true-minterms)",
+            "All 2ⁿ possible minterms",
+            "The minterms where f = 0",
+            "Only the essential prime implicants"
+          ],
+          "answer": "The minterms where f = 1 (true-minterms)",
+          "explanation": "True-minterm = minterm of f; lecture: minterms of f = 1-minterms of f.",
+          "tags": [
+            "minterm"
+          ]
+        },
+        {
+          "id": "dld-l3-q23",
+          "sourceId": "dld-lecture-3",
+          "slide": 122,
+          "subject": "Digital Logic",
+          "topic": "Canonical Forms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Any Boolean function F can be expressed as a sum (OR) of:",
+          "options": [
+            "Minterms for which F = 1 in the truth table",
+            "Minterms for which F = 0",
+            "Maxterms for which F = 1",
+            "Any product terms of F"
+          ],
+          "answer": "Minterms for which F = 1 in the truth table",
+          "explanation": "Sum-of-minterms (SOM / CSOP): OR all minterms with F=1.",
+          "tags": [
+            "csop",
+            "som"
+          ]
+        },
+        {
+          "id": "dld-l3-q24",
+          "sourceId": "dld-lecture-3",
+          "slide": 128,
+          "subject": "Digital Logic",
+          "topic": "Canonical Forms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Sum of Minterms (SOM) form is also called:",
+          "options": [
+            "Canonical sum of products (CSOP) / minterm expansion",
+            "Minimal SOP only",
+            "Canonical product of sums (CPOS)",
+            "Disjunctive incomplete form"
+          ],
+          "answer": "Canonical sum of products (CSOP) / minterm expansion",
+          "explanation": "SOM = CSOP = canonical DNF = principle/standard DNF.",
+          "tags": [
+            "csop",
+            "som"
+          ]
+        },
+        {
+          "id": "dld-l3-q25",
+          "sourceId": "dld-lecture-3",
+          "slide": 137,
+          "subject": "Digital Logic",
+          "topic": "Canonical Forms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Any Boolean function F can be expressed as a product (AND) of:",
+          "options": [
+            "Maxterms for which F = 0 in the truth table",
+            "Maxterms for which F = 1",
+            "Minterms for which F = 0",
+            "Any sum terms of F"
+          ],
+          "answer": "Maxterms for which F = 0 in the truth table",
+          "explanation": "Product-of-maxterms (POM / CPOS): AND all maxterms with F=0.",
+          "tags": [
+            "cpos",
+            "pom"
+          ]
+        },
+        {
+          "id": "dld-l3-q26",
+          "sourceId": "dld-lecture-3",
+          "slide": 141,
+          "subject": "Digital Logic",
+          "topic": "Canonical Forms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Product of Maxterms (POM) form is also called:",
+          "options": [
+            "Canonical product of sums (CPOS) / maxterm expansion",
+            "Canonical sum of products (CSOP)",
+            "Minimal POS only",
+            "Sum of products"
+          ],
+          "answer": "Canonical product of sums (CPOS) / maxterm expansion",
+          "explanation": "POM = CPOS = canonical CNF = principle/standard CNF.",
+          "tags": [
+            "cpos",
+            "pom"
+          ]
+        },
+        {
+          "id": "dld-l3-q27",
+          "sourceId": "dld-lecture-3",
+          "slide": 162,
+          "subject": "Digital Logic",
+          "topic": "Canonical Form Conversion",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Convert F(x,y,z) = Σ(1,2,3,5) to the other canonical form:",
+          "options": [
+            "Π(0,4,6,7)",
+            "Π(1,2,3,5)",
+            "Σ(0,4,6,7)",
+            "Π(0,1,2,3)"
+          ],
+          "answer": "Π(0,4,6,7)",
+          "explanation": "For 3 variables, indices {0…7} minus {1,2,3,5} = {0,4,6,7}.",
+          "tags": [
+            "canonical",
+            "conversion"
+          ]
+        },
+        {
+          "id": "dld-l3-q28",
+          "sourceId": "dld-lecture-3",
+          "slide": 162,
+          "subject": "Digital Logic",
+          "topic": "Canonical Form Conversion",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Convert F(x,y,z) = Π(0,3,6,7) to the other canonical form:",
+          "options": [
+            "Σ(1,2,4,5)",
+            "Σ(0,3,6,7)",
+            "Π(1,2,4,5)",
+            "Σ(0,1,2,3)"
+          ],
+          "answer": "Σ(1,2,4,5)",
+          "explanation": "{0…7} − {0,3,6,7} = {1,2,4,5}.",
+          "tags": [
+            "canonical",
+            "conversion"
+          ]
+        },
+        {
+          "id": "dld-l3-q29",
+          "sourceId": "dld-lecture-3",
+          "slide": 169,
+          "subject": "Digital Logic",
+          "topic": "Canonical Form Conversion",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Convert F(A,B,C,D) = Σ(0,2,6,11,13,14) to the other canonical form:",
+          "options": [
+            "Π(1,3,4,5,7,8,9,10,12,15)",
+            "Π(0,2,6,11,13,14)",
+            "Σ(1,3,4,5,7,8,9,10,12,15)",
+            "Π(1,2,3,4,5)"
+          ],
+          "answer": "Π(1,3,4,5,7,8,9,10,12,15)",
+          "explanation": "4 variables → indices 0–15; take the complement of the given minterm list.",
+          "tags": [
+            "canonical",
+            "conversion"
+          ]
+        },
+        {
+          "id": "dld-l3-q30",
+          "sourceId": "dld-lecture-3",
+          "slide": 176,
+          "subject": "Digital Logic",
+          "topic": "Function Complement",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "If f(x,y,z) = Σ(0,2,3,5,7), then f′ as a product of maxterms is:",
+          "options": [
+            "Π(0,2,3,5,7)",
+            "Π(1,4,6)",
+            "Σ(0,2,3,5,7)",
+            "Σ(1,4,6)"
+          ],
+          "answer": "Π(0,2,3,5,7)",
+          "explanation": "Complement of a sum-of-minterms is the product-of-maxterms with the same indices (interchange Σ↔Π, keep the list).",
+          "tags": [
+            "complement",
+            "canonical"
+          ]
+        },
+        {
+          "id": "dld-l3-q31",
+          "sourceId": "dld-lecture-3",
+          "slide": 176,
+          "subject": "Digital Logic",
+          "topic": "Function Complement",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "If f(x,y,z) = Σ(0,2,3,5,7) = Π(1,4,6), then f′ as a sum of minterms is:",
+          "options": [
+            "Σ(1,4,6)",
+            "Σ(0,2,3,5,7)",
+            "Π(1,4,6)",
+            "Π(0,2,3,5,7)"
+          ],
+          "answer": "Σ(1,4,6)",
+          "explanation": "f′ uses the indices where f=0 as its true minterms — same list as f’s maxterms.",
+          "tags": [
+            "complement",
+            "canonical"
+          ]
+        },
+        {
+          "id": "dld-l3-q32",
+          "sourceId": "dld-lecture-3",
+          "slide": 182,
+          "subject": "Digital Logic",
+          "topic": "Canonical Forms",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "For f(x,y,z) = x + yz, the canonical sum-of-minterms (CSOP) is:",
+          "options": [
+            "m₃ + m₄ + m₅ + m₆ + m₇  (i.e. Σ(3,4,5,6,7))",
+            "Σ(0,1,2)",
+            "Only x + yz (already CSOP)",
+            "m₀ + m₁ + m₂"
+          ],
+          "answer": "m₃ + m₄ + m₅ + m₆ + m₇  (i.e. Σ(3,4,5,6,7))",
+          "explanation": "f=1 on rows 011,100,101,110,111. SOP x+yz is not canonical; CSOP expands to those minterms.",
+          "tags": [
+            "csop",
+            "sop"
+          ]
+        },
+        {
+          "id": "dld-l3-q33",
+          "sourceId": "dld-lecture-3",
+          "slide": 186,
+          "subject": "Digital Logic",
+          "topic": "Canonical Forms",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which statement is correct for any Boolean function f?",
+          "options": [
+            "CSOP and CPOS are unique; SOP and POS are not unique",
+            "SOP and POS are unique; CSOP and CPOS are not",
+            "All of CSOP, CPOS, SOP, POS are unique",
+            "None of the forms is unique"
+          ],
+          "answer": "CSOP and CPOS are unique; SOP and POS are not unique",
+          "explanation": "Canonical minterm/maxterm expansions are unique; ordinary SOP/POS can be rewritten many ways.",
+          "tags": [
+            "canonical",
+            "uniqueness"
           ]
         }
       ]
