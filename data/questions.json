@@ -17,9 +17,25 @@
         "file": "/Users/abindran-21221/Abindran/GOClasses/DLD/lecture-2.pdf",
         "provider": "GO Classes",
         "instructor": "Deepak Poonia"
+      },
+      {
+        "id": "dld-practise-1",
+        "subject": "Digital Logic",
+        "topic": "Boolean Algebra Practice — Circuits, Simplification, GATE PYQs",
+        "file": "/Users/abindran-21221/Abindran/GOClasses/DLD/practise-1.pdf",
+        "provider": "GO Classes",
+        "instructor": "Deepak Poonia"
+      },
+      {
+        "id": "dld-practise-2",
+        "subject": "Digital Logic",
+        "topic": "Boolean Algebra Practice — GATE PYQs (1999–2016)",
+        "file": "/Users/abindran-21221/Abindran/GOClasses/DLD/practise-2.pdf",
+        "provider": "GO Classes",
+        "instructor": "Deepak Poonia"
       }
     ],
-    "updatedAt": "2026-09-26",
+    "updatedAt": "2026-09-27",
     "structure": "grouped-by-subject"
   },
   "subjects": [
@@ -1284,6 +1300,984 @@
           "tags": [
             "laws",
             "consensus"
+          ]
+        },
+        {
+          "id": "dld-p1-q01",
+          "sourceId": "dld-practise-1",
+          "slide": 16,
+          "subject": "Digital Logic",
+          "topic": "Logic Circuits",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Write the Boolean expression for a circuit where A and B go into an AND gate, and that result with C goes into an OR gate to produce Z.",
+          "options": null,
+          "answer": "Z = AB + C",
+          "explanation": "AND of A,B followed by OR with C ⇒ Z = (A·B) + C.",
+          "tags": [
+            "circuit-to-expression",
+            "and",
+            "or"
+          ]
+        },
+        {
+          "id": "dld-p1-q02",
+          "sourceId": "dld-practise-1",
+          "slide": 16,
+          "subject": "Digital Logic",
+          "topic": "Logic Circuits",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Write the Boolean expression for a circuit with OR(A,B), OR(C,D), then OR of those two outputs producing Z.",
+          "options": null,
+          "answer": "Z = A + B + C + D",
+          "explanation": "Z = (A+B)+(C+D) = A+B+C+D.",
+          "tags": [
+            "circuit-to-expression",
+            "or"
+          ]
+        },
+        {
+          "id": "dld-p1-q03",
+          "sourceId": "dld-practise-1",
+          "slide": 18,
+          "subject": "Digital Logic",
+          "topic": "Logic Circuits",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "A circuit with AND(Ā,B), AND(A,C̄), AND(A,B,C) feeding an OR to X implements X = ĀB + AC̄ + ABC. True or False?",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True",
+          "explanation": "The three AND outputs OR together give exactly ĀB + AC̄ + ABC.",
+          "tags": [
+            "circuit",
+            "true-false"
+          ]
+        },
+        {
+          "id": "dld-p1-q04",
+          "sourceId": "dld-practise-1",
+          "slide": 21,
+          "subject": "Digital Logic",
+          "topic": "Logic Circuits",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "In a circuit with X = A B̄, Y = A ⊙ B (XNOR), Z = B Ā: if A=0 and B=1, what are X, Y, Z?",
+          "options": [
+            "X=1, Y=1, Z=0",
+            "X=1, Y=0, Z=0",
+            "X=0, Y=0, Z=1",
+            "X=0, Y=1, Z=0"
+          ],
+          "answer": "X=0, Y=0, Z=1",
+          "explanation": "X=0·0=0; XNOR(0,1)=0; Z=1·1=1.",
+          "tags": [
+            "circuit",
+            "xnor"
+          ]
+        },
+        {
+          "id": "dld-p1-q05",
+          "sourceId": "dld-practise-1",
+          "slide": 25,
+          "subject": "Digital Logic",
+          "topic": "Logic Circuits",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "A circuit with NOR(X, Ȳ) feeding into NOR(X̄, ·) simplifies to which minimized form?",
+          "options": [
+            "A: NOT of X (X̄)",
+            "B: AND of X and Ȳ",
+            "C: AND of X̄ and Y",
+            "D: buffer / just X"
+          ],
+          "answer": "D: buffer / just X",
+          "explanation": "Algebra yields Z = X. Minimized circuit is just output X.",
+          "tags": [
+            "minimize",
+            "nor"
+          ]
+        },
+        {
+          "id": "dld-p1-q06",
+          "sourceId": "dld-practise-1",
+          "slide": 30,
+          "subject": "Digital Logic",
+          "topic": "Logic Circuits",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "For a logic circuit that expands to D = (A+C)(AC + B̄C), simplify D.",
+          "options": null,
+          "answer": "D = C(A + B̄)",
+          "explanation": "Expand and absorb: D = AC + B̄C = C(A + B̄).",
+          "tags": [
+            "simplify",
+            "circuit"
+          ]
+        },
+        {
+          "id": "dld-p1-q07",
+          "sourceId": "dld-practise-1",
+          "slide": 33,
+          "subject": "Digital Logic",
+          "topic": "Logic Circuits",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify Q = A + B + A(C + B) before drawing its circuit.",
+          "options": null,
+          "answer": "Q = A + B",
+          "explanation": "A + A(C+B) + B = A + B by absorption.",
+          "tags": [
+            "simplify",
+            "absorption"
+          ]
+        },
+        {
+          "id": "dld-p1-q08",
+          "sourceId": "dld-practise-1",
+          "slide": 37,
+          "subject": "Digital Logic",
+          "topic": "Logic Gates",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Two NAND gates in series where the second NAND has both inputs tied to the first NAND’s output is equivalent to which single gate?",
+          "options": [
+            "OR",
+            "AND",
+            "NOR",
+            "XOR"
+          ],
+          "answer": "AND",
+          "explanation": "X = ((AB)')' = AB. Equivalent to AND.",
+          "tags": [
+            "nand",
+            "equivalent-gate"
+          ]
+        },
+        {
+          "id": "dld-p1-q09",
+          "sourceId": "dld-practise-1",
+          "slide": 39,
+          "subject": "Digital Logic",
+          "topic": "Logic Gates",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "NAND used as NOT on A, NAND as NOT on B, then NAND of those outputs is equivalent to which single gate?",
+          "options": [
+            "AND",
+            "OR",
+            "NOR",
+            "XOR"
+          ],
+          "answer": "OR",
+          "explanation": "X = (A' · B')' = A + B.",
+          "tags": [
+            "nand",
+            "equivalent-gate"
+          ]
+        },
+        {
+          "id": "dld-p1-q10",
+          "sourceId": "dld-practise-1",
+          "slide": 40,
+          "subject": "Digital Logic",
+          "topic": "Logic Circuits",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Write a Boolean expression for: X=1 if (A=1 AND B=1) OR ((B=NOT 1) AND C=1).",
+          "options": null,
+          "answer": "X = AB + B′C",
+          "explanation": "Direct translation: X = (A·B) + (B′·C).",
+          "tags": [
+            "expression-from-statement"
+          ]
+        },
+        {
+          "id": "dld-p1-q11",
+          "sourceId": "dld-practise-1",
+          "slide": 42,
+          "subject": "Digital Logic",
+          "topic": "Logic Circuits",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Circuit1: OR of AND(Ā,B) and AND(B,C̄). Circuit2: NAND of NAND(Ā,B) and NAND(B,C̄). Are the two circuits equal?",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True",
+          "explanation": "Both realize Y = ĀB + BC̄ (AOI vs NAND–NAND form).",
+          "tags": [
+            "equivalence",
+            "nand"
+          ]
+        },
+        {
+          "id": "dld-p1-q12",
+          "sourceId": "dld-practise-1",
+          "slide": 49,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify A + A′.",
+          "options": null,
+          "answer": "1",
+          "explanation": "Complementarity: A + A′ = 1.",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q13",
+          "sourceId": "dld-practise-1",
+          "slide": 49,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify A(A′ + B).",
+          "options": null,
+          "answer": "AB",
+          "explanation": "A A′ + AB = 0 + AB = AB.",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q14",
+          "sourceId": "dld-practise-1",
+          "slide": 49,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify (A′ + B′)(A′ + B).",
+          "options": null,
+          "answer": "A′",
+          "explanation": "Distributive: A′ + A′B + A′B′ + B′B = A′.",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q15",
+          "sourceId": "dld-practise-1",
+          "slide": 49,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify A′ + A′B.",
+          "options": null,
+          "answer": "A′",
+          "explanation": "Absorption: A′ + A′B = A′.",
+          "tags": [
+            "simplify",
+            "absorption"
+          ]
+        },
+        {
+          "id": "dld-p1-q16",
+          "sourceId": "dld-practise-1",
+          "slide": 49,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify A′(ABCD)′.",
+          "options": null,
+          "answer": "A′",
+          "explanation": "(ABCD)′ = A′+B′+C′+D′ ⇒ A′(A′+…) = A′.",
+          "tags": [
+            "simplify",
+            "demorgan"
+          ]
+        },
+        {
+          "id": "dld-p1-q17",
+          "sourceId": "dld-practise-1",
+          "slide": 51,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify (A + B) + B′.",
+          "options": null,
+          "answer": "1",
+          "explanation": "A + (B + B′) = A + 1 = 1.",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q18",
+          "sourceId": "dld-practise-1",
+          "slide": 51,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify AA + BC + BC′.",
+          "options": null,
+          "answer": "A + B",
+          "explanation": "A + B(C+C′) = A + B.",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q19",
+          "sourceId": "dld-practise-1",
+          "slide": 51,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify A′ + C + AB.",
+          "options": null,
+          "answer": "A′ + B + C",
+          "explanation": "Using α + α′β = α + β: A′ + AB = A′ + B, then + C.",
+          "tags": [
+            "simplify",
+            "covering"
+          ]
+        },
+        {
+          "id": "dld-p1-q20",
+          "sourceId": "dld-practise-1",
+          "slide": 51,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify A′(B + AC).",
+          "options": null,
+          "answer": "A′B",
+          "explanation": "A′B + A′AC = A′B + 0 = A′B.",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q21",
+          "sourceId": "dld-practise-1",
+          "slide": 55,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "The simplification of (A′ B C′)′ + (A B′ C)′ is:",
+          "options": [
+            "0",
+            "1",
+            "A",
+            "BC"
+          ],
+          "answer": "1",
+          "explanation": "DeMorgan → (A+B′+C)+(A′+B+C′) = 1 by complementarity pairs.",
+          "tags": [
+            "simplify",
+            "demorgan",
+            "mcq"
+          ]
+        },
+        {
+          "id": "dld-p1-q22",
+          "sourceId": "dld-practise-1",
+          "slide": 60,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify A(A + B).",
+          "options": null,
+          "answer": "A",
+          "explanation": "Absorption: A + AB = A, or AA + AB = A.",
+          "tags": [
+            "simplify",
+            "absorption"
+          ]
+        },
+        {
+          "id": "dld-p1-q23",
+          "sourceId": "dld-practise-1",
+          "slide": 60,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify A(A′ + AB).",
+          "options": null,
+          "answer": "AB",
+          "explanation": "AA′ + AAB = 0 + AB = AB.",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q24",
+          "sourceId": "dld-practise-1",
+          "slide": 60,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify BC + B′C.",
+          "options": null,
+          "answer": "C",
+          "explanation": "C(B + B′) = C.",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q25",
+          "sourceId": "dld-practise-1",
+          "slide": 60,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify A(A + A′B).",
+          "options": null,
+          "answer": "A",
+          "explanation": "A + A′B = A + B, then A(A+B)=A; or distribute AA + AA′B = A.",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q26",
+          "sourceId": "dld-practise-1",
+          "slide": 60,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Simplify A B′ C + A′ B C + A′ B′ C.",
+          "options": null,
+          "answer": "C(A′ + B′)",
+          "explanation": "Factor C: C(AB′ + A′B + A′B′) = C(A′ + AB′) = C(A′ + B′).",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q27",
+          "sourceId": "dld-practise-1",
+          "slide": 63,
+          "subject": "Digital Logic",
+          "topic": "Logic Gates",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "A circuit uses NOR(A,A) and NOR(B,B) feeding a NAND. Which logic function does it generate?",
+          "options": [
+            "OR",
+            "AND",
+            "NOR",
+            "NAND"
+          ],
+          "answer": "OR",
+          "explanation": "Y = (A′ · B′)′ = A + B.",
+          "tags": [
+            "nor",
+            "nand",
+            "equivalent-gate"
+          ]
+        },
+        {
+          "id": "dld-p1-q28",
+          "sourceId": "dld-practise-1",
+          "slide": 65,
+          "subject": "Digital Logic",
+          "topic": "Duality",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "The dual of the Boolean function x + yz is:",
+          "options": [
+            "x̄(ȳ + z̄)",
+            "x(y + z)",
+            "x + yz",
+            "x̄ + ȳz̄"
+          ],
+          "answer": "x(y + z)",
+          "explanation": "Swap + ↔ ·: dual of x + (y·z) is x·(y+z).",
+          "tags": [
+            "dual",
+            "GATE-style"
+          ]
+        },
+        {
+          "id": "dld-p1-q29",
+          "sourceId": "dld-practise-1",
+          "slide": 67,
+          "subject": "Digital Logic",
+          "topic": "DeMorgan",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Applying DeMorgan’s theorem to ((X+Y)′ + Z′)′ we get:",
+          "options": [
+            "(X+Y)Z",
+            "(X′+Y′)Z′",
+            "(X′+Y′)Z",
+            "(X+Y)Z′"
+          ],
+          "answer": "(X+Y)Z",
+          "explanation": "((X+Y)′)′ · (Z′)′ = (X+Y)Z.",
+          "tags": [
+            "demorgan"
+          ]
+        },
+        {
+          "id": "dld-p1-q30",
+          "sourceId": "dld-practise-1",
+          "slide": 69,
+          "subject": "Digital Logic",
+          "topic": "Multiplexer",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "In a 4-to-1 MUX (NAND implementation) with data A,B,C,D: if S₁=1 and S₂=0, output X equals:",
+          "options": [
+            "X = A",
+            "X = B",
+            "X = C",
+            "X = D"
+          ],
+          "answer": "X = C",
+          "explanation": "Select code S₁S₂=10 selects input C.",
+          "tags": [
+            "mux",
+            "combinational"
+          ]
+        },
+        {
+          "id": "dld-p1-q31",
+          "sourceId": "dld-practise-1",
+          "slide": 71,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "hard",
+          "question": "Simplify (a·b·(c + (b·d)′) + (a·b)′)·c·d.",
+          "options": null,
+          "answer": "cd",
+          "explanation": "After DeMorgan/distribution most terms vanish with ·d and ·c; reduces to cd.",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q32",
+          "sourceId": "dld-practise-1",
+          "slide": 74,
+          "subject": "Digital Logic",
+          "topic": "Boolean Algebra Laws",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Prove (by algebraic manipulation) that 1 = A′B + B′C′ + AB + B′C.",
+          "options": null,
+          "answer": "1",
+          "explanation": "B(A′+A) + B′(C′+C) = B + B′ = 1.",
+          "tags": [
+            "prove",
+            "complementarity"
+          ]
+        },
+        {
+          "id": "dld-p1-q33",
+          "sourceId": "dld-practise-1",
+          "slide": 76,
+          "subject": "Digital Logic",
+          "topic": "Boolean Algebra Laws",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Prove that X + Y = XY′ + X′Y + XY.",
+          "options": null,
+          "answer": "X + Y",
+          "explanation": "RHS = X(Y′+Y) + X′Y = X + X′Y = X + Y.",
+          "tags": [
+            "prove",
+            "equivalence"
+          ]
+        },
+        {
+          "id": "dld-p1-q34",
+          "sourceId": "dld-practise-1",
+          "slide": 79,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Simplify AB′ + ABC′ + ABCD′ + ABCDE (as much as possible).",
+          "options": null,
+          "answer": "A(B′ + C′ + D′ + E)",
+          "explanation": "Factor A: A[B′ + BC′ + BCD′ + BCDE]. Then B′+BX=B′+X repeatedly: B′+C′+D′+E. So A(B′+C′+D′+E).",
+          "tags": [
+            "simplify",
+            "absorption"
+          ]
+        },
+        {
+          "id": "dld-p1-q35",
+          "sourceId": "dld-practise-1",
+          "slide": 79,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify (B + B′)(BC + BCD′).",
+          "options": null,
+          "answer": "BC",
+          "explanation": "(B+B′)=1 and BC + BCD′ = BC(1+D′)=BC.",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q36",
+          "sourceId": "dld-practise-1",
+          "slide": 90,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2008: If P, Q, R are Boolean variables, then (P+Q′)(P·Q′ + P·R)(P′·R′ + Q′) simplifies to:",
+          "options": [
+            "P·Q′",
+            "P·R′",
+            "P·Q′ + R",
+            "P·R′ + Q"
+          ],
+          "answer": "P·Q′",
+          "explanation": "By-case: P=0 ⇒ expression 0 (eliminates C,D); P=1 ⇒ Q′. Answer A.",
+          "tags": [
+            "GATE",
+            "2008",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q37",
+          "sourceId": "dld-practise-1",
+          "slide": 95,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "hard",
+          "question": "GATE CSE 2017: If w,x,y,z are Boolean variables, which one is INCORRECT?\nA. wx + w(x+y) + x(x+y) = x + wy\nB. (w x̄ (y + z̄) + w̄ x)′ = w̄ + x + ȳ z\nC. (w x̄ (y + x z̄) + w̄ x̄) y = x ȳ\nD. (w+y)(wxy + wyz) = wxy + wyz",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "answer": "C",
+          "explanation": "Option C is the incorrect identity; A, B, D hold.",
+          "tags": [
+            "GATE",
+            "2017",
+            "incorrect"
+          ]
+        },
+        {
+          "id": "dld-p1-q38",
+          "sourceId": "dld-practise-1",
+          "slide": 53,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Simplify Q = B·C·(C̄ + D) + C·D + C + Ā.",
+          "options": null,
+          "answer": "Q = C + Ā",
+          "explanation": "Expand: BC̄C + BCD + CD + C + Ā. BC̄C=0. Then BCD + CD + C = C by absorption (α + αβ + αγ = α). So Q = C + Ā.",
+          "tags": [
+            "simplify",
+            "absorption"
+          ]
+        },
+        {
+          "id": "dld-p1-q39",
+          "sourceId": "dld-practise-1",
+          "slide": 57,
+          "subject": "Digital Logic",
+          "topic": "Logic Circuits",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "A circuit computes Q = AB + A(B+C) + B(B+C). Reduce Q to minimum form.",
+          "options": null,
+          "answer": "Q = B + AC",
+          "explanation": "Expand: AB + AB + AC + BB + BC = AB + AC + B + BC = B + AC (absorb AB and BC into B).",
+          "tags": [
+            "simplify",
+            "circuit",
+            "absorption"
+          ]
+        },
+        {
+          "id": "dld-p1-q40",
+          "sourceId": "dld-practise-1",
+          "slide": 79,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Simplify BCDE + BC(DE)′ + (BC)′DE (as much as possible).",
+          "options": null,
+          "answer": "BC + DE",
+          "explanation": "BCDE + BC(DE)′ = BC[DE + (DE)′] = BC. Then BC + (BC)′DE = BC + DE.",
+          "tags": [
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p1-q41",
+          "sourceId": "dld-practise-1",
+          "slide": 79,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Simplify B′C′D + (B + C + D)′ + B′C′D′E (as much as possible).",
+          "options": null,
+          "answer": "B′C′",
+          "explanation": "(B+C+D)′ = B′C′D′. So B′C′D + B′C′D′ + B′C′D′E = B′C′(D + D′ + D′E) = B′C′.",
+          "tags": [
+            "simplify",
+            "demorgan"
+          ]
+        },
+        {
+          "id": "dld-p2-q01",
+          "sourceId": "dld-practise-2",
+          "slide": 11,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "GATE CSE 1999: Which of the following expressions is NOT equivalent to x̄?",
+          "options": [
+            "x NAND x",
+            "x NOR x",
+            "x NAND 1",
+            "x NOR 1"
+          ],
+          "answer": "x NOR 1",
+          "explanation": "x NAND x = (x·x)' = x̄; x NOR x = (x+x)' = x̄; x NAND 1 = (x·1)' = x̄; but x NOR 1 = (x+1)' = 0 ≠ x̄.",
+          "tags": [
+            "GATE",
+            "1999",
+            "nand",
+            "nor"
+          ]
+        },
+        {
+          "id": "dld-p2-q02",
+          "sourceId": "dld-practise-2",
+          "slide": 13,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2000: The simultaneous Boolean equations\nx + y + z = 1\nxy = 0\nxz + w = 1\nxy + z̄w̄ = 0\nhave which solution for (x, y, z, w)?",
+          "options": [
+            "0 1 0 0",
+            "1 1 0 1",
+            "1 0 1 1",
+            "1 0 0 0"
+          ],
+          "answer": "1 0 1 1",
+          "explanation": "Check options: A fails xz+w=1; B fails xy=0; D fails xz+w=1. C (x=1,y=0,z=1,w=1) satisfies all four equations.",
+          "tags": [
+            "GATE",
+            "2000",
+            "boolean-equations"
+          ]
+        },
+        {
+          "id": "dld-p2-q03",
+          "sourceId": "dld-practise-2",
+          "slide": 18,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "numerical",
+          "difficulty": "hard",
+          "question": "For the GATE CSE 2000 Boolean equations\nx+y+z=1, xy=0, xz+w=1, xy+z̄w̄=0,\nhow many distinct solutions (x,y,z,w) satisfy all equations simultaneously?",
+          "options": null,
+          "answer": "6",
+          "explanation": "Enumerating all 16 assignments yields exactly 6 solutions: (0,0,1,1), (0,1,0,1), (0,1,1,1), (1,0,0,1), (1,0,1,0), (1,0,1,1).",
+          "tags": [
+            "GATE",
+            "2000",
+            "counting",
+            "variation"
+          ]
+        },
+        {
+          "id": "dld-p2-q04",
+          "sourceId": "dld-practise-2",
+          "slide": 24,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2002: Let f(A, B) = A′ + B. The simplified expression for f(f(x + y, y), z) is:",
+          "options": [
+            "x′ + z",
+            "xyz",
+            "xy′ + z",
+            "None of the above"
+          ],
+          "answer": "xy′ + z",
+          "explanation": "Inner: f(x+y,y)=(x+y)′+y = x′y′+y = x′+y. Outer: f(x′+y,z)=(x′+y)′+z = xy′+z.",
+          "tags": [
+            "GATE",
+            "2002",
+            "function-composition"
+          ]
+        },
+        {
+          "id": "dld-p2-q05",
+          "sourceId": "dld-practise-2",
+          "slide": 26,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "GATE CSE 2004: A Boolean function x′y′ + xy + x′y is equivalent to:",
+          "options": [
+            "x′ + y′",
+            "x + y",
+            "x + y′",
+            "x′ + y"
+          ],
+          "answer": "x′ + y",
+          "explanation": "x′y′ + x′y + xy = x′(y′+y) + xy = x′ + xy = x′ + y.",
+          "tags": [
+            "GATE",
+            "2004",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p2-q06",
+          "sourceId": "dld-practise-2",
+          "slide": 28,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2007: Define X * Y = XY + X′Y′. Let Z = X * Y. Consider\nP: X = Y * Z\nQ: Y = X * Z\nR: X * Y * Z = 1\nWhich is TRUE?",
+          "options": [
+            "Only P and Q are valid",
+            "Only Q and R are valid",
+            "Only P and R are valid",
+            "All P, Q, R are valid"
+          ],
+          "answer": "All P, Q, R are valid",
+          "explanation": "* is XNOR, which is commutative and associative. With Z = X XNOR Y, both recoveries X = Y XNOR Z and Y = X XNOR Z hold, and X XNOR Y XNOR Z = 1.",
+          "tags": [
+            "GATE",
+            "2007",
+            "xnor"
+          ]
+        },
+        {
+          "id": "dld-p2-q07",
+          "sourceId": "dld-practise-2",
+          "slide": 37,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "GATE CSE 2012: The truth table below represents which Boolean function?\n\nX Y f\n0 0 0\n0 1 0\n1 0 1\n1 1 1",
+          "options": [
+            "X",
+            "X + Y",
+            "X ⊕ Y",
+            "Y"
+          ],
+          "answer": "X",
+          "explanation": "Output column matches X in every row.",
+          "tags": [
+            "GATE",
+            "2012",
+            "truth-table"
+          ]
+        },
+        {
+          "id": "dld-p2-q08",
+          "sourceId": "dld-practise-2",
+          "slide": 39,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2013: Which one of the following expressions does NOT represent exclusive NOR of x and y?",
+          "options": [
+            "xy + x′y′",
+            "x ⊕ y′",
+            "x′ ⊕ y",
+            "x′ ⊕ y′"
+          ],
+          "answer": "x′ ⊕ y′",
+          "explanation": "A, B, C all equal XNOR (x⊙y). D: x′⊕y′ = xy′ + x′y = XOR ≠ XNOR.",
+          "tags": [
+            "GATE",
+            "2013",
+            "xnor",
+            "xor"
+          ]
+        },
+        {
+          "id": "dld-p2-q09",
+          "sourceId": "dld-practise-2",
+          "slide": 43,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2014: Let ⊕ denote XOR. F(P,Q) = ((1⊕P)⊕(P⊕Q)) ⊕ ((P⊕Q)⊕(Q⊕0)). The equivalent expression for F is:",
+          "options": [
+            "P + Q",
+            "(P + Q)′",
+            "P ⊕ Q",
+            "(P ⊕ Q)′"
+          ],
+          "answer": "(P ⊕ Q)′",
+          "explanation": "1⊕P=P′, Q⊕0=Q. Then P′⊕(P⊕Q)⊕(P⊕Q)⊕Q = P′⊕Q = (P⊕Q)′.",
+          "tags": [
+            "GATE",
+            "2014",
+            "xor"
+          ]
+        },
+        {
+          "id": "dld-p2-q10",
+          "sourceId": "dld-practise-2",
+          "slide": 48,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "GATE CSE 2016 Set 1: Consider Boolean operator # with\nx#0 = x, x#1 = x̄, x#x = 0, x#x̄ = 1.\nThen x#y is equivalent to:",
+          "options": [
+            "xȳ + x̄y",
+            "xȳ + x̄ȳ",
+            "x̄y + xy",
+            "xy + x̄ȳ"
+          ],
+          "answer": "xȳ + x̄y",
+          "explanation": "Truth table of # is 0,1,1,0 for (x,y)=(00,01,10,11) → XOR = xȳ + x̄y.",
+          "tags": [
+            "GATE",
+            "2016",
+            "xor",
+            "operator"
           ]
         }
       ]
