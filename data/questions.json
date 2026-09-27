@@ -29,7 +29,7 @@
       {
         "id": "dld-practise-2",
         "subject": "Digital Logic",
-        "topic": "Boolean Algebra Practice — GATE PYQs (1999–2016)",
+        "topic": "Boolean Algebra Practice — GATE PYQs + XOR/XNOR (1999–2016)",
         "file": "/Users/abindran-21221/Abindran/GOClasses/DLD/practise-2.pdf",
         "provider": "GO Classes",
         "instructor": "Deepak Poonia"
@@ -2278,6 +2278,492 @@
             "2016",
             "xor",
             "operator"
+          ]
+        },
+        {
+          "id": "dld-p2-q11",
+          "sourceId": "dld-practise-2",
+          "slide": 19,
+          "subject": "Digital Logic",
+          "topic": "Boolean Equations",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "If the Boolean equation x + y + z = 1 must hold, which assignment is impossible?",
+          "options": [
+            "x=1, y=0, z=0",
+            "x=0, y=1, z=0",
+            "x=0, y=0, z=0",
+            "x=1, y=1, z=1"
+          ],
+          "answer": "x=0, y=0, z=0",
+          "explanation": "x+y+z=1 means at least one variable is 1, so (0,0,0) is impossible.",
+          "tags": [
+            "boolean-equations",
+            "implication"
+          ]
+        },
+        {
+          "id": "dld-p2-q12",
+          "sourceId": "dld-practise-2",
+          "slide": 20,
+          "subject": "Digital Logic",
+          "topic": "Boolean Equations",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "If xy = 0 must hold for Boolean variables x and y, which is true?",
+          "options": [
+            "Both x and y must be 0",
+            "It is impossible that x=1 and y=1",
+            "Exactly one of x, y must be 1",
+            "x must equal y"
+          ],
+          "answer": "It is impossible that x=1 and y=1",
+          "explanation": "xy=1 only when both are 1; requiring xy=0 forbids the (1,1) case.",
+          "tags": [
+            "boolean-equations",
+            "implication"
+          ]
+        },
+        {
+          "id": "dld-p2-q13",
+          "sourceId": "dld-practise-2",
+          "slide": 21,
+          "subject": "Digital Logic",
+          "topic": "Boolean Equations",
+          "type": "numerical",
+          "difficulty": "medium",
+          "question": "For the GATE CSE 2000 equations (x+y+z=1, xy=0, xz+w=1, xy+z̄w̄=0), how many solutions exist when w = 0?",
+          "options": null,
+          "answer": "1",
+          "explanation": "When w=0, Eq3 forces xz=1 ⇒ x=z=1; Eq2/4 force y=0. Only (x,y,z,w)=(1,0,1,0).",
+          "tags": [
+            "GATE",
+            "2000",
+            "case-analysis"
+          ]
+        },
+        {
+          "id": "dld-p2-q14",
+          "sourceId": "dld-practise-2",
+          "slide": 22,
+          "subject": "Digital Logic",
+          "topic": "Boolean Equations",
+          "type": "numerical",
+          "difficulty": "medium",
+          "question": "For the GATE CSE 2000 equations (x+y+z=1, xy=0, xz+w=1, xy+z̄w̄=0), how many solutions exist when w = 1?",
+          "options": null,
+          "answer": "5",
+          "explanation": "w=1 satisfies Eq3; Eq4 reduces to Eq2 (xy=0); with x+y+z=1 there are 5 valid (x,y,z) triples.",
+          "tags": [
+            "GATE",
+            "2000",
+            "case-analysis"
+          ]
+        },
+        {
+          "id": "dld-p2-q15",
+          "sourceId": "dld-practise-2",
+          "slide": 29,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "The connective defined by X * Y = XY + X′Y′ is the same as which standard operation?",
+          "options": [
+            "XOR (⊕)",
+            "XNOR (⊙)",
+            "NAND",
+            "NOR"
+          ],
+          "answer": "XNOR (⊙)",
+          "explanation": "XY + X′Y′ is the sum-of-products form of XNOR. So * = ⊙.",
+          "tags": [
+            "xnor",
+            "definition"
+          ]
+        },
+        {
+          "id": "dld-p2-q16",
+          "sourceId": "dld-practise-2",
+          "slide": 30,
+          "subject": "Digital Logic",
+          "topic": "XOR / XNOR",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which statement about XOR and XNOR is correct?",
+          "options": [
+            "Only XOR is commutative; XNOR is not associative",
+            "Both are commutative and associative",
+            "Both are commutative but neither is associative",
+            "Neither is commutative"
+          ],
+          "answer": "Both are commutative and associative",
+          "explanation": "Lecture note: XOR and XNOR are both commutative and associative, so grouping/order of operands does not matter.",
+          "tags": [
+            "xor",
+            "xnor",
+            "associative",
+            "commutative"
+          ]
+        },
+        {
+          "id": "dld-p2-q17",
+          "sourceId": "dld-practise-2",
+          "slide": 32,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Evaluate (x ⊙ y) ⊙ z when x=0, y=0, z=0. (⊙ = XNOR)",
+          "options": null,
+          "answer": "0",
+          "explanation": "0⊙0=1, then 1⊙0=0. Same for x⊙(y⊙z).",
+          "tags": [
+            "xnor",
+            "evaluation",
+            "homework"
+          ]
+        },
+        {
+          "id": "dld-p2-q18",
+          "sourceId": "dld-practise-2",
+          "slide": 32,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Evaluate (x ⊙ y) ⊙ z when x=0, y=1, z=0. (⊙ = XNOR)",
+          "options": null,
+          "answer": "1",
+          "explanation": "0⊙1=0, then 0⊙0=1.",
+          "tags": [
+            "xnor",
+            "evaluation",
+            "homework"
+          ]
+        },
+        {
+          "id": "dld-p2-q19",
+          "sourceId": "dld-practise-2",
+          "slide": 32,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Evaluate (x ⊙ y) ⊙ z when x=1, y=0, z=1. (⊙ = XNOR)",
+          "options": null,
+          "answer": "0",
+          "explanation": "1⊙0=0, then 0⊙1=0.",
+          "tags": [
+            "xnor",
+            "evaluation",
+            "homework"
+          ]
+        },
+        {
+          "id": "dld-p2-q20",
+          "sourceId": "dld-practise-2",
+          "slide": 32,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Evaluate (x ⊙ y) ⊙ z when x=1, y=1, z=1. (⊙ = XNOR)",
+          "options": null,
+          "answer": "1",
+          "explanation": "1⊙1=1, then 1⊙1=1. Also: XNOR of three 1s is 1 (even number of 0s).",
+          "tags": [
+            "xnor",
+            "evaluation",
+            "homework"
+          ]
+        },
+        {
+          "id": "dld-p2-q21",
+          "sourceId": "dld-practise-2",
+          "slide": 34,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Given Z = X ⊙ Y, prove algebraically that X = Y ⊙ Z (i.e. statement P is valid). What does the right-hand side simplify to?",
+          "options": null,
+          "answer": "X",
+          "explanation": "Y⊙Z = Y⊙(X⊙Y) = Y⊙Y⊙X = 1⊙X = X. So P holds.",
+          "tags": [
+            "xnor",
+            "prove",
+            "GATE-2007"
+          ]
+        },
+        {
+          "id": "dld-p2-q22",
+          "sourceId": "dld-practise-2",
+          "slide": 35,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "short",
+          "difficulty": "medium",
+          "question": "Given Z = X ⊙ Y, simplify X ⊙ Z. What do you get?",
+          "options": null,
+          "answer": "Y",
+          "explanation": "X⊙Z = X⊙(X⊙Y) = (X⊙X)⊙Y = 1⊙Y = Y. So Q: Y = X⊙Z is valid.",
+          "tags": [
+            "xnor",
+            "prove",
+            "GATE-2007"
+          ]
+        },
+        {
+          "id": "dld-p2-q23",
+          "sourceId": "dld-practise-2",
+          "slide": 36,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "numerical",
+          "difficulty": "medium",
+          "question": "Given Z = X ⊙ Y, evaluate X ⊙ Y ⊙ Z.",
+          "options": null,
+          "answer": "1",
+          "explanation": "X⊙Y⊙Z = X⊙Y⊙(X⊙Y) = (X⊙X)⊙(Y⊙Y) = 1⊙1 = 1. So R is always valid.",
+          "tags": [
+            "xnor",
+            "prove",
+            "GATE-2007"
+          ]
+        },
+        {
+          "id": "dld-p2-q24",
+          "sourceId": "dld-practise-2",
+          "slide": 42,
+          "subject": "Digital Logic",
+          "topic": "XOR / XNOR",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify x ⊕ y′ (⊕ = XOR). Express the result using XNOR (⊙).",
+          "options": null,
+          "answer": "x ⊙ y",
+          "explanation": "x⊕y′ = x(y′)′ + x′y′ = xy + x′y′ = x⊙y.",
+          "tags": [
+            "xor",
+            "xnor",
+            "identity"
+          ]
+        },
+        {
+          "id": "dld-p2-q25",
+          "sourceId": "dld-practise-2",
+          "slide": 42,
+          "subject": "Digital Logic",
+          "topic": "XOR / XNOR",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify x′ ⊕ y. Express the result using XNOR (⊙).",
+          "options": null,
+          "answer": "x ⊙ y",
+          "explanation": "x′⊕y = (x′)′y + x′y′ = xy + x′y′ = x⊙y.",
+          "tags": [
+            "xor",
+            "xnor",
+            "identity"
+          ]
+        },
+        {
+          "id": "dld-p2-q26",
+          "sourceId": "dld-practise-2",
+          "slide": 41,
+          "subject": "Digital Logic",
+          "topic": "XOR / XNOR",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify x′ ⊕ y′. Is this equal to XNOR (x ⊙ y)?",
+          "options": null,
+          "answer": "x ⊕ y (XOR); no, not XNOR",
+          "explanation": "x′⊕y′ = xy′ + x′y = XOR. Complementing both inputs of XOR leaves XOR, not XNOR.",
+          "tags": [
+            "xor",
+            "xnor",
+            "identity"
+          ]
+        },
+        {
+          "id": "dld-p2-q27",
+          "sourceId": "dld-practise-2",
+          "slide": 44,
+          "subject": "Digital Logic",
+          "topic": "XOR",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify 1 ⊕ P.",
+          "options": null,
+          "answer": "P′",
+          "explanation": "XOR with 1 flips the bit: 1⊕P = P′.",
+          "tags": [
+            "xor",
+            "identity"
+          ]
+        },
+        {
+          "id": "dld-p2-q28",
+          "sourceId": "dld-practise-2",
+          "slide": 44,
+          "subject": "Digital Logic",
+          "topic": "XOR",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify Q ⊕ 0.",
+          "options": null,
+          "answer": "Q",
+          "explanation": "XOR with 0 is identity: Q⊕0 = Q.",
+          "tags": [
+            "xor",
+            "identity"
+          ]
+        },
+        {
+          "id": "dld-p2-q29",
+          "sourceId": "dld-practise-2",
+          "slide": 45,
+          "subject": "Digital Logic",
+          "topic": "XOR",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "What is α ⊕ α for a Boolean variable α?",
+          "options": null,
+          "answer": "0",
+          "explanation": "0⊕0=0 and 1⊕1=0, so α⊕α = 0 always.",
+          "tags": [
+            "xor",
+            "identity"
+          ]
+        },
+        {
+          "id": "dld-p2-q30",
+          "sourceId": "dld-practise-2",
+          "slide": 47,
+          "subject": "Digital Logic",
+          "topic": "XOR / XNOR",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "P̄ ⊕ Q is equivalent to which of the following?",
+          "options": [
+            "P ⊕ Q",
+            "P ⊙ Q",
+            "P + Q",
+            "PQ"
+          ],
+          "answer": "P ⊙ Q",
+          "explanation": "P̄⊕Q = PQ + P̄Q̄ = P⊙Q = (P⊕Q)′.",
+          "tags": [
+            "xor",
+            "xnor",
+            "identity"
+          ]
+        },
+        {
+          "id": "dld-p2-q31",
+          "sourceId": "dld-practise-2",
+          "slide": 32,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Evaluate (x ⊙ y) ⊙ z when x=0, y=0, z=1. (⊙ = XNOR)",
+          "options": null,
+          "answer": "1",
+          "explanation": "0⊙0=1, then 1⊙1=1. (Marked HW on the lecture slide.)",
+          "tags": [
+            "xnor",
+            "evaluation",
+            "homework"
+          ]
+        },
+        {
+          "id": "dld-p2-q32",
+          "sourceId": "dld-practise-2",
+          "slide": 32,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Evaluate (x ⊙ y) ⊙ z when x=0, y=1, z=1. (⊙ = XNOR)",
+          "options": null,
+          "answer": "0",
+          "explanation": "0⊙1=0, then 0⊙1=0.",
+          "tags": [
+            "xnor",
+            "evaluation",
+            "homework"
+          ]
+        },
+        {
+          "id": "dld-p2-q33",
+          "sourceId": "dld-practise-2",
+          "slide": 32,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Evaluate (x ⊙ y) ⊙ z when x=1, y=0, z=0. (⊙ = XNOR)",
+          "options": null,
+          "answer": "1",
+          "explanation": "(1⊙0)⊙0 = 0⊙0 = 1. Same for x⊙(y⊙z).",
+          "tags": [
+            "xnor",
+            "evaluation",
+            "homework"
+          ]
+        },
+        {
+          "id": "dld-p2-q34",
+          "sourceId": "dld-practise-2",
+          "slide": 32,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "Evaluate (x ⊙ y) ⊙ z when x=1, y=1, z=0. (⊙ = XNOR)",
+          "options": null,
+          "answer": "0",
+          "explanation": "(1⊙1)⊙0 = 1⊙0 = 0.",
+          "tags": [
+            "xnor",
+            "evaluation",
+            "homework"
+          ]
+        },
+        {
+          "id": "dld-p2-q35",
+          "sourceId": "dld-practise-2",
+          "slide": 34,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "numerical",
+          "difficulty": "easy",
+          "question": "What is A ⊙ A for a Boolean variable A? (⊙ = XNOR)",
+          "options": null,
+          "answer": "1",
+          "explanation": "XNOR is 1 when inputs are equal, so A⊙A = 1.",
+          "tags": [
+            "xnor",
+            "identity"
+          ]
+        },
+        {
+          "id": "dld-p2-q36",
+          "sourceId": "dld-practise-2",
+          "slide": 34,
+          "subject": "Digital Logic",
+          "topic": "XNOR",
+          "type": "short",
+          "difficulty": "easy",
+          "question": "Simplify 1 ⊙ x (⊙ = XNOR).",
+          "options": null,
+          "answer": "x",
+          "explanation": "1⊙0=0 and 1⊙1=1, so 1⊙x = x.",
+          "tags": [
+            "xnor",
+            "identity"
           ]
         }
       ]
