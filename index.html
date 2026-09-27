@@ -167,12 +167,12 @@
       color: var(--muted);
     }
 
-    .subject-grid {
+    .browse-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 0.85rem;
     }
-    .subject-card {
+    .browse-card {
       text-align: left;
       background: var(--panel);
       border: 1px solid var(--line);
@@ -184,14 +184,18 @@
       display: grid;
       gap: 0.35rem;
     }
-    .subject-card:hover { border-color: #a9c4b8; }
-    .subject-card h2 {
+    .browse-card:hover { border-color: #a9c4b8; }
+    .browse-card.accent {
+      border-color: #b7dccf;
+      background: linear-gradient(165deg, #f4faf7 0%, var(--panel) 55%);
+    }
+    .browse-card h2 {
       font-family: "Source Serif 4", Georgia, serif;
       font-size: 1.25rem;
       margin: 0;
       font-weight: 700;
     }
-    .subject-card .meta {
+    .browse-card .meta {
       font-family: "IBM Plex Mono", monospace;
       font-size: 0.78rem;
       color: var(--muted);
@@ -285,44 +289,10 @@
       margin-bottom: 0.25rem;
     }
 
-    .topic-block {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .topic-head {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 0.75rem;
-      align-items: center;
-      text-align: left;
-      background: #f7faf7;
-      border: none;
-      border-bottom: 1px solid var(--line);
-      border-radius: 0;
-      padding: 0.9rem 1rem;
-      color: inherit;
-      cursor: pointer;
-    }
-    .topic-head h3 {
-      margin: 0;
-      font-family: "Source Serif 4", Georgia, serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-    .topic-head .right {
-      text-align: right;
-      min-width: 7.5rem;
-    }
-    .topic-body {
+    .question-list {
       display: grid;
       gap: 0.45rem;
-      padding: 0.7rem;
     }
-    .topic-body.collapsed { display: none; }
 
     .list-item {
       display: grid;
@@ -395,10 +365,10 @@
     <!-- HOME: subjects -->
     <section id="homeView">
       <p class="page-sub" id="homeOverall"></p>
-      <div class="subject-grid" id="subjectGrid"></div>
+      <div class="browse-grid" id="subjectGrid"></div>
     </section>
 
-    <!-- SUBJECT: topics + questions + practice -->
+    <!-- SUBJECT: topic cards -->
     <section id="subjectView" class="hidden">
       <div class="breadcrumb">
         <button type="button" class="linkish" id="backHomeBtn">Subjects</button>
@@ -409,11 +379,24 @@
       <p class="page-sub" id="subjectSub"></p>
       <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="subjectProgressFill" style="width:0%"></div></div>
       <div class="progress-label" id="subjectProgressLabel"></div>
+      <div class="browse-grid" id="topicGrid" style="margin-top:1rem"></div>
+    </section>
+
+    <!-- TOPIC: questions + practice -->
+    <section id="topicView" class="hidden">
+      <div class="breadcrumb">
+        <button type="button" class="linkish" id="backSubjectsBtn">Subjects</button>
+        <span>/</span>
+        <button type="button" class="linkish" id="backTopicsBtn"></button>
+        <span>/</span>
+        <span id="crumbTopic"></span>
+      </div>
+      <h2 class="page-title" id="topicTitle"></h2>
+      <p class="page-sub" id="topicSub"></p>
+      <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="topicProgressFill" style="width:0%"></div></div>
+      <div class="progress-label" id="topicProgressLabel"></div>
 
       <div class="toolbar" style="margin-top:0.85rem">
-        <select id="topicJump" aria-label="Jump to topic">
-          <option value="all">All topics</option>
-        </select>
         <select id="typeFilter" aria-label="Filter by type">
           <option value="all">All types</option>
           <option value="mcq">MCQ</option>
@@ -437,12 +420,12 @@
       </div>
 
       <section class="card" id="practiceCard" aria-live="polite"></section>
-      <div id="topicList" style="display:grid;gap:0.85rem"></div>
+      <div class="question-list" id="questionList" style="margin-top:0.85rem"></div>
     </section>
   </main>
 
   <footer>
-    Choose a subject, then practice by topic. Sign in with Google to sync progress across devices.
+    Choose a subject, then a topic card to practice. Sign in with Google to sync progress across devices.
   </footer>
 
   <script type="module">
@@ -464,8 +447,8 @@
     let view = [];
     let currentId = null;
     let activeSubject = null;
-    let activeTopicFilter = "all";
-    let collapsedTopics = new Set();
+    /** @type {string|null} null = topic picker; "all" | topic name = practice */
+    let activeTopic = null;
     /** @type {Record<string, { status: 'solved'|'tried', at: string }>} */
     let progress = loadProgress();
     let currentUser = null;
@@ -558,14 +541,14 @@
     }
 
     async function clearProgress(scope = "all") {
-      const topic = activeTopicFilter;
+      const topic = activeTopic;
       const subject = activeSubject;
 
       const ids = allQuestions
         .filter((q) => {
           if (scope === "all") return true;
           if (scope === "subject") return subject ? q.subject === subject : true;
-          if (!subject) return false;
+          if (!subject || !topic) return false;
           if (q.subject !== subject) return false;
           if (topic === "all") return true;
           return q.topic === topic;
@@ -713,31 +696,51 @@
 
     function openSubject(name) {
       activeSubject = name;
-      activeTopicFilter = "all";
-      collapsedTopics = new Set();
+      activeTopic = null;
       currentId = null;
       location.hash = `#/subject/${encodeURIComponent(name)}`;
       renderAll();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
+    function openTopic(topicName) {
+      if (!activeSubject) return;
+      activeTopic = topicName;
+      currentId = null;
+      const topicSeg = topicName === "all"
+        ? "all"
+        : encodeURIComponent(topicName);
+      location.hash = `#/subject/${encodeURIComponent(activeSubject)}/topic/${topicSeg}`;
+      renderAll();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
     function goHome() {
       activeSubject = null;
+      activeTopic = null;
       currentId = null;
       location.hash = "#/";
       renderAll();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    function applySubjectFilters() {
+    function goSubject() {
       if (!activeSubject) {
+        goHome();
+        return;
+      }
+      openSubject(activeSubject);
+    }
+
+    function applyTopicFilters() {
+      if (!activeSubject || !activeTopic) {
         view = [];
         return;
       }
       const type = el("typeFilter").value;
       const prog = el("progressFilter").value;
       view = questionsForSubject(activeSubject).filter((q) => {
-        if (activeTopicFilter !== "all" && q.topic !== activeTopicFilter) return false;
+        if (activeTopic !== "all" && q.topic !== activeTopic) return false;
         if (type !== "all" && q.type !== type) return false;
         const st = progressStatus(q.id);
         if (prog === "unsolved" && st === "solved") return false;
@@ -752,11 +755,10 @@
 
     function updateResetScopeLabels() {
       const sel = el("resetScope");
-      if (!sel || !activeSubject) return;
-      const topic = activeTopicFilter;
-      sel.options[0].textContent = topic === "all"
+      if (!sel || !activeSubject || !activeTopic) return;
+      sel.options[0].textContent = activeTopic === "all"
         ? `Reset all topics in ${activeSubject}`
-        : `Reset topic: ${topic}`;
+        : `Reset topic: ${activeTopic}`;
       sel.options[1].textContent = `Reset subject: ${activeSubject}`;
       sel.options[2].textContent = "Reset all progress";
     }
@@ -773,7 +775,7 @@
       subjects.forEach((s) => {
         const btn = document.createElement("button");
         btn.type = "button";
-        btn.className = "subject-card";
+        btn.className = "browse-card";
         btn.innerHTML = `
           <h2>${escapeHtml(s.name)}</h2>
           <div class="meta">${s.total} questions · ${topicsForSubject(s.name).length} topics</div>
@@ -785,122 +787,117 @@
       });
     }
 
-    function renderSubject() {
+    function renderSubjectTopics() {
       const qs = questionsForSubject(activeSubject);
       const stats = countProgress(qs);
+      const topics = topicsForSubject(activeSubject);
       el("crumbSubject").textContent = activeSubject;
       el("subjectTitle").textContent = activeSubject;
-      el("subjectSub").textContent = `${stats.total} questions across ${topicsForSubject(activeSubject).length} topics`;
+      el("subjectSub").textContent = `Pick a topic · ${stats.total} questions across ${topics.length} topics`;
       el("subjectProgressFill").style.width = `${stats.pct}%`;
       el("subjectProgressLabel").textContent =
         `${stats.solved}/${stats.total} solved${stats.tried ? ` · ${stats.tried} tried` : ""} · ${stats.pct}%`;
 
-      const jump = el("topicJump");
-      const prev = activeTopicFilter;
-      jump.innerHTML = `<option value="all">All topics</option>`;
-      topicsForSubject(activeSubject).forEach((t) => {
-        const opt = document.createElement("option");
-        opt.value = t.name;
-        opt.textContent = `${t.name} (${t.solved}/${t.total})`;
-        jump.appendChild(opt);
+      const grid = el("topicGrid");
+      grid.innerHTML = "";
+
+      const allBtn = document.createElement("button");
+      allBtn.type = "button";
+      allBtn.className = "browse-card accent";
+      allBtn.innerHTML = `
+        <h2>All topics</h2>
+        <div class="meta">Practice the full subject · ${stats.total} questions</div>
+        <div class="progress-track"><div class="progress-fill" style="width:${stats.pct}%"></div></div>
+        <div class="meta">${stats.solved}/${stats.total} solved${stats.tried ? ` · ${stats.tried} tried` : ""} · ${stats.pct}%</div>
+      `;
+      allBtn.addEventListener("click", () => openTopic("all"));
+      grid.appendChild(allBtn);
+
+      topics.forEach((t) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "browse-card";
+        btn.innerHTML = `
+          <h2>${escapeHtml(t.name)}</h2>
+          <div class="meta">${t.total} question${t.total === 1 ? "" : "s"}</div>
+          <div class="progress-track"><div class="progress-fill" style="width:${t.pct}%"></div></div>
+          <div class="meta">${t.solved}/${t.total} solved${t.tried ? ` · ${t.tried} tried` : ""} · ${t.pct}%</div>
+        `;
+        btn.addEventListener("click", () => openTopic(t.name));
+        grid.appendChild(btn);
       });
-      jump.value = [...jump.options].some((o) => o.value === prev) ? prev : "all";
-      activeTopicFilter = jump.value;
+    }
 
-      applySubjectFilters();
+    function renderTopicPractice() {
+      const topicQs = questionsForSubject(activeSubject).filter((q) =>
+        activeTopic === "all" ? true : q.topic === activeTopic
+      );
+      const stats = countProgress(topicQs);
+      const title = activeTopic === "all" ? "All topics" : activeTopic;
+
+      el("backTopicsBtn").textContent = activeSubject;
+      el("crumbTopic").textContent = title;
+      el("topicTitle").textContent = title;
+      el("topicSub").textContent = activeTopic === "all"
+        ? `${stats.total} questions in ${activeSubject}`
+        : `${stats.total} questions in ${activeSubject}`;
+      el("topicProgressFill").style.width = `${stats.pct}%`;
+      el("topicProgressLabel").textContent =
+        `${stats.solved}/${stats.total} solved${stats.tried ? ` · ${stats.tried} tried` : ""} · ${stats.pct}%`;
+
+      applyTopicFilters();
       updateResetScopeLabels();
-
       el("stats").textContent = `${view.filter((q) => progressStatus(q.id) === "solved").length}/${view.length} in view`;
 
       renderPractice();
-      renderTopicGroups();
+      renderQuestionList();
     }
 
-    function renderTopicGroups() {
-      const list = el("topicList");
+    function renderQuestionList() {
+      const list = el("questionList");
       list.innerHTML = "";
 
-      const byTopic = new Map();
-      view.forEach((q) => {
-        if (!byTopic.has(q.topic)) byTopic.set(q.topic, []);
-        byTopic.get(q.topic).push(q);
-      });
-
-      if (!byTopic.size) {
+      if (!view.length) {
         list.innerHTML = `<p class="page-sub">No questions match these filters.</p>`;
         return;
       }
 
-      let idx = 0;
-      [...byTopic.entries()]
-        .sort((a, b) => a[0].localeCompare(b[0]))
-        .forEach(([topic, qs]) => {
-          const tStats = countProgress(qs);
-          const block = document.createElement("div");
-          block.className = "topic-block";
-          block.dataset.topic = topic;
-
-          const collapsed = collapsedTopics.has(topic);
-          const head = document.createElement("button");
-          head.type = "button";
-          head.className = "topic-head";
-          head.innerHTML = `
-            <div>
-              <h3>${escapeHtml(topic)}</h3>
-              <div class="progress-label" style="margin-top:0.25rem">${qs.length} shown · ${tStats.solved} solved</div>
-            </div>
-            <div class="right">
-              <div class="progress-track" style="width:7rem;margin-left:auto"><div class="progress-fill" style="width:${tStats.pct}%"></div></div>
-              <div class="progress-label">${tStats.pct}% · ${collapsed ? "Show" : "Hide"}</div>
-            </div>
-          `;
-          head.addEventListener("click", () => {
-            if (collapsedTopics.has(topic)) collapsedTopics.delete(topic);
-            else collapsedTopics.add(topic);
-            renderTopicGroups();
-          });
-
-          const body = document.createElement("div");
-          body.className = "topic-body" + (collapsed ? " collapsed" : "");
-          qs.forEach((q) => {
-            idx += 1;
-            const st = progressStatus(q.id);
-            const btn = document.createElement("button");
-            btn.type = "button";
-            btn.className = "list-item" +
-              (q.id === currentId ? " active" : "") +
-              (st === "solved" ? " solved" : "");
-            const statusHtml = st === "solved"
-              ? `<span class="status ok">solved</span>`
-              : st === "tried"
-                ? `<span class="status tried">tried</span>`
-                : `<span class="diff">${escapeHtml(q.difficulty)}</span>`;
-            btn.innerHTML = `
-              <span class="idx">${String(idx).padStart(2, "0")}</span>
-              <span>
-                <div class="title">${escapeHtml(truncate(q.question, 110))}</div>
-                <div class="sub">${q.type}</div>
-              </span>
-              ${statusHtml}
-            `;
-            btn.addEventListener("click", () => {
-              currentId = q.id;
-              renderPractice();
-              renderTopicGroups();
-              el("practiceCard").scrollIntoView({ behavior: "smooth", block: "start" });
-            });
-            body.appendChild(btn);
-          });
-
-          block.appendChild(head);
-          block.appendChild(body);
-          list.appendChild(block);
+      view.forEach((q, i) => {
+        const st = progressStatus(q.id);
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "list-item" +
+          (q.id === currentId ? " active" : "") +
+          (st === "solved" ? " solved" : "");
+        const statusHtml = st === "solved"
+          ? `<span class="status ok">solved</span>`
+          : st === "tried"
+            ? `<span class="status tried">tried</span>`
+            : `<span class="diff">${escapeHtml(q.difficulty)}</span>`;
+        const topicLine = activeTopic === "all"
+          ? `<div class="sub">${escapeHtml(q.topic)} · ${q.type}</div>`
+          : `<div class="sub">${q.type}</div>`;
+        btn.innerHTML = `
+          <span class="idx">${String(i + 1).padStart(2, "0")}</span>
+          <span>
+            <div class="title">${escapeHtml(truncate(q.question, 110))}</div>
+            ${topicLine}
+          </span>
+          ${statusHtml}
+        `;
+        btn.addEventListener("click", () => {
+          currentId = q.id;
+          renderPractice();
+          renderQuestionList();
+          el("practiceCard").scrollIntoView({ behavior: "smooth", block: "start" });
         });
+        list.appendChild(btn);
+      });
     }
 
     function renderPractice() {
       const card = el("practiceCard");
-      if (!activeSubject) return;
+      if (!activeSubject || !activeTopic) return;
       const q = view.find((x) => x.id === currentId);
       if (!q) {
         card.innerHTML = `<p style="margin:0;color:var(--muted)">Select a question below to practice.</p>`;
@@ -973,7 +970,7 @@
         if (!unsolvedOnly || progressStatus(q.id) !== "solved") {
           currentId = q.id;
           renderPractice();
-          renderTopicGroups();
+          renderQuestionList();
           el("practiceCard").scrollIntoView({ behavior: "smooth", block: "start" });
           return;
         }
@@ -1023,7 +1020,7 @@
         markProgress(q.id, "tried");
       } else {
         renderPractice();
-        renderTopicGroups();
+        renderQuestionList();
       }
       const fb = el("feedback");
       if (!fb) return;
@@ -1039,42 +1036,60 @@
 
     function renderAll() {
       const onHome = !activeSubject;
+      const onTopics = !!activeSubject && !activeTopic;
+      const onPractice = !!activeSubject && !!activeTopic;
       el("homeView").classList.toggle("hidden", !onHome);
-      el("subjectView").classList.toggle("hidden", onHome);
+      el("subjectView").classList.toggle("hidden", !onTopics);
+      el("topicView").classList.toggle("hidden", !onPractice);
       if (onHome) renderHome();
-      else renderSubject();
+      else if (onTopics) renderSubjectTopics();
+      else renderTopicPractice();
     }
 
     function syncFromHash() {
-      const raw = decodeURIComponent((location.hash || "#/").replace(/^#/, ""));
-      const m = raw.match(/^\/subject\/(.+)$/);
-      if (m) {
-        const name = m[1];
-        if (allQuestions.some((q) => q.subject === name)) {
-          activeSubject = name;
+      const raw = (location.hash || "#/").replace(/^#/, "");
+      const topicMatch = raw.match(/^\/subject\/([^/]+)\/topic\/(.+)$/);
+      if (topicMatch) {
+        const subject = decodeURIComponent(topicMatch[1]);
+        const topicRaw = topicMatch[2];
+        const topic = topicRaw === "all" ? "all" : decodeURIComponent(topicRaw);
+        if (allQuestions.some((q) => q.subject === subject)) {
+          activeSubject = subject;
+          if (topic === "all" || allQuestions.some((q) => q.subject === subject && q.topic === topic)) {
+            activeTopic = topic;
+            return;
+          }
+          activeTopic = null;
+          return;
+        }
+      }
+      const subMatch = raw.match(/^\/subject\/([^/]+)$/);
+      if (subMatch) {
+        const subject = decodeURIComponent(subMatch[1]);
+        if (allQuestions.some((q) => q.subject === subject)) {
+          activeSubject = subject;
+          activeTopic = null;
           return;
         }
       }
       activeSubject = null;
+      activeTopic = null;
     }
 
     el("backHomeBtn").addEventListener("click", goHome);
-    el("topicJump").addEventListener("change", () => {
-      activeTopicFilter = el("topicJump").value;
-      currentId = null;
-      renderSubject();
-    });
-    el("typeFilter").addEventListener("change", () => renderSubject());
-    el("progressFilter").addEventListener("change", () => renderSubject());
+    el("backSubjectsBtn").addEventListener("click", goHome);
+    el("backTopicsBtn").addEventListener("click", goSubject);
+    el("typeFilter").addEventListener("change", () => renderTopicPractice());
+    el("progressFilter").addEventListener("change", () => renderTopicPractice());
     el("nextUnsolvedBtn").addEventListener("click", () => goNext(true));
     el("resetBtn").addEventListener("click", async () => {
       const scope = el("resetScope").value;
       let target = "all progress";
       if (scope === "subject") target = `subject “${activeSubject}”`;
       else if (scope === "topic") {
-        target = activeTopicFilter === "all"
+        target = activeTopic === "all"
           ? `all topics in “${activeSubject}”`
-          : `topic “${activeTopicFilter}”`;
+          : `topic “${activeTopic}”`;
       }
       const cloudNote = currentUser
         ? " This updates your Google account cloud progress too."
@@ -1145,7 +1160,7 @@
           ? "Sign in to sync progress across devices."
           : "Progress is tracked locally.";
         el("sourceBlurb").textContent =
-          `${allQuestions.length} questions · pick a subject to begin. ${syncHint}`;
+          `${allQuestions.length} questions · pick a subject, then a topic. ${syncHint}`;
         syncFromHash();
         renderAll();
       })
