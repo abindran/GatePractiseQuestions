@@ -33,6 +33,14 @@
         "file": "/Users/abindran-21221/Abindran/GOClasses/DLD/practise-2.pdf",
         "provider": "GO Classes",
         "instructor": "Deepak Poonia"
+      },
+      {
+        "id": "dld-practise-4",
+        "subject": "Digital Logic",
+        "topic": "Boolean Algebra Practice — GATE/ISRO/NIELIT/UGC NET PYQs",
+        "file": "/Users/abindran-21221/Abindran/GOClasses/DLD/practise-4.pdf",
+        "provider": "GO Classes",
+        "instructor": "Deepak Poonia"
       }
     ],
     "updatedAt": "2026-09-27",
@@ -2764,6 +2772,611 @@
           "tags": [
             "xnor",
             "identity"
+          ]
+        },
+        {
+          "id": "dld-p4-q01",
+          "sourceId": "dld-practise-4",
+          "slide": 15,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2018: Let ⊕ and ⊙ denote XOR and XNOR. Which one is NOT CORRECT?",
+          "options": [
+            "(P ⊕ Q)′ = P ⊙ Q",
+            "P′ ⊕ Q = P ⊙ Q",
+            "P′ ⊕ Q′ = P ⊕ Q",
+            "P ⊕ P′ ⊕ Q = (P ⊙ P′ ⊙ Q)′"
+          ],
+          "answer": "P ⊕ P′ ⊕ Q = (P ⊙ P′ ⊙ Q)′",
+          "explanation": "A–C hold. D fails: LHS = 1⊕Q = Q′ while RHS = (0⊙Q)′ = Q′′ = Q.",
+          "tags": [
+            "GATE",
+            "2018",
+            "xor",
+            "xnor"
+          ]
+        },
+        {
+          "id": "dld-p4-q02",
+          "sourceId": "dld-practise-4",
+          "slide": 21,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2019: Which one of the following is NOT a valid identity?",
+          "options": [
+            "(x ⊕ y) ⊕ z = x ⊕ (y ⊕ z)",
+            "(x + y) ⊕ z = x ⊕ (y + z)",
+            "x ⊕ y = x + y, if xy = 0",
+            "x ⊕ y = (xy + x′y′)′"
+          ],
+          "answer": "(x + y) ⊕ z = x ⊕ (y + z)",
+          "explanation": "XOR is associative (A, D valid). If xy=0 then XOR=OR (C). But XOR does not distribute over OR, so B is invalid.",
+          "tags": [
+            "GATE",
+            "2019",
+            "xor"
+          ]
+        },
+        {
+          "id": "dld-p4-q03",
+          "sourceId": "dld-practise-4",
+          "slide": 26,
+          "subject": "Digital Logic",
+          "topic": "XOR",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "NIELIT 2017: If A ⊕ B = C, then which one of the following is true?",
+          "options": [
+            "A ⊕ C = B",
+            "B ⊕ C = A",
+            "A ⊕ B ⊕ C = 0",
+            "Both (A) and (B)"
+          ],
+          "answer": "Both (A) and (B)",
+          "explanation": "XORing both sides by A (or B) recovers the third variable. Also A⊕B⊕C = C⊕C = 0, so C holds too; among the given keys the marked answer is D.",
+          "tags": [
+            "NIELIT",
+            "2017",
+            "xor"
+          ]
+        },
+        {
+          "id": "dld-p4-q04",
+          "sourceId": "dld-practise-4",
+          "slide": 30,
+          "subject": "Digital Logic",
+          "topic": "XOR",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "NIELIT 2016: Which of the following logic expressions is incorrect?",
+          "options": [
+            "1 ⊕ 0 = 1",
+            "1 ⊕ 1 ⊕ 0 = 1",
+            "1 ⊕ 1 ⊕ 1 = 1",
+            "1 ⊕ 1 = 0"
+          ],
+          "answer": "1 ⊕ 1 ⊕ 0 = 1",
+          "explanation": "XOR is 1 iff an odd number of inputs are 1. B has two 1s (even) so XOR=0 ≠ 1.",
+          "tags": [
+            "NIELIT",
+            "2016",
+            "xor",
+            "odd-function"
+          ]
+        },
+        {
+          "id": "dld-p4-q05",
+          "sourceId": "dld-practise-4",
+          "slide": 32,
+          "subject": "Digital Logic",
+          "topic": "XOR",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Why is XOR called an odd function?",
+          "options": [
+            "Output is 1 iff an odd number of inputs are 1",
+            "Output is 1 iff an even number of inputs are 1",
+            "It only works with an odd number of inputs",
+            "Its truth table has an odd number of rows"
+          ],
+          "answer": "Output is 1 iff an odd number of inputs are 1",
+          "explanation": "Lecture note: XOR output is 1 when an odd number of inputs are true — for any arity.",
+          "tags": [
+            "xor",
+            "conceptual"
+          ]
+        },
+        {
+          "id": "dld-p4-q06",
+          "sourceId": "dld-practise-4",
+          "slide": 34,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2016 Set 2: Let x₁⊕x₂⊕x₃⊕x₄ = 0. Which must always be TRUE?",
+          "options": [
+            "x₁x₂x₃x₄ = 0",
+            "x₁x₃ + x₂ = 0",
+            "x̄₁ ⊕ x̄₃ = x̄₂ ⊕ x̄₄",
+            "x₁ + x₂ + x₃ + x₄ = 0"
+          ],
+          "answer": "x̄₁ ⊕ x̄₃ = x̄₂ ⊕ x̄₄",
+          "explanation": "Given ⇒ x₁⊕x₃ = x₂⊕x₄. Since Ā⊕B̄ = A⊕B, option C matches. A/B/D fail on some satisfying assignments.",
+          "tags": [
+            "GATE",
+            "2016",
+            "xor"
+          ]
+        },
+        {
+          "id": "dld-p4-q07",
+          "sourceId": "dld-practise-4",
+          "slide": 43,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "hard",
+          "question": "GATE IT 2005: Which expression is equivalent to (A ⊕ B) ⊕ C?",
+          "options": [
+            "(A+B+C)(Ā+Ḃ+Č)",
+            "(A+B+C)(Ā+Ḃ+C)",
+            "ABC + Ā(B⊕C) + Ḃ(A⊕C)",
+            "None of these"
+          ],
+          "answer": "ABC + Ā(B⊕C) + Ḃ(A⊕C)",
+          "explanation": "By-case on A: both sides match B⊕C when A=0 and B⊙C when A=1.",
+          "tags": [
+            "GATE",
+            "2005",
+            "xor"
+          ]
+        },
+        {
+          "id": "dld-p4-q08",
+          "sourceId": "dld-practise-4",
+          "slide": 46,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "hard",
+          "question": "GATE CSE 2021 Set 1 (MSQ): F=(X+Y+Z)(X̄+Y)(Ȳ+Z). Which are equivalent to F̄?\nA. (X̄+Ȳ+Z̄)(X+Ȳ)(Y+Z̄)\nB. XȲ + Z̄\nC. (X+Z̄)(Ȳ+Z̄)\nD. XȲ + YZ̄ + X̄ȲZ̄",
+          "options": [
+            "A only",
+            "B, C and D",
+            "A, B and C",
+            "All of A–D"
+          ],
+          "answer": "B, C and D",
+          "explanation": "MSQ key: B, C, D. A is not equivalent to F̄ (verified by case method).",
+          "tags": [
+            "GATE",
+            "2021",
+            "MSQ",
+            "complement"
+          ]
+        },
+        {
+          "id": "dld-p4-q09",
+          "sourceId": "dld-practise-4",
+          "slide": 51,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "GATE CSE 2024 Set 2 (MSQ): For Boolean x, which statements are FALSE?\nA. x·1 = x\nB. x+1 = x\nC. x·x = 0\nD. x+x̄ = 1",
+          "options": [
+            "A and D",
+            "B and C",
+            "Only B",
+            "A, B and C"
+          ],
+          "answer": "B and C",
+          "explanation": "A and D are identities. B is false (x+1=1). C is false (x·x=x).",
+          "tags": [
+            "GATE",
+            "2024",
+            "MSQ",
+            "identities"
+          ]
+        },
+        {
+          "id": "dld-p4-q10",
+          "sourceId": "dld-practise-4",
+          "slide": 53,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2025 Set 2 (MSQ): Which Boolean equations are CORRECT?\nA. ĀBC + AḂC + ĀBČ + AḂČ + ABC = BC + ḂČ + ĀḂ\nB. AB + ĀC + BC = AB + ĀC  (consensus)\nC. (A+C)(Ā+B) = AB + ĀC\nD. Negation of that 4-factor product = ĀD + ČḊ",
+          "options": [
+            "A, B and C",
+            "B, C and D",
+            "Only B and C",
+            "All of A–D"
+          ],
+          "answer": "B, C and D",
+          "explanation": "A fails; B is consensus; C expands correctly; D matches after DeMorgan/absorption.",
+          "tags": [
+            "GATE",
+            "2025",
+            "MSQ",
+            "consensus"
+          ]
+        },
+        {
+          "id": "dld-p4-q11",
+          "sourceId": "dld-practise-4",
+          "slide": 58,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE IT 2004: AḂC + ĀBC + ABČ + ĀḂC + AḂČ is equivalent to:",
+          "options": [
+            "AČ + AB + ĀC",
+            "AḂ + AČ + ĀC",
+            "ĀB + AČ + AḂ",
+            "ĀB + AC + AḂ"
+          ],
+          "answer": "AḂ + AČ + ĀC",
+          "explanation": "Case A=0 → C; A=1 → Ḃ+Č. Matches option B.",
+          "tags": [
+            "GATE",
+            "2004",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p4-q12",
+          "sourceId": "dld-practise-4",
+          "slide": 61,
+          "subject": "Digital Logic",
+          "topic": "ISRO PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "ISRO 2007: Y = (A + B̄ + ĀB)C̄ simplifies to:",
+          "options": [
+            "A C̄",
+            "B C̄",
+            "C̄",
+            "AB"
+          ],
+          "answer": "C̄",
+          "explanation": "A+ĀB=A+B, then A+B+B̄=A+1=1, so Y=C̄.",
+          "tags": [
+            "ISRO",
+            "2007",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p4-q13",
+          "sourceId": "dld-practise-4",
+          "slide": 64,
+          "subject": "Digital Logic",
+          "topic": "ISRO PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "ISRO 2008: The Boolean theorem AB + ĀC + BC = AB + ĀC corresponds to:",
+          "options": [
+            "(A+B)(Ā+C)(B+C) = (A+B)(Ā+C)",
+            "AB + ĀC + BC = AB + BC",
+            "AB + ĀC + BC = (A+B)(Ā+C)(B+C)",
+            "(A+B)(Ā+C)(B+C) = AB + ĀC"
+          ],
+          "answer": "(A+B)(Ā+C)(B+C) = (A+B)(Ā+C)",
+          "explanation": "Dual (consensus) form of the given theorem.",
+          "tags": [
+            "ISRO",
+            "2008",
+            "dual",
+            "consensus"
+          ]
+        },
+        {
+          "id": "dld-p4-q14",
+          "sourceId": "dld-practise-4",
+          "slide": 71,
+          "subject": "Digital Logic",
+          "topic": "ISRO PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "ISRO 2008: (A + C̄)(B̄ + C̄) simplifies to:",
+          "options": [
+            "C̄ + A B̄",
+            "C̄(Ā + B)",
+            "B̄ C̄ + A B̄",
+            "None of these"
+          ],
+          "answer": "C̄ + A B̄",
+          "explanation": "Expand → AB̄ + AC̄ + B̄C̄ + C̄ = AB̄ + C̄ by absorption.",
+          "tags": [
+            "ISRO",
+            "2008",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p4-q15",
+          "sourceId": "dld-practise-4",
+          "slide": 73,
+          "subject": "Digital Logic",
+          "topic": "ISRO PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "ISRO 2011: In Boolean algebra, (X + Y)(X + Z) =",
+          "options": [
+            "Y + XZ",
+            "X + YZ",
+            "XY + Z",
+            "XZ + Y"
+          ],
+          "answer": "X + YZ",
+          "explanation": "XX+XZ+YX+YZ = X + XZ + XY + YZ = X + YZ.",
+          "tags": [
+            "ISRO",
+            "2011",
+            "distributive"
+          ]
+        },
+        {
+          "id": "dld-p4-q16",
+          "sourceId": "dld-practise-4",
+          "slide": 75,
+          "subject": "Digital Logic",
+          "topic": "ISRO PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "ISRO 2014: Which is NOT a valid Boolean algebra rule?",
+          "options": [
+            "X·X = X",
+            "(X+Y)·X = X",
+            "X̄ + XY = Y",
+            "(X+Y)·(X+Z) = X + YZ"
+          ],
+          "answer": "X̄ + XY = Y",
+          "explanation": "Correct identity is X̄ + XY = X̄ + Y, not Y.",
+          "tags": [
+            "ISRO",
+            "2014",
+            "identities"
+          ]
+        },
+        {
+          "id": "dld-p4-q17",
+          "sourceId": "dld-practise-4",
+          "slide": 78,
+          "subject": "Digital Logic",
+          "topic": "ISRO PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "ISRO 2015: AB + AB′ + A′C + AC is independent of which variable?",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "None of these"
+          ],
+          "answer": "B",
+          "explanation": "AB+AB′=A and A′C+AC=C, so expression = A+C (no B).",
+          "tags": [
+            "ISRO",
+            "2015",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p4-q18",
+          "sourceId": "dld-practise-4",
+          "slide": 80,
+          "subject": "Digital Logic",
+          "topic": "ISRO PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "ISRO 2015: The complement of AB(B̄C + AC) is:",
+          "options": [
+            "(Ā + B̄) + (B + C̄)·(Ā + C̄)",
+            "(Ā · B̄) + (B C̄ + Ā C̄)",
+            "(Ā + B̄)·(B + C̄) + (A + C̄)",
+            "(A + B)·(B̄ + C)(A + C)"
+          ],
+          "answer": "(Ā + B̄) + (B + C̄)·(Ā + C̄)",
+          "explanation": "DeMorgan on the product-of-sums structure of the original expression yields option A.",
+          "tags": [
+            "ISRO",
+            "2015",
+            "demorgan"
+          ]
+        },
+        {
+          "id": "dld-p4-q19",
+          "sourceId": "dld-practise-4",
+          "slide": 83,
+          "subject": "Digital Logic",
+          "topic": "ISRO PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "ISRO 2016: A switch network is A(B+C) in parallel with AB in parallel with (A+B)C. The minimum Boolean expression is:",
+          "options": [
+            "AB + AC + BC",
+            "A + BC",
+            "A + B",
+            "A + B + C"
+          ],
+          "answer": "AB + AC + BC",
+          "explanation": "A(B+C)+AB+(A+B)C = AB+AC+AB+AC+BC = AB+AC+BC.",
+          "tags": [
+            "ISRO",
+            "2016",
+            "circuit",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p4-q20",
+          "sourceId": "dld-practise-4",
+          "slide": 90,
+          "subject": "Digital Logic",
+          "topic": "Boolean Identities",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "NIELIT 2017: In Boolean algebra, 1+1+1+… (800 ones) equals:",
+          "options": [
+            "1",
+            "0",
+            "11",
+            "800"
+          ],
+          "answer": "1",
+          "explanation": "+ is OR; 1+1=1 by idempotence, so any OR of ones is 1.",
+          "tags": [
+            "NIELIT",
+            "2017",
+            "idempotent"
+          ]
+        },
+        {
+          "id": "dld-p4-q21",
+          "sourceId": "dld-practise-4",
+          "slide": 92,
+          "subject": "Digital Logic",
+          "topic": "Boolean Simplification",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "NIELIT 2018: (A + C′)(B′ + C′) simplifies to:",
+          "options": [
+            "AC′ + B′",
+            "C(A′ + B′)",
+            "BC′ + A",
+            "AB′ + C′"
+          ],
+          "answer": "AB′ + C′",
+          "explanation": "Same expansion/absorption as ISRO 2008: AB′ + C′.",
+          "tags": [
+            "NIELIT",
+            "2018",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p4-q22",
+          "sourceId": "dld-practise-4",
+          "slide": 95,
+          "subject": "Digital Logic",
+          "topic": "Truth Tables",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "NIELIT 2018: Truth table f(x,y): 00→1, 01→0, 10→0, 11→1. Which function is this?",
+          "options": [
+            "x ↔ y (XNOR / equivalence)",
+            "x ∧ y",
+            "x ∨ y",
+            "x → y"
+          ],
+          "answer": "x ↔ y (XNOR / equivalence)",
+          "explanation": "Output 1 iff inputs equal → XNOR / biconditional.",
+          "tags": [
+            "NIELIT",
+            "2018",
+            "xnor",
+            "truth-table"
+          ]
+        },
+        {
+          "id": "dld-p4-q23",
+          "sourceId": "dld-practise-4",
+          "slide": 97,
+          "subject": "Digital Logic",
+          "topic": "UGC NET PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "UGC NET CSE Dec 2009: Simplified form of (X + Y + XY)(X + Z) is:",
+          "options": [
+            "X + Y + ZX + Y",
+            "XY − YZ",
+            "X + YZ",
+            "XZ + Y"
+          ],
+          "answer": "X + YZ",
+          "explanation": "X+Y+XY = X+Y, then (X+Y)(X+Z)=X+YZ.",
+          "tags": [
+            "UGC-NET",
+            "2009",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p4-q24",
+          "sourceId": "dld-practise-4",
+          "slide": 99,
+          "subject": "Digital Logic",
+          "topic": "UGC NET PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "UGC NET CSE June 2009: x̄ȳz + yz + xz is equivalent to:",
+          "options": [
+            "x",
+            "y",
+            "z",
+            "x + y + z"
+          ],
+          "answer": "z",
+          "explanation": "Factor z: z(x̄ȳ + y + x) = z·1 = z.",
+          "tags": [
+            "UGC-NET",
+            "2009",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-p4-q25",
+          "sourceId": "dld-practise-4",
+          "slide": 102,
+          "subject": "Digital Logic",
+          "topic": "UGC NET PYQ",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "UGC NET CSE June 2011: The absorption law in Boolean algebra says that:",
+          "options": [
+            "X + X = X",
+            "X · X = X",
+            "X + X·Y = X",
+            "None of the above"
+          ],
+          "answer": "X + X·Y = X",
+          "explanation": "Absorption: X+XY=X (dual: X(X+Y)=X). A/B are idempotent laws.",
+          "tags": [
+            "UGC-NET",
+            "2011",
+            "absorption"
+          ]
+        },
+        {
+          "id": "dld-p4-q26",
+          "sourceId": "dld-practise-4",
+          "slide": 104,
+          "subject": "Digital Logic",
+          "topic": "Boolean Functions",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "NIELIT 2017: Number of Boolean functions of 3 variables with f(X,Y,Z)=f(X′,Y′,Z′) is:",
+          "options": [
+            "8",
+            "16",
+            "64",
+            "32"
+          ],
+          "answer": "16",
+          "explanation": "8 minterms pair into 4 complementary pairs; each pair has 2 choices → 2⁴=16.",
+          "tags": [
+            "NIELIT",
+            "2017",
+            "counting"
           ]
         }
       ]

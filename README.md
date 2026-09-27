@@ -8,7 +8,7 @@ Progress is stored in the browser by default. With Firebase enabled, Google sign
 
 | Subject | Source | Questions |
 |---------|--------|-----------|
-| Digital Logic | GO Classes DLD `lecture-1.pdf`, `lecture-2.pdf`, `practise-1.pdf`, `practise-2.pdf` | 144 |
+| Digital Logic | GO Classes DLD `lecture-1.pdf`, `lecture-2.pdf`, `practise-1.pdf`, `practise-2.pdf`, `practise-4.pdf` | 170 |
 
 ## Run locally
 
