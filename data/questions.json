@@ -49,6 +49,14 @@
         "file": "/Users/abindran-21221/Abindran/GOClasses/DLD/practise-4.pdf",
         "provider": "GO Classes",
         "instructor": "Deepak Poonia"
+      },
+      {
+        "id": "dld-practise-5",
+        "subject": "Digital Logic",
+        "topic": "Boolean Algebra Practice — Canonical SOP/POS, Minterm/Maxterm Expansions",
+        "file": "/Users/abindran-21221/Abindran/GOClasses/DLD/practise-5.pdf",
+        "provider": "GO Classes",
+        "instructor": "Deepak Poonia"
       }
     ],
     "updatedAt": "2026-09-27",
@@ -4097,6 +4105,560 @@
           "tags": [
             "canonical",
             "uniqueness"
+          ]
+        },
+        {
+          "id": "dld-p5-q01",
+          "sourceId": "dld-practise-5",
+          "slide": 20,
+          "subject": "Digital Logic",
+          "topic": "Canonical Forms",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "From a truth table, F = 1 on rows 1,3,4. Which is correct?",
+          "options": [
+            "F = Σ(1,3,4) and F = Π(0,2,5,6,7)",
+            "F = Σ(0,2,5,6,7) and F = Π(1,3,4)",
+            "F = Σ(1,3,4) and F = Π(1,3,4)",
+            "F = Π(1,3,4) only"
+          ],
+          "answer": "F = Σ(1,3,4) and F = Π(0,2,5,6,7)",
+          "explanation": "Sum the 1-minterms; product the 0-maxterms (complement indices).",
+          "tags": [
+            "som",
+            "pom",
+            "canonical"
+          ]
+        },
+        {
+          "id": "dld-p5-q02",
+          "sourceId": "dld-practise-5",
+          "slide": 20,
+          "subject": "Digital Logic",
+          "topic": "Function Complement",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "If F = Σ(1,3,4) = Π(0,2,5,6,7), then F′ is:",
+          "options": [
+            "Σ(0,2,5,6,7) = Π(1,3,4)",
+            "Σ(1,3,4) = Π(0,2,5,6,7)",
+            "Σ(1,3,4) only",
+            "Π(0,2,5,6,7) only"
+          ],
+          "answer": "Σ(0,2,5,6,7) = Π(1,3,4)",
+          "explanation": "Complement swaps Σ↔Π while keeping the same index lists (or takes the complementary index set).",
+          "tags": [
+            "complement",
+            "canonical"
+          ]
+        },
+        {
+          "id": "dld-p5-q03",
+          "sourceId": "dld-practise-5",
+          "slide": 26,
+          "subject": "Digital Logic",
+          "topic": "SOP to CSOP",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Express F = A + B′C as a sum of minterms:",
+          "options": [
+            "Σ(1,4,5,6,7)",
+            "Σ(0,1,2,3)",
+            "Σ(1,2,3)",
+            "Σ(4,5,6,7)"
+          ],
+          "answer": "Σ(1,4,5,6,7)",
+          "explanation": "A covers m4–m7; A=0 and B′C gives m1 → Σ(1,4,5,6,7).",
+          "tags": [
+            "csop",
+            "minterm"
+          ]
+        },
+        {
+          "id": "dld-p5-q04",
+          "sourceId": "dld-practise-5",
+          "slide": 30,
+          "subject": "Digital Logic",
+          "topic": "SOP to CSOP",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Express F = xy + x′yz + xy′z as a sum of minterms:",
+          "options": [
+            "Σ(3,5,6,7)",
+            "Σ(0,1,2,4)",
+            "Σ(3,5)",
+            "Σ(6,7)"
+          ],
+          "answer": "Σ(3,5,6,7)",
+          "explanation": "x′yz=m3, xy′z=m5; expand xy → m6+m7.",
+          "tags": [
+            "csop",
+            "minterm"
+          ]
+        },
+        {
+          "id": "dld-p5-q05",
+          "sourceId": "dld-practise-5",
+          "slide": 36,
+          "subject": "Digital Logic",
+          "topic": "SOP to CPOS",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Express F = xy + x′z as a product of maxterms:",
+          "options": [
+            "Π(0,2,4,5)",
+            "Π(1,3,6,7)",
+            "Σ(0,2,4,5)",
+            "Π(1,3)"
+          ],
+          "answer": "Π(0,2,4,5)",
+          "explanation": "F=0 on rows 0,2,4,5 → product of those maxterms.",
+          "tags": [
+            "cpos",
+            "maxterm"
+          ]
+        },
+        {
+          "id": "dld-p5-q06",
+          "sourceId": "dld-practise-5",
+          "slide": 38,
+          "subject": "Digital Logic",
+          "topic": "SOP to CPOS",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Convert f(A,B,C) = AĈ + BC + ĀḂ to product of maxterms:",
+          "options": [
+            "Π(2,5)",
+            "Π(0,1,3,4,6,7)",
+            "Σ(2,5)",
+            "Π(0,1)"
+          ],
+          "answer": "Π(2,5)",
+          "explanation": "First get Σ(0,1,3,4,6,7); complementary maxterm list is {2,5}.",
+          "tags": [
+            "cpos",
+            "maxterm"
+          ]
+        },
+        {
+          "id": "dld-p5-q07",
+          "sourceId": "dld-practise-5",
+          "slide": 41,
+          "subject": "Digital Logic",
+          "topic": "Canonical Expansions",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Given F(a,b,c) = abc′ + b′, the minterm expansion of F is:",
+          "options": [
+            "Σ(0,1,4,5,6)",
+            "Σ(2,3,7)",
+            "Σ(0,1,4,5)",
+            "Σ(6)"
+          ],
+          "answer": "Σ(0,1,4,5,6)",
+          "explanation": "b′ → m0,m1,m4,m5; abc′ → m6.",
+          "tags": [
+            "minterm",
+            "csop"
+          ]
+        },
+        {
+          "id": "dld-p5-q08",
+          "sourceId": "dld-practise-5",
+          "slide": 41,
+          "subject": "Digital Logic",
+          "topic": "Canonical Expansions",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Given F(a,b,c) = abc′ + b′ = Σ(0,1,4,5,6), the maxterm expansion of F is:",
+          "options": [
+            "Π(2,3,7)",
+            "Π(0,1,4,5,6)",
+            "Σ(2,3,7)",
+            "Π(0,1,2)"
+          ],
+          "answer": "Π(2,3,7)",
+          "explanation": "0-maxterms are the indices missing from the minterm list.",
+          "tags": [
+            "maxterm",
+            "cpos"
+          ]
+        },
+        {
+          "id": "dld-p5-q09",
+          "sourceId": "dld-practise-5",
+          "slide": 41,
+          "subject": "Digital Logic",
+          "topic": "Function Complement",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "If F = Σ(0,1,4,5,6) = Π(2,3,7), then F′ =",
+          "options": [
+            "Σ(2,3,7) = Π(0,1,4,5,6)",
+            "Σ(0,1,4,5,6) = Π(2,3,7)",
+            "Σ(2,3,7) = Π(2,3,7)",
+            "Π(0,1,4,5,6) only"
+          ],
+          "answer": "Σ(2,3,7) = Π(0,1,4,5,6)",
+          "explanation": "Interchange Σ/Π with the same lists (or take complementary indices).",
+          "tags": [
+            "complement"
+          ]
+        },
+        {
+          "id": "dld-p5-q10",
+          "sourceId": "dld-practise-5",
+          "slide": 44,
+          "subject": "Digital Logic",
+          "topic": "Canonical Expansions",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Given f(a,b,c) = a(b + c′), the minterm expansion is:",
+          "options": [
+            "Σ(4,6,7)",
+            "Σ(0,1,2,3,5)",
+            "Σ(4,5,6,7)",
+            "Σ(6,7)"
+          ],
+          "answer": "Σ(4,6,7)",
+          "explanation": "a(b+c′)=ab+ac′ → minterms m4,m6,m7.",
+          "tags": [
+            "minterm",
+            "csop"
+          ]
+        },
+        {
+          "id": "dld-p5-q11",
+          "sourceId": "dld-practise-5",
+          "slide": 44,
+          "subject": "Digital Logic",
+          "topic": "Canonical Expansions",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Given f(a,b,c) = a(b + c′) = Σ(4,6,7), then f =",
+          "options": [
+            "Π(0,1,2,3,5)",
+            "Π(4,6,7)",
+            "Σ(0,1,2,3,5)",
+            "Π(0,1,2)"
+          ],
+          "answer": "Π(0,1,2,3,5)",
+          "explanation": "Maxterm list = complementary indices of the minterm expansion.",
+          "tags": [
+            "maxterm",
+            "cpos"
+          ]
+        },
+        {
+          "id": "dld-p5-q12",
+          "sourceId": "dld-practise-5",
+          "slide": 48,
+          "subject": "Digital Logic",
+          "topic": "Canonical Form Conversion",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Convert F(x,y,z) = Σ(0,2,3,6) to the other canonical form:",
+          "options": [
+            "Π(1,4,5,7)",
+            "Π(0,2,3,6)",
+            "Σ(1,4,5,7)",
+            "Π(1,2,3)"
+          ],
+          "answer": "Π(1,4,5,7)",
+          "explanation": "{0…7} − {0,2,3,6} = {1,4,5,7}.",
+          "tags": [
+            "conversion",
+            "canonical"
+          ]
+        },
+        {
+          "id": "dld-p5-q13",
+          "sourceId": "dld-practise-5",
+          "slide": 48,
+          "subject": "Digital Logic",
+          "topic": "Canonical Form Conversion",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Convert F(A,B,C,D) = Π(1,3,4,6,7,8,12,15) to the other canonical form:",
+          "options": [
+            "Σ(0,2,5,9,10,11,13,14)",
+            "Σ(1,3,4,6,7,8,12,15)",
+            "Π(0,2,5,9,10,11,13,14)",
+            "Σ(0,1,2,3)"
+          ],
+          "answer": "Σ(0,2,5,9,10,11,13,14)",
+          "explanation": "Complementary indices in 0…15 for the given maxterm list.",
+          "tags": [
+            "conversion",
+            "canonical"
+          ]
+        },
+        {
+          "id": "dld-p5-q14",
+          "sourceId": "dld-practise-5",
+          "slide": 48,
+          "subject": "Digital Logic",
+          "topic": "SOP and POS",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Simplify F = (BC + D)(C + AD′) to SOP and POS. The simplified forms are:",
+          "options": [
+            "SOP: BC + DC ; POS: (B+D)C",
+            "SOP: BC + AD′ ; POS: (BC+D)(C+AD′)",
+            "SOP: BCD ; POS: B+C+D",
+            "SOP: C ; POS: C"
+          ],
+          "answer": "SOP: BC + DC ; POS: (B+D)C",
+          "explanation": "Expand and absorb BC·AD′ into BC → BC+DC = C(B+D).",
+          "tags": [
+            "simplify",
+            "sop",
+            "pos"
+          ]
+        },
+        {
+          "id": "dld-p5-q15",
+          "sourceId": "dld-practise-5",
+          "slide": 56,
+          "subject": "Digital Logic",
+          "topic": "POS to CPOS",
+          "type": "mcq",
+          "difficulty": "hard",
+          "question": "Express F(a,b,c,d)=(a+b+d)(a′+c)(a′+b′+c′)(a+b+c′+d′) as a product of maxterms:",
+          "options": [
+            "Π(0,2,3,8,9,12,13,14,15)",
+            "Π(1,4,5,6,7,10,11)",
+            "Σ(0,2,3,8,9,12,13,14,15)",
+            "Π(0,1,2,3)"
+          ],
+          "answer": "Π(0,2,3,8,9,12,13,14,15)",
+          "explanation": "Expand each incomplete sum factor into maxterms covering missing literals; collect unique indices.",
+          "tags": [
+            "cpos",
+            "maxterm"
+          ]
+        },
+        {
+          "id": "dld-p5-q16",
+          "sourceId": "dld-practise-5",
+          "slide": 59,
+          "subject": "Digital Logic",
+          "topic": "Canonical Expansions",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Find the minterm expansion of f(A,B,C,D) = AB + A′CD:",
+          "options": [
+            "Σ(3,7,12,13,14,15)",
+            "Σ(0,1,2,4,5,6)",
+            "Σ(12,13,14,15)",
+            "Σ(3,7)"
+          ],
+          "answer": "Σ(3,7,12,13,14,15)",
+          "explanation": "AB → m12–15; A′CD → m3,m7.",
+          "tags": [
+            "minterm",
+            "csop"
+          ]
+        },
+        {
+          "id": "dld-p5-q17",
+          "sourceId": "dld-practise-5",
+          "slide": 59,
+          "subject": "Digital Logic",
+          "topic": "Canonical Expansions",
+          "type": "mcq",
+          "difficulty": "hard",
+          "question": "Find the maxterm expansion of f(A,B,C,D) = (A+B+D′)(A′+C)(C+D):",
+          "options": [
+            "Π(0,1,3,4,8,9,12,13)",
+            "Π(2,5,6,7,10,11,14,15)",
+            "Σ(0,1,3,4,8,9,12,13)",
+            "Π(0,1,2,3)"
+          ],
+          "answer": "Π(0,1,3,4,8,9,12,13)",
+          "explanation": "Evaluate where any factor is 0 → those rows are 0-maxterms.",
+          "tags": [
+            "maxterm",
+            "cpos"
+          ]
+        },
+        {
+          "id": "dld-p5-q18",
+          "sourceId": "dld-practise-5",
+          "slide": 66,
+          "subject": "Digital Logic",
+          "topic": "Function Complement",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Given F′(A,B,C,D) = Σm(0,1,2,6,7,13,15), the minterm expansion of F is:",
+          "options": [
+            "Σ(3,4,5,8,9,10,11,12,14)",
+            "Σ(0,1,2,6,7,13,15)",
+            "Π(3,4,5,8,9,10,11,12,14)",
+            "Σ(3,4,5)"
+          ],
+          "answer": "Σ(3,4,5,8,9,10,11,12,14)",
+          "explanation": "Minterms of F are the indices not in F′.",
+          "tags": [
+            "complement",
+            "minterm"
+          ]
+        },
+        {
+          "id": "dld-p5-q19",
+          "sourceId": "dld-practise-5",
+          "slide": 66,
+          "subject": "Digital Logic",
+          "topic": "Function Complement",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Given F′ = Σm(0,1,2,6,7,13,15), the maxterm expansion of F is:",
+          "options": [
+            "Π(0,1,2,6,7,13,15)",
+            "Π(3,4,5,8,9,10,11,12,14)",
+            "Σ(0,1,2,6,7,13,15)",
+            "Π(0,1,2)"
+          ],
+          "answer": "Π(0,1,2,6,7,13,15)",
+          "explanation": "0-maxterms of F are exactly the true-minterms of F′.",
+          "tags": [
+            "complement",
+            "maxterm"
+          ]
+        },
+        {
+          "id": "dld-p5-q20",
+          "sourceId": "dld-practise-5",
+          "slide": 69,
+          "subject": "Digital Logic",
+          "topic": "Function Complement",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Express the complement of F(A,B,C,D)=Σ(0,2,6,11,13,14) in sum of minterms:",
+          "options": [
+            "Σ(1,3,4,5,7,8,9,10,12,15)",
+            "Σ(0,2,6,11,13,14)",
+            "Π(0,2,6,11,13,14)",
+            "Σ(1,3,4,5)"
+          ],
+          "answer": "Σ(1,3,4,5,7,8,9,10,12,15)",
+          "explanation": "F′ is 1 on every index not listed in F’s minterm expansion.",
+          "tags": [
+            "complement"
+          ]
+        },
+        {
+          "id": "dld-p5-q21",
+          "sourceId": "dld-practise-5",
+          "slide": 69,
+          "subject": "Digital Logic",
+          "topic": "Function Complement",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Express the complement of F(x,y,z)=Π(0,3,6,7) in sum of minterms:",
+          "options": [
+            "Σ(0,3,6,7)",
+            "Σ(1,2,4,5)",
+            "Π(1,2,4,5)",
+            "Σ(0,1,2,3)"
+          ],
+          "answer": "Σ(0,3,6,7)",
+          "explanation": "Complement of a product-of-maxterms is the sum-of-minterms with the same indices.",
+          "tags": [
+            "complement"
+          ]
+        },
+        {
+          "id": "dld-p5-q22",
+          "sourceId": "dld-practise-5",
+          "slide": 72,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2010: The minterm expansion of f(P,Q,R) = PQ + QR̅ + PR̅ is",
+          "options": [
+            "m₂ + m₄ + m₆ + m₇",
+            "m₀ + m₁ + m₃ + m₅",
+            "m₀ + m₁ + m₆ + m₇",
+            "m₂ + m₃ + m₄ + m₅"
+          ],
+          "answer": "m₂ + m₄ + m₆ + m₇",
+          "explanation": "Expand to CSOP: m2 (P̅QR̅), m4 (PQ̅R̅), m6 (PQR̅), m7 (PQR).",
+          "tags": [
+            "GATE",
+            "2010",
+            "minterm"
+          ]
+        },
+        {
+          "id": "dld-p5-q23",
+          "sourceId": "dld-practise-5",
+          "slide": 74,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2015 Set 3: F = P′ + QR. Which is true?\n(S1) F=Σ(4,5,6)\n(S2) F=Σ(0,1,2,3,7)\n(S3) F=Π(4,5,6)\n(S4) F=Π(0,1,2,3,7)",
+          "options": [
+            "(S1)-False, (S2)-True, (S3)-True, (S4)-False",
+            "(S1)-True, (S2)-False, (S3)-False, (S4)-True",
+            "(S1)-False, (S2)-False, (S3)-True, (S4)-True",
+            "(S1)-True, (S2)-True, (S3)-False, (S4)-False"
+          ],
+          "answer": "(S1)-False, (S2)-True, (S3)-True, (S4)-False",
+          "explanation": "P′ covers m0–m3; +QR adds m7 → Σ(0,1,2,3,7)=Π(4,5,6).",
+          "tags": [
+            "GATE",
+            "2015",
+            "canonical"
+          ]
+        },
+        {
+          "id": "dld-p5-q24",
+          "sourceId": "dld-practise-5",
+          "slide": 77,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "GATE CSE 2020: Circuit z = a + b̅c. Which minterm list represents it?",
+          "options": [
+            "z = Σ(0,1,3,7)",
+            "z = Σ(1,4,5,6,7)",
+            "z = Σ(2,4,5,6,7)",
+            "z = Σ(2,3,5)"
+          ],
+          "answer": "z = Σ(1,4,5,6,7)",
+          "explanation": "Same as A+B′C → Σ(1,4,5,6,7).",
+          "tags": [
+            "GATE",
+            "2020",
+            "minterm",
+            "circuit"
+          ]
+        },
+        {
+          "id": "dld-p5-q25",
+          "sourceId": "dld-practise-5",
+          "slide": 80,
+          "subject": "Digital Logic",
+          "topic": "GATE PYQ",
+          "type": "mcq",
+          "difficulty": "hard",
+          "question": "GATE CSE 2007: f(w,x,y,z)=Σ(0,4,5,7,8,9,13,15). Which expressions are NOT equivalent to f?\nP: x′y′z′ + w′xy′ + wy′z + xz\nQ: w′y′z′ + wx′y′ + xz\nR: w′y′z′ + wx′y′ + xyz + xy′z\nS: x′y′z′ + wx′y′ + w′y",
+          "options": [
+            "P only",
+            "Q and S",
+            "R and S",
+            "S only"
+          ],
+          "answer": "S only",
+          "explanation": "P,Q,R all expand to the same minterms as f; S expands to Σ(0,2,3,6,7,8,9) ≠ f.",
+          "tags": [
+            "GATE",
+            "2007",
+            "equivalence"
           ]
         }
       ]
