@@ -27,6 +27,14 @@
         "instructor": "Deepak Poonia"
       },
       {
+        "id": "dld-lecture-4",
+        "subject": "Digital Logic",
+        "topic": "Boolean Algebra (Part 4) — K-Map Minimization (mSOP)",
+        "file": "/Users/abindran-21221/Abindran/GOClasses/DLD/lecture-4.pdf",
+        "provider": "GO Classes",
+        "instructor": "Deepak Poonia"
+      },
+      {
         "id": "dld-practise-1",
         "subject": "Digital Logic",
         "topic": "Boolean Algebra Practice — Circuits, Simplification, GATE PYQs",
@@ -67,7 +75,7 @@
         "instructor": "Deepak Poonia"
       }
     ],
-    "updatedAt": "2026-09-27",
+    "updatedAt": "2026-10-02",
     "structure": "grouped-by-subject"
   },
   "subjects": [
@@ -5160,6 +5168,552 @@
           "tags": [
             "nand",
             "minterm"
+          ]
+        },
+        {
+          "id": "dld-l4-q01",
+          "sourceId": "dld-lecture-4",
+          "slide": 13,
+          "subject": "Digital Logic",
+          "topic": "K-Maps",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "A Karnaugh Map (K-map) is primarily:",
+          "options": [
+            "A graphical representation of a truth table used to simplify Boolean expressions",
+            "A type of sequential circuit",
+            "A unique canonical maxterm list",
+            "A method that only works for two variables"
+          ],
+          "answer": "A graphical representation of a truth table used to simplify Boolean expressions",
+          "explanation": "K-maps rearrange the truth table so adjacent cells differ by one bit, enabling visual minimization.",
+          "tags": [
+            "k-map",
+            "definition"
+          ]
+        },
+        {
+          "id": "dld-l4-q02",
+          "sourceId": "dld-lecture-4",
+          "slide": 14,
+          "subject": "Digital Logic",
+          "topic": "K-Maps",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "In this course, K-maps are used for how many variables?",
+          "options": [
+            "2, 3, and 4 variables",
+            "Only 2 variables",
+            "Up to 6 variables in detail",
+            "Only 5 and 6 variables"
+          ],
+          "answer": "2, 3, and 4 variables",
+          "explanation": "K-maps can go to 6 variables, but 5–6 become too complex; lecture focuses on 2–4.",
+          "tags": [
+            "k-map"
+          ]
+        },
+        {
+          "id": "dld-l4-q03",
+          "sourceId": "dld-lecture-4",
+          "slide": 15,
+          "subject": "Digital Logic",
+          "topic": "K-Maps",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "A K-map can be used to obtain:",
+          "options": [
+            "Both minimum SOP (mSOP) and minimum POS (mPOS)",
+            "Only mSOP",
+            "Only CSOP",
+            "Only truth tables"
+          ],
+          "answer": "Both minimum SOP (mSOP) and minimum POS (mPOS)",
+          "explanation": "Group 1s for mSOP; group 0s for mPOS (covered later).",
+          "tags": [
+            "msop",
+            "mpos"
+          ]
+        },
+        {
+          "id": "dld-l4-q04",
+          "sourceId": "dld-lecture-4",
+          "slide": 16,
+          "subject": "Digital Logic",
+          "topic": "mSOP",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "A Minimum Sum-of-Products (mSOP) expression is an SOP that:",
+          "options": [
+            "Has a minimum number of terms and a minimum number of literals",
+            "Contains every minterm of the function",
+            "Is always unique for every function",
+            "Has only one product term"
+          ],
+          "answer": "Has a minimum number of terms and a minimum number of literals",
+          "explanation": "mSOP minimizes term count first, then literal count within that.",
+          "tags": [
+            "msop"
+          ]
+        },
+        {
+          "id": "dld-l4-q05",
+          "sourceId": "dld-lecture-4",
+          "slide": 17,
+          "subject": "Digital Logic",
+          "topic": "mSOP",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Unlike the minterm expansion (CSOP), the minimum SOP of a function:",
+          "options": [
+            "Is not necessarily unique",
+            "Is always unique",
+            "Cannot have overlapping groups",
+            "Must use only maxterms"
+          ],
+          "answer": "Is not necessarily unique",
+          "explanation": "A function may have two different mSOPs with the same number of terms and literals.",
+          "tags": [
+            "msop",
+            "uniqueness"
+          ]
+        },
+        {
+          "id": "dld-l4-q06",
+          "sourceId": "dld-lecture-4",
+          "slide": 37,
+          "subject": "Digital Logic",
+          "topic": "K-Map Adjacency",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "In a K-map, two cells are adjacent if:",
+          "options": [
+            "Their binary labels differ in exactly one bit",
+            "They share a corner (diagonal)",
+            "Their decimal indices differ by 2",
+            "They are in different maps"
+          ],
+          "answer": "Their binary labels differ in exactly one bit",
+          "explanation": "Adjacency = Hamming distance 1 (Gray-code neighbors).",
+          "tags": [
+            "adjacency",
+            "k-map"
+          ]
+        },
+        {
+          "id": "dld-l4-q07",
+          "sourceId": "dld-lecture-4",
+          "slide": 40,
+          "subject": "Digital Logic",
+          "topic": "K-Map Adjacency",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which statement about K-map adjacency is FALSE?",
+          "options": [
+            "Diagonal neighbors are adjacent",
+            "Horizontal and vertical neighbors can be adjacent",
+            "Wrap-around (left–right, top–bottom) adjacency is allowed",
+            "In an n-variable K-map, each cell has n adjacent neighbors"
+          ],
+          "answer": "Diagonal neighbors are adjacent",
+          "explanation": "Diagonals differ in two bits — not adjacent. Wrap-around and axis-aligned neighbors are allowed.",
+          "tags": [
+            "adjacency",
+            "k-map"
+          ]
+        },
+        {
+          "id": "dld-l4-q08",
+          "sourceId": "dld-lecture-4",
+          "slide": 45,
+          "subject": "Digital Logic",
+          "topic": "K-Map Cubes",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "In a K-map, a cube is:",
+          "options": [
+            "A group of 2ᵐ adjacent cells where each cell is adjacent to exactly m cells in the group",
+            "Any rectangular block of cells of any size",
+            "Only a group of exactly 2 cells",
+            "A group that must include zeros"
+          ],
+          "answer": "A group of 2ᵐ adjacent cells where each cell is adjacent to exactly m cells in the group",
+          "explanation": "Cube sizes are powers of 2: 1, 2, 4, 8, … with full adjacency within the group.",
+          "tags": [
+            "cube",
+            "k-map"
+          ]
+        },
+        {
+          "id": "dld-l4-q09",
+          "sourceId": "dld-lecture-4",
+          "slide": 46,
+          "subject": "Digital Logic",
+          "topic": "K-Map Cubes",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Valid cube sizes in a K-map are:",
+          "options": [
+            "Powers of 2 (1, 2, 4, 8, …)",
+            "Any even number of cells",
+            "Only 4 cells",
+            "3, 5, or 7 cells"
+          ],
+          "answer": "Powers of 2 (1, 2, 4, 8, …)",
+          "explanation": "Groups of size not a power of 2 are illegal.",
+          "tags": [
+            "cube",
+            "k-map"
+          ]
+        },
+        {
+          "id": "dld-l4-q10",
+          "sourceId": "dld-lecture-4",
+          "slide": 132,
+          "subject": "Digital Logic",
+          "topic": "mSOP with K-Map",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "When finding mSOP with a K-map, cubes must:",
+          "options": [
+            "Cover all 1-entries, be as large as possible, and never cover a 0-entry",
+            "Cover all 0-entries",
+            "Never overlap",
+            "Always be of size exactly 4"
+          ],
+          "answer": "Cover all 1-entries, be as large as possible, and never cover a 0-entry",
+          "explanation": "Use fewest largest legal cubes of 1s only; overlap is allowed.",
+          "tags": [
+            "msop",
+            "k-map"
+          ]
+        },
+        {
+          "id": "dld-l4-q11",
+          "sourceId": "dld-lecture-4",
+          "slide": 135,
+          "subject": "Digital Logic",
+          "topic": "mSOP with K-Map",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Which is NOT a valid K-map grouping rule for mSOP?",
+          "options": [
+            "Groups may include zeros if convenient",
+            "No diagonals",
+            "Only power-of-2 group sizes",
+            "Wrap-around and overlapping are allowed"
+          ],
+          "answer": "Groups may include zeros if convenient",
+          "explanation": "Rule: no zeros in mSOP groups. Diagonals forbidden; powers of 2, wrap, overlap OK.",
+          "tags": [
+            "msop",
+            "rules"
+          ]
+        },
+        {
+          "id": "dld-l4-q12",
+          "sourceId": "dld-lecture-4",
+          "slide": 90,
+          "subject": "Digital Logic",
+          "topic": "mSOP with K-Map",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "When writing the product term for a cube of 1s, a variable that takes both 0 and 1 values inside the cube:",
+          "options": [
+            "Is eliminated from that product term",
+            "Appears complemented",
+            "Appears uncomplemented",
+            "Forces the cube to be invalid"
+          ],
+          "answer": "Is eliminated from that product term",
+          "explanation": "Only variables that are constant across the cube remain as literals.",
+          "tags": [
+            "msop",
+            "literals"
+          ]
+        },
+        {
+          "id": "dld-l4-q13",
+          "sourceId": "dld-lecture-4",
+          "slide": 166,
+          "subject": "Digital Logic",
+          "topic": "K-Map Practice",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Simplify F(x,y,z)=Σ(0,2,6,7) using a 3-variable K-map:",
+          "options": [
+            "xy + x̄z̄",
+            "x + yz",
+            "x̄ȳ + xy",
+            "yz + xz"
+          ],
+          "answer": "xy + x̄z̄",
+          "explanation": "Pair {6,7}→xy; wrap/pair covering {0,2} with z=0,x=0 → x̄z̄.",
+          "tags": [
+            "msop",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-l4-q14",
+          "sourceId": "dld-lecture-4",
+          "slide": 167,
+          "subject": "Digital Logic",
+          "topic": "K-Map Practice",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Simplify F(A,B,C)=Σ(0,2,3,4,6) using a 3-variable K-map:",
+          "options": [
+            "ĀB + C̄",
+            "A + BC",
+            "B + C",
+            "ĀC + B"
+          ],
+          "answer": "ĀB + C̄",
+          "explanation": "Entire C=0 row → C̄; pair on AB=01 → ĀB.",
+          "tags": [
+            "msop",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-l4-q15",
+          "sourceId": "dld-lecture-4",
+          "slide": 168,
+          "subject": "Digital Logic",
+          "topic": "K-Map Practice",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Simplify F(a,b,c)=Σ(0,1,2,3,7) using a 3-variable K-map:",
+          "options": [
+            "ā + bc",
+            "a + bc",
+            "ābc",
+            "b + c"
+          ],
+          "answer": "ā + bc",
+          "explanation": "Quad of a=0 cells → ā; pair m3,m7 → bc.",
+          "tags": [
+            "msop",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-l4-q16",
+          "sourceId": "dld-lecture-4",
+          "slide": 169,
+          "subject": "Digital Logic",
+          "topic": "K-Map Practice",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Simplify F(x,y,z)=Σ(3,5,6,7) using a 3-variable K-map:",
+          "options": [
+            "xy + yz + xz",
+            "x + y + z",
+            "xyz",
+            "x̄ȳ + z"
+          ],
+          "answer": "xy + yz + xz",
+          "explanation": "Three pairs: {6,7}→xy, {3,7}→yz, {5,7}→xz (standard consensus form).",
+          "tags": [
+            "msop",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-l4-q17",
+          "sourceId": "dld-lecture-4",
+          "slide": 172,
+          "subject": "Digital Logic",
+          "topic": "K-Map Practice",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "Simplify f = m₁ + m₃ + m₅ + m₆ (3 variables). An mSOP is:",
+          "options": [
+            "x̄z + ȳz + xyz̄",
+            "x + y + z",
+            "xz + yz",
+            "m₁ + m₃ + m₅ + m₆ (already minimal)"
+          ],
+          "answer": "x̄z + ȳz + xyz̄",
+          "explanation": "Overlapping pairs cover m1,m3,m5; singleton m6 → xyz̄.",
+          "tags": [
+            "msop",
+            "simplify"
+          ]
+        },
+        {
+          "id": "dld-l4-q18",
+          "sourceId": "dld-lecture-4",
+          "slide": 175,
+          "subject": "Digital Logic",
+          "topic": "mSOP",
+          "type": "mcq",
+          "difficulty": "medium",
+          "question": "For a K-map with 1s at m₁,m₂,m₅,m₆,m₇, which statement is true?",
+          "options": [
+            "Two different valid mSOPs are possible: ȳz + yz̄ + xy and ȳz + yz̄ + xz",
+            "Only one mSOP exists: xyz",
+            "mSOP must include all five minterms ungrouped",
+            "Diagonal grouping of m₂ and m₅ is required"
+          ],
+          "answer": "Two different valid mSOPs are possible: ȳz + yz̄ + xy and ȳz + yz̄ + xz",
+          "explanation": "m₇ can be covered with m₆ (→xy) or with m₅ (→xz); both give equivalent minimal SOPs.",
+          "tags": [
+            "msop",
+            "uniqueness"
+          ]
+        },
+        {
+          "id": "dld-l4-q19",
+          "sourceId": "dld-lecture-4",
+          "slide": 181,
+          "subject": "Digital Logic",
+          "topic": "K-Map Practice",
+          "type": "mcq",
+          "difficulty": "hard",
+          "question": "For the 4-variable K-map with 1s grouped as ĀBČ, B̄CD, and BCḊ, the mSOP is:",
+          "options": [
+            "ĀBČ + B̄CD + BCḊ",
+            "A + B + C + D",
+            "ABCD only",
+            "Ā + B̄ + C̄"
+          ],
+          "answer": "ĀBČ + B̄CD + BCḊ",
+          "explanation": "Three pairs from the marked 4-variable map (including a wrap-around pair for B̄CD).",
+          "tags": [
+            "msop",
+            "4-variable"
+          ]
+        },
+        {
+          "id": "dld-l4-q20",
+          "sourceId": "dld-lecture-4",
+          "slide": 20,
+          "subject": "Digital Logic",
+          "topic": "K-Maps",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Each cell (square) in a K-map corresponds to:",
+          "options": [
+            "One minterm (one row of the truth table)",
+            "One maxterm only",
+            "Two variables",
+            "An entire Boolean function"
+          ],
+          "answer": "One minterm (one row of the truth table)",
+          "explanation": "Every cell is one input combination / minterm index.",
+          "tags": [
+            "k-map"
+          ]
+        },
+        {
+          "id": "dld-l4-q21",
+          "sourceId": "dld-lecture-4",
+          "slide": 133,
+          "subject": "Digital Logic",
+          "topic": "mSOP with K-Map",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "When covering 1s with cubes for mSOP:",
+          "options": [
+            "Cubes may overlap; every 1 must be in at least one cube; no cube fully inside another",
+            "Cubes must never overlap",
+            "Some 1s may be left uncovered",
+            "A cube may be a proper subset of another cube"
+          ],
+          "answer": "Cubes may overlap; every 1 must be in at least one cube; no cube fully inside another",
+          "explanation": "Overlap is useful; redundant fully-contained cubes are dropped.",
+          "tags": [
+            "msop",
+            "rules"
+          ]
+        },
+        {
+          "id": "dld-l4-q22",
+          "sourceId": "dld-lecture-4",
+          "slide": 211,
+          "subject": "Digital Logic",
+          "topic": "mSOP with K-Map",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "Groups in a K-map for simplification should preferably be:",
+          "options": [
+            "As large as possible, and as few as possible",
+            "As small as possible",
+            "Always size 1",
+            "Always including don’t-cares only"
+          ],
+          "answer": "As large as possible, and as few as possible",
+          "explanation": "Larger groups → fewer literals; fewer groups → fewer terms.",
+          "tags": [
+            "msop",
+            "rules"
+          ]
+        },
+        {
+          "id": "dld-l4-q23",
+          "sourceId": "dld-lecture-4",
+          "slide": 23,
+          "subject": "Digital Logic",
+          "topic": "K-Maps",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "A 2-variable K-map has how many cells?",
+          "options": [
+            "4",
+            "2",
+            "8",
+            "16"
+          ],
+          "answer": "4",
+          "explanation": "2ⁿ cells for n variables → 2² = 4.",
+          "tags": [
+            "k-map",
+            "counting"
+          ]
+        },
+        {
+          "id": "dld-l4-q24",
+          "sourceId": "dld-lecture-4",
+          "slide": 29,
+          "subject": "Digital Logic",
+          "topic": "K-Maps",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "A 4-variable K-map has how many cells?",
+          "options": [
+            "16",
+            "8",
+            "4",
+            "32"
+          ],
+          "answer": "16",
+          "explanation": "2⁴ = 16 cells arranged as a 4×4 Gray-code grid.",
+          "tags": [
+            "k-map",
+            "counting"
+          ]
+        },
+        {
+          "id": "dld-l4-q25",
+          "sourceId": "dld-lecture-4",
+          "slide": 40,
+          "subject": "Digital Logic",
+          "topic": "K-Map Adjacency",
+          "type": "mcq",
+          "difficulty": "easy",
+          "question": "In an n-variable K-map, how many adjacent neighbors does each cell have?",
+          "options": [
+            "n",
+            "2n",
+            "2ⁿ",
+            "n−1"
+          ],
+          "answer": "n",
+          "explanation": "One neighbor per variable (flip that bit), including wrap-around edges.",
+          "tags": [
+            "adjacency"
           ]
         }
       ]
