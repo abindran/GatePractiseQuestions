@@ -1350,15 +1350,17 @@
           "topic": "Logic Circuits",
           "type": "short",
           "difficulty": "easy",
-          "question": "Write the Boolean expression for a circuit where A and B go into an AND gate, and that result with C goes into an OR gate to produce Z.",
+          "question": "Refer to the diagram (circuit 1). Write the Boolean expression for the top circuit (AND of A,B into OR with C → Z).",
           "options": null,
           "answer": "Z = AB + C",
           "explanation": "AND of A,B followed by OR with C ⇒ Z = (A·B) + C.",
           "tags": [
             "circuit-to-expression",
             "and",
-            "or"
-          ]
+            "or",
+            "diagram"
+          ],
+          "image": "images/diagrams/p1-016.png"
         },
         {
           "id": "dld-p1-q02",
@@ -1368,14 +1370,16 @@
           "topic": "Logic Circuits",
           "type": "short",
           "difficulty": "easy",
-          "question": "Write the Boolean expression for a circuit with OR(A,B), OR(C,D), then OR of those two outputs producing Z.",
+          "question": "Refer to the diagram (circuit 2). Write the Boolean expression for the bottom circuit (OR(A,B) and OR(C,D) into OR → Z).",
           "options": null,
           "answer": "Z = A + B + C + D",
           "explanation": "Z = (A+B)+(C+D) = A+B+C+D.",
           "tags": [
             "circuit-to-expression",
-            "or"
-          ]
+            "or",
+            "diagram"
+          ],
+          "image": "images/diagrams/p1-016.png"
         },
         {
           "id": "dld-p1-q03",
@@ -1385,7 +1389,7 @@
           "topic": "Logic Circuits",
           "type": "mcq",
           "difficulty": "easy",
-          "question": "A circuit with AND(Ā,B), AND(A,C̄), AND(A,B,C) feeding an OR to X implements X = ĀB + AC̄ + ABC. True or False?",
+          "question": "Refer to the circuit diagram. Does the circuit implement X = ĀB + AC̄ + ABC?",
           "options": [
             "True",
             "False"
@@ -1394,8 +1398,10 @@
           "explanation": "The three AND outputs OR together give exactly ĀB + AC̄ + ABC.",
           "tags": [
             "circuit",
-            "true-false"
-          ]
+            "true-false",
+            "diagram"
+          ],
+          "image": "images/diagrams/p1-018.png"
         },
         {
           "id": "dld-p1-q04",
@@ -1405,7 +1411,7 @@
           "topic": "Logic Circuits",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "In a circuit with X = A B̄, Y = A ⊙ B (XNOR), Z = B Ā: if A=0 and B=1, what are X, Y, Z?",
+          "question": "Refer to the circuit diagram. If A = 0 and B = 1, what are the logic states at X, Y and Z?",
           "options": [
             "X=1, Y=1, Z=0",
             "X=1, Y=0, Z=0",
@@ -1416,8 +1422,10 @@
           "explanation": "X=0·0=0; XNOR(0,1)=0; Z=1·1=1.",
           "tags": [
             "circuit",
-            "xnor"
-          ]
+            "xnor",
+            "diagram"
+          ],
+          "image": "images/diagrams/p1-021.png"
         },
         {
           "id": "dld-p1-q05",
@@ -1427,7 +1435,7 @@
           "topic": "Logic Circuits",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "A circuit with NOR(X, Ȳ) feeding into NOR(X̄, ·) simplifies to which minimized form?",
+          "question": "Refer to the circuit diagram. The logic circuit shown can be minimized to:",
           "options": [
             "A: NOT of X (X̄)",
             "B: AND of X and Ȳ",
@@ -1438,8 +1446,10 @@
           "explanation": "Algebra yields Z = X. Minimized circuit is just output X.",
           "tags": [
             "minimize",
-            "nor"
-          ]
+            "nor",
+            "diagram"
+          ],
+          "image": "images/diagrams/p1-025.png"
         },
         {
           "id": "dld-p1-q06",
@@ -1449,14 +1459,16 @@
           "topic": "Logic Circuits",
           "type": "short",
           "difficulty": "medium",
-          "question": "For a logic circuit that expands to D = (A+C)(AC + B̄C), simplify D.",
+          "question": "Refer to the circuit diagram. Express output D in terms of A, B, C and simplify.",
           "options": null,
           "answer": "D = C(A + B̄)",
           "explanation": "Expand and absorb: D = AC + B̄C = C(A + B̄).",
           "tags": [
             "simplify",
-            "circuit"
-          ]
+            "circuit",
+            "diagram"
+          ],
+          "image": "images/diagrams/p1-030.png"
         },
         {
           "id": "dld-p1-q07",
@@ -1543,7 +1555,7 @@
           "topic": "Logic Circuits",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "Circuit1: OR of AND(Ā,B) and AND(B,C̄). Circuit2: NAND of NAND(Ā,B) and NAND(B,C̄). Are the two circuits equal?",
+          "question": "Refer to the two circuits in the diagram. Are the two circuits equal?",
           "options": [
             "True",
             "False"
@@ -1552,8 +1564,10 @@
           "explanation": "Both realize Y = ĀB + BC̄ (AOI vs NAND–NAND form).",
           "tags": [
             "equivalence",
-            "nand"
-          ]
+            "nand",
+            "diagram"
+          ],
+          "image": "images/diagrams/p1-042.png"
         },
         {
           "id": "dld-p1-q12",
@@ -1814,7 +1828,7 @@
           "topic": "Logic Gates",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "A circuit uses NOR(A,A) and NOR(B,B) feeding a NAND. Which logic function does it generate?",
+          "question": "Refer to the circuit diagram. Which logic function does this circuit generate?",
           "options": [
             "OR",
             "AND",
@@ -1826,8 +1840,10 @@
           "tags": [
             "nor",
             "nand",
-            "equivalent-gate"
-          ]
+            "equivalent-gate",
+            "diagram"
+          ],
+          "image": "images/diagrams/p1-063.png"
         },
         {
           "id": "dld-p1-q28",
@@ -1880,7 +1896,7 @@
           "topic": "Multiplexer",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "In a 4-to-1 MUX (NAND implementation) with data A,B,C,D: if S₁=1 and S₂=0, output X equals:",
+          "question": "Refer to the MUX circuit diagram. If S₁=1 and S₂=0, what is the logic state at output X?",
           "options": [
             "X = A",
             "X = B",
@@ -1891,8 +1907,10 @@
           "explanation": "Select code S₁S₂=10 selects input C.",
           "tags": [
             "mux",
-            "combinational"
-          ]
+            "combinational",
+            "diagram"
+          ],
+          "image": "images/diagrams/p1-069.png"
         },
         {
           "id": "dld-p1-q31",
@@ -3233,7 +3251,7 @@
           "topic": "ISRO PYQ",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "ISRO 2016: A switch network is A(B+C) in parallel with AB in parallel with (A+B)C. The minimum Boolean expression is:",
+          "question": "ISRO 2016: Refer to the switch/circuit diagram. The minimum Boolean expression is:",
           "options": [
             "AB + AC + BC",
             "A + BC",
@@ -3246,8 +3264,10 @@
             "ISRO",
             "2016",
             "circuit",
-            "simplify"
-          ]
+            "simplify",
+            "diagram"
+          ],
+          "image": "images/diagrams/p4-083.png"
         },
         {
           "id": "dld-p4-q20",
@@ -4638,7 +4658,7 @@
           "topic": "GATE PYQ",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "GATE CSE 2020: Circuit z = a + b̅c. Which minterm list represents it?",
+          "question": "GATE CSE 2020: Refer to the circuit diagram for z(a,b,c). Which minterm list represents it?",
           "options": [
             "z = Σ(0,1,3,7)",
             "z = Σ(1,4,5,6,7)",
@@ -4651,8 +4671,10 @@
             "GATE",
             "2020",
             "minterm",
-            "circuit"
-          ]
+            "circuit",
+            "diagram"
+          ],
+          "image": "images/diagrams/p5-076.png"
         },
         {
           "id": "dld-p5-q25",
@@ -4998,7 +5020,7 @@
           "topic": "GATE PYQ",
           "type": "mcq",
           "difficulty": "hard",
-          "question": "GATE CSE 2008: Circuit f=(f₁·f₂)+f₃ with f₁=Σm(4,5,6,7,8), f₃=Σm(1,6,15), f=Σm(1,6,8,15). Then f₂ is:",
+          "question": "GATE CSE 2008: Refer to the circuit diagram. Given f₁, f₃ and f, find f₂.",
           "options": [
             "Σm(4,6)",
             "Σm(4,8)",
@@ -5010,8 +5032,10 @@
           "tags": [
             "GATE",
             "2008",
-            "circuit"
-          ]
+            "circuit",
+            "diagram"
+          ],
+          "image": "images/diagrams/p6-077.png"
         },
         {
           "id": "dld-p6-q16",
@@ -5021,7 +5045,7 @@
           "topic": "GATE PYQ",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "GATE CSE 2002: NAND–NAND circuit with f₁=Σ(0,1,3,5), f₂=Σ(6,7), f=Σ(1,4,5). Find f₃.",
+          "question": "GATE CSE 2002: Refer to the NAND–NAND circuit diagram. Find f₃.",
           "options": [
             "Σ(1,4,5)",
             "Σ(6,7)",
@@ -5034,8 +5058,10 @@
             "GATE",
             "2002",
             "nand",
-            "circuit"
-          ]
+            "circuit",
+            "diagram"
+          ],
+          "image": "images/diagrams/p6-084.png"
         },
         {
           "id": "dld-p6-q17",
@@ -5045,7 +5071,7 @@
           "topic": "GATE PYQ",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "GATE CSE 1997: f=(f₁·f₂)+f₃ with f₁=Σ(8,9,10), f₂=Σ(7,8,12,13,14,15), f=Σ(8,9). Then f₃ is:",
+          "question": "GATE CSE 1997: Refer to the circuit diagram. Given f₁, f₂ and f, find f₃.",
           "options": [
             "Σ(9,10)",
             "Σ(9)",
@@ -5057,8 +5083,10 @@
           "tags": [
             "GATE",
             "1997",
-            "circuit"
-          ]
+            "circuit",
+            "diagram"
+          ],
+          "image": "images/diagrams/p6-085.png"
         },
         {
           "id": "dld-p6-q18",
@@ -5440,7 +5468,7 @@
           "topic": "K-Map Practice",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "Simplify F(x,y,z)=Σ(0,2,6,7) using a 3-variable K-map:",
+          "question": "Refer to the K-map. Simplify F(x,y,z)=Σ(0,2,6,7):",
           "options": [
             "xy + x̄z̄",
             "x + yz",
@@ -5451,8 +5479,10 @@
           "explanation": "Pair {6,7}→xy; wrap/pair covering {0,2} with z=0,x=0 → x̄z̄.",
           "tags": [
             "msop",
-            "simplify"
-          ]
+            "simplify",
+            "diagram"
+          ],
+          "image": "images/diagrams/l4-166.png"
         },
         {
           "id": "dld-l4-q14",
@@ -5462,7 +5492,7 @@
           "topic": "K-Map Practice",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "Simplify F(A,B,C)=Σ(0,2,3,4,6) using a 3-variable K-map:",
+          "question": "Refer to the K-map. Simplify F(A,B,C)=Σ(0,2,3,4,6):",
           "options": [
             "ĀB + C̄",
             "A + BC",
@@ -5473,8 +5503,10 @@
           "explanation": "Entire C=0 row → C̄; pair on AB=01 → ĀB.",
           "tags": [
             "msop",
-            "simplify"
-          ]
+            "simplify",
+            "diagram"
+          ],
+          "image": "images/diagrams/l4-167.png"
         },
         {
           "id": "dld-l4-q15",
@@ -5484,7 +5516,7 @@
           "topic": "K-Map Practice",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "Simplify F(a,b,c)=Σ(0,1,2,3,7) using a 3-variable K-map:",
+          "question": "Refer to the K-map. Simplify F(a,b,c)=Σ(0,1,2,3,7):",
           "options": [
             "ā + bc",
             "a + bc",
@@ -5495,8 +5527,10 @@
           "explanation": "Quad of a=0 cells → ā; pair m3,m7 → bc.",
           "tags": [
             "msop",
-            "simplify"
-          ]
+            "simplify",
+            "diagram"
+          ],
+          "image": "images/diagrams/l4-168.png"
         },
         {
           "id": "dld-l4-q16",
@@ -5506,7 +5540,7 @@
           "topic": "K-Map Practice",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "Simplify F(x,y,z)=Σ(3,5,6,7) using a 3-variable K-map:",
+          "question": "Refer to the K-map. Simplify F(x,y,z)=Σ(3,5,6,7):",
           "options": [
             "xy + yz + xz",
             "x + y + z",
@@ -5517,8 +5551,10 @@
           "explanation": "Three pairs: {6,7}→xy, {3,7}→yz, {5,7}→xz (standard consensus form).",
           "tags": [
             "msop",
-            "simplify"
-          ]
+            "simplify",
+            "diagram"
+          ],
+          "image": "images/diagrams/l4-169.png"
         },
         {
           "id": "dld-l4-q17",
@@ -5550,7 +5586,7 @@
           "topic": "mSOP",
           "type": "mcq",
           "difficulty": "medium",
-          "question": "For a K-map with 1s at m₁,m₂,m₅,m₆,m₇, which statement is true?",
+          "question": "Refer to the K-map (1s at m₁,m₂,m₅,m₆,m₇). Which statement is true?",
           "options": [
             "Two different valid mSOPs are possible: ȳz + yz̄ + xy and ȳz + yz̄ + xz",
             "Only one mSOP exists: xyz",
@@ -5561,8 +5597,10 @@
           "explanation": "m₇ can be covered with m₆ (→xy) or with m₅ (→xz); both give equivalent minimal SOPs.",
           "tags": [
             "msop",
-            "uniqueness"
-          ]
+            "uniqueness",
+            "diagram"
+          ],
+          "image": "images/diagrams/l4-175.png"
         },
         {
           "id": "dld-l4-q19",
@@ -5572,7 +5610,7 @@
           "topic": "K-Map Practice",
           "type": "mcq",
           "difficulty": "hard",
-          "question": "For the 4-variable K-map with 1s grouped as ĀBČ, B̄CD, and BCḊ, the mSOP is:",
+          "question": "Refer to the 4-variable K-map diagram. The mSOP from the marked groupings is:",
           "options": [
             "ĀBČ + B̄CD + BCḊ",
             "A + B + C + D",
@@ -5583,8 +5621,10 @@
           "explanation": "Three pairs from the marked 4-variable map (including a wrap-around pair for B̄CD).",
           "tags": [
             "msop",
-            "4-variable"
-          ]
+            "4-variable",
+            "diagram"
+          ],
+          "image": "images/diagrams/l4-180.png"
         },
         {
           "id": "dld-l4-q20",

@@ -253,6 +253,20 @@
       white-space: pre-wrap;
       margin: 0 0 1rem;
     }
+    .q-diagram {
+      margin: 0 0 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: #fff;
+    }
+    .q-diagram img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: min(52vh, 480px);
+      object-fit: contain;
+    }
     .options { display: grid; gap: 0.5rem; margin-bottom: 0.9rem; }
     .option {
       display: flex;
@@ -914,6 +928,7 @@
           ${st === "tried" ? `<span class="chip muted">Tried</span>` : ""}
         </div>
         <p class="q-text">${escapeHtml(q.question)}</p>
+        ${q.image ? `<figure class="q-diagram"><img src="${escapeHtml(q.image)}" alt="Question diagram" loading="lazy" /></figure>` : ""}
       `;
       if (q.type === "mcq" && Array.isArray(q.options)) {
         body += `<div class="options">`;
