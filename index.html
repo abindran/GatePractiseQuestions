@@ -646,18 +646,29 @@
     }
 
     function normalizeAnswer(s) {
-      return String(s ?? "")
+      let t = String(s ?? "")
+        .replace(/Ḃ/g, "B'")
+        .replace(/ḃ/g, "b'")
+        .replace(/Č/g, "C'")
+        .replace(/Ḋ/g, "D'")
+        .replace(/Ĉ|ĉ/g, (ch) => (ch === "Ĉ" ? "C'" : "c'"));
+      t = t.normalize("NFD").replace(/\u0304|\u0305/g, "'");
+      return t
         .trim()
         .toLowerCase()
+        .replace(/[′’`]/g, "'")
         .replace(/\s+/g, " ")
         .replace(/²/g, "^2")
         .replace(/ⁿ/g, "^n");
     }
 
-    function answersMatch(user, expected) {
+    function answersMatch(user, expected, extras) {
+      const more = Array.isArray(extras) ? extras : [];
+      const fold = (s) => normalizeAnswer(s).replace(/ /g, "");
       const u = normalizeAnswer(user);
+      const uf = fold(user);
+      if ([expected, ...more].some((c) => u === normalizeAnswer(c) || uf === fold(c))) return true;
       const e = normalizeAnswer(expected);
-      if (u === e) return true;
       const alts = {
         "2^n": ["2ⁿ", "2**n", "2n", "2^n values", "2ⁿ values"],
         "255": ["255 (decimal)", "255₁₀"],
@@ -1008,7 +1019,7 @@
         fb.innerHTML = `<div class="label">Missing</div>Enter or select an answer first.`;
         return;
       }
-      const ok = answersMatch(user, q.answer);
+      const ok = answersMatch(user, q.answer, q.accepted);
       markProgress(q.id, ok ? "solved" : "tried");
       if (ok) celebrateCorrect();
 

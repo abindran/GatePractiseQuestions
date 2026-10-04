@@ -8,7 +8,9 @@ Progress is stored in the browser by default. With Firebase enabled, Google sign
 
 | Subject | Source | Questions |
 |---------|--------|-----------|
-| Digital Logic | GO Classes DLD `lecture-1.pdf`–`lecture-4.pdf`, `practise-1.pdf`, `practise-2.pdf`, `practise-4.pdf`–`practise-6.pdf` | 275 (20 with circuit/K-map diagrams in `images/diagrams/`) |
+| Digital Logic | GO Classes DLD `lecture-1.pdf`–`lecture-6.pdf`, `practise-1.pdf`, `practise-2.pdf`, `practise-4.pdf`–`practise-10.pdf`, `practise-12.pdf`, the K-map GATE CS PYQ lecture [part 5](https://www.youtube.com/watch?v=kVatT-xvifU), the [GATE CSE 1987 Boolean-functions lecture](https://www.youtube.com/watch?v=qHnouulwPoc), and the [GATE CSE 1987 XOR lecture](https://www.youtube.com/watch?v=XhKwhWzXBd0), and the [GATE CSE 1989 Boolean-equations lecture](https://www.youtube.com/watch?v=upoxD6ekzt0), and the [GATE CSE 1994 Boolean-equations lecture](https://www.youtube.com/watch?v=ZYgUWO_omuI), and the [GATE CSE 1995 Boolean-equations lecture](https://www.youtube.com/watch?v=TB-bWRkhOq0), and the [GATE CSE 1998 XOR lecture](https://www.youtube.com/watch?v=cPUpu3X8Upw), and the [GATE CSE 2015 binary-operator lecture](https://www.youtube.com/watch?v=yEbVqvRbzO0), and `quiz-1.pdf`, and Number System `lecture-1.pdf`–`lecture-3.pdf`, `lecture-5.pdf`, and `practice-1.pdf`, and Combinational Circuits `lecture-1.pdf`, and the [Morris Mano number-systems lecture](https://www.youtube.com/watch?v=vypfAO2bWmg), and the [signed-number range lecture](https://www.youtube.com/watch?v=JxK_KfSa4GY) | 537 (147 of them show a circuit or K-map from `images/diagrams/`) |
+
+`practise-3.pdf` is a byte-for-byte copy of `practise-2.pdf`, and `practise-11.pdf` is a byte-for-byte copy of `practise-10.pdf`, so neither is a separate set. `GATE.pdf` is an application-fee receipt, not a question paper.
 
 ## Run locally
 
